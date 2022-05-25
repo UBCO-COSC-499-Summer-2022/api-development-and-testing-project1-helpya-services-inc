@@ -3,7 +3,7 @@ technical lead (manages the non-code documents on the master branch) these docum
 integration lead (manages code on the master branch)
 Technical Manager/Scrum Master/PM (responsible for overall workflow)
 
-ask requirments
+ask requirements
 how the data is output (json, or just a string)
 ask about front end UI atleast mockups
 db schema or do we have to build that too
