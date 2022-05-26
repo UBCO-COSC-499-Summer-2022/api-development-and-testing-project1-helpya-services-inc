@@ -13,6 +13,7 @@ reporting requirements
 administrative functions
 authentication  
 certification requirements)
+
 A list of non-functional requirements(Security — Does your product store or transmit sensitive information? Does your IT department require adherence to specific standards? What security best practices are used in your industry?
 Capacity — What are your system’s storage requirements, today and in the future? How will your system scale up for increasing volume demands?
 Compatibility — What are the minimum hardware requirements? What operating systems and their versions must be supported?
