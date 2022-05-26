@@ -3,10 +3,31 @@ technical lead (manages the non-code documents on the master branch) these docum
 integration lead (manages code on the master branch)
 Technical Manager/Scrum Master/PM (responsible for overall workflow)
 
-ask requirements
-how the data is output (json, or just a string)
+introductions
+how does the course work ( course schedule and there are intermediate reports that will be created as part of the project that you will go over with them upon completion)
+
+ask requirements(
+A list of functional requirements (inputs and outputs
+business requirements
+reporting requirements 
+administrative functions
+authentication  
+certification requirements)
+A list of non-functional requirements(Security — Does your product store or transmit sensitive information? Does your IT department require adherence to specific standards? What security best practices are used in your industry?
+Capacity — What are your system’s storage requirements, today and in the future? How will your system scale up for increasing volume demands?
+Compatibility — What are the minimum hardware requirements? What operating systems and their versions must be supported?
+Reliability and Availability — What is the critical failure time under normal usage? Does a user need access to this all hours of every day?
+Maintainability  + Manageability—How much time does it take to fix components, and how easily can an administrator manage the system? Under this umbrella, you could also define Recoverability and Serviceability.
+Scalability – The Black Friday test. What are the highest workloads under which the system will still perform as expected?
+Usability — How easy is it to use the product? What defines the experience of using the product?)
+
+A list of technical requirements
+A list of user requirements)
+SMART (specific, measureable, achievable, realistic and timely).
+tech stack
 ask about front end UI atleast mockups
 db schema or do we have to build that too
+
 
 setup IDE (extensions like, Prettier github lens)
 
