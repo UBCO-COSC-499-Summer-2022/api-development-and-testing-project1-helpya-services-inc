@@ -1,37 +1,40 @@
-CREATE TABLE client(
-clientID INT NOT NULL UNIQUE PRIMARY KEY,
-fname_of_client varchar(150) NOT NULL,
-lname_of_client varchar(150) NOT NULL,
-email varchar(150) NOT NULL,
-phone_number char(11),
-location varchar(50),
-client_profile varchar(250),
+CREATE TABLE consumer(
+consumerID INT NOT NULL UNIQUE PRIMARY KEY,
+fname_of_consumer varchar(150) NOT NULL,
+lname_of_consumer varchar(150) NOT NULL,
+email varchar(150) NOT NULL UNIQUE,
+phone_number char(15) NOT NULL UNIQUE,
+location varchar(50) NOT NULL,
+consumer_profile varchar(250),
 generalID INT NOT NULL
 );
 
-CREATE TABLE savedSearches(
+CREATE TABLE recentSearches(
+
 businessID INT NOT NULL UNIQUE,
+consumerID INT,
 store_name varchar(150) NOT NULL,
 store_profile varchar(250),
-PRIMARY KEY(businessID)
+PRIMARY KEY(businessID),
+FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
 );
 
 
 CREATE TABLE credit_card_info(
-clientID INT NOT NULL UNIQUE,
+consumerID INT NOT NULL UNIQUE,
 name_on_card varchar(150) NOT NULL,
 credit_card_number char(16) NOT NULL,
 exp_date char(5) NOT NULL,
 csc_num INT NOT NULL,
-PRIMARY KEY (clientID)
+PRIMARY KEY (consumerID)
 );
 
 CREATE TABLE payment(
-clientID INT NOT NULL UNIQUE,
+consumerID INT NOT NULL UNIQUE,
 businessID INT NOT NULL UNIQUE,
 payment_logs VARCHAR(250),
 payment_method VARCHAR(50),
-PRIMARY KEY(clientID, businessID)
+PRIMARY KEY(consumerID, businessID)
 );
 
 CREATE TABLE business(
@@ -39,6 +42,7 @@ businessID INT NOT NULL UNIQUE PRIMARY KEY,
 business_name VARCHAR(150) NOT NULL UNIQUE,
 owner_fname VARCHAR(150),
 owner_lname VARCHAR(150),
+business_profile VARCHAR(250),
 email VARCHAR(150) NOT NULL UNIQUE,
 phone_number CHAR(11) NOT NULL UNIQUE,
 rate_per_hour CHAR(10) NOT NULL,
@@ -50,38 +54,33 @@ description VARCHAR(500),
 general_ID INT NOT NULL
 );
 
-#created this table because it makes more sense tracking payment history seperate from the credit card info entity 
-CREATE TABLE client_history(
-clientID INT NOT NULL UNIQUE PRIMARY KEY,
-businessID INT NOT NULL UNIQUE, 
+CREATE TABLE consumer_history(
+consumerID INT NOT NULL PRIMARY KEY,
+businessID INT, 
 payment_method VARCHAR(50),
+business_name VARCHAR(150), 
 payment_logs VARCHAR(250),
 FOREIGN KEY (businessID) REFERENCES payment(businessID)
 );
 
-#take a look at the keys, if primary and foreign should be swapped
 CREATE TABLE chat(
-clientID INT NOT NULL UNIQUE,
-businessID INT NOT NULL UNIQUE,
-fname_of_client VARCHAR(150),
-lname_of_client VARCHAR(150),
-client_email varchar(150),
-client_phone_number char(11),
-client_profile varchar(250),
+consumerID INT,
+businessID INT,
+fname_of_consumer VARCHAR(150),
+lname_of_consumer VARCHAR(150),
+consumer_email varchar(150),
+consumer_profile varchar(250),
 name_of_business VARCHAR(150),
 business_email varchar(150),
-business_phone_number char(11),
 business_profile varchar(250),
-FOREIGN KEY (clientID) REFERENCES client(clientID),
+FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
 
 CREATE TABLE accounting(
-businessID INT NOT NULL UNIQUE PRIMARY KEY,
+businessID INT NOT NULL PRIMARY KEY,
 payment_history VARCHAR(150),
-bank_information VARCHAR(150), #i thought bank info should maybe be elaborated more
+bank_information VARCHAR(150),
 rate_per_hour CHAR(10) NOT NULL
 );
-
-
 
