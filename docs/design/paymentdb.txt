@@ -1,0 +1,10 @@
+INSERT INTO payment(consumerID, businessID, payment_logs, payment_method) VALUES
+(0001, 1153, '5 hour photo session / march 05 2022 / total $124.22','visa'),
+(0001, 1154, '4 person dinner menu / april 05 2022 / total $424.74','mastercard'),
+(0001, 1153, '2 hour photo session / may 03 2022 / total $45.62','amex'),
+(0001, 1157, 'cranberry smoothie / march 12 2022 / total $11.42','visa'),
+(0001, 1159, 'ride around city / december 05 2021 / total $241.65','visa'),
+(0001, 1153, '1 hour photo session / march 08 2022 / total $34.44','mastercard'),
+(0001, 1152, 'suit making / may 02 2022 / total $318.75','visa'),
+(0001, 1156, 'frames for photos / september 14 2022 / total $22.22','amex'),
+(0001, 1156, 'oragami design 1 / janurary 11 2022 / total $12.22','visa');
