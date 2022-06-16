@@ -1,0 +1,7 @@
+INSERT INTO chat(consumerID, businessID, fname_of_consumer, lname_of_consumer, consumer_email, consumer_profile, name_of_business, business_email, business_profile) VALUES
+(0001, 1153, 'sam', NULL, 'sam25343@hotmail.com', 'insert link', 'peta paka photos', 'petapakaphotos@hotmail.com', 'insert link'),
+(0001, 1154, 'sam', NULL, 'sam25343@hotmail.com', 'insert link', 'we make food 4U', 'food4U123@naver.com', 'insert link'),
+(0001, 1155, 'sam', NULL, 'sam25343@hotmail.com', 'insert link', 'hippo cafe', 'hippo_cafe@hotmail.com', 'insert link'),
+(0001, 1156, 'sam', NULL, 'sam25343@hotmail.com', 'insert link', 'WEE make CRAFTS 4U', 'craftsMade_quick@hotmail.com', 'insert link'),
+(0001, 1157, 'sam', NULL, 'sam25343@hotmail.com', 'insert link', 'Star Buy Bucks', 'boattours@gmail.com', 'insert link');
+
