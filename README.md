@@ -8,4 +8,4 @@ HelpYa is a trade service procurement app that connects clients and businesses. 
 # System Architecture
 | Feature    | Description |
 | ---------- | ----------------------------------------------------------------------- |
-| Database ER Diagram | The database ![Imgur](https://i.imgur.com/JCoLc4V.png) |
+| Database ER Diagram | The back-end database schema. Includes all the tables and connections in the database. ![Imgur](https://i.imgur.com/JCoLc4V.png) |
