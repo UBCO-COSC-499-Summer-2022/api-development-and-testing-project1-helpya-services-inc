@@ -5,6 +5,14 @@ Please use the provided folder structure for your scope & charter, design docume
 # Introduction
 HelpYa is a trade service procurement app that connects clients and businesses. Using the platform, customers will be able to purchase, search, and negotiate services with the business of their choosing. The client would like to design and develop a backend for an ios app for now with plans for cross-platform for android and the web in the future. During our time in capstone, our scope is to create an API that can handle login authentication, create delete updates and report user information and is able handle monetary transactions.
 
+# User Groups
+- **Consumer Account**
+These are any users looking for services.
+- **Business Account**
+These are companies or services that are looking to gain popularity and provide services to whomever are looking for them.
+- **Admin Account**
+These are staff members who can access the backend and frontend of the software and edit the data.
+
 # System Architecture
 | Feature    | Description |
 | ---------- | ----------------------------------------------------------------------- |
