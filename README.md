@@ -14,7 +14,7 @@ These are companies or services that are looking to gain popularity and provide 
 These are staff members who can access the backend and frontend of the software and edit the data.
 
 # User Interface
-- **List of Features:**
+**List of Features:**
 1. Consumers can search businesses by their name and/or a keyword
 2. Ability to message a business with any inquiries 
 3. Purchase a service from the consumer's desired choice
