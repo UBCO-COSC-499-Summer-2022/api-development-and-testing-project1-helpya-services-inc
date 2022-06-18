@@ -1,7 +1,7 @@
 const sql = require("./db.js");
 // constructor
 const consumer = function (consumer) {
-  this.title = consumer.title;
+  this.fname_of_consumer = consumer.fname_of_consumer;
   this.description = consumer.description;
   this.published = consumer.published;
 };
