@@ -29,3 +29,9 @@ These are staff members who can access the backend and frontend of the software 
 | Database ER Diagram | The back-end database schema. Includes all the tables and connections in the database. ![Imgur](https://i.imgur.com/JCoLc4V.png) |
 | User side USE Case Diagram | The USE Case Diagram explains the user side of what access the user will have. Diagram also includes the process of how things will be linked. ![Imgur](https://i.imgur.com/BkI07dN.png) |
 | Admin side USE Case Diagram | The USE Case Diagram explains the admin side of what access the user will have. ![Imgur](https://i.imgur.com/QJW0zir.png) |
+
+# Prerequiste Installs
+npm install
+
+# Database Running Code
+node app.js
