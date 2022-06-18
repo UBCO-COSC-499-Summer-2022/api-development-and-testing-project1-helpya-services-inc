@@ -1,4 +1,4 @@
-const recentSearch = require("../models/recent search.model.js");
+const recentSearch = require("../models/recentSearches.model.js");
 // Create and Save a new recent search
 exports.create = (req, res) => {};
 // Retrieve all recent search from the database (with condition).
