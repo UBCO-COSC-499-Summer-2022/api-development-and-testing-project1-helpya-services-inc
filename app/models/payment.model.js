@@ -6,7 +6,6 @@ const payment = function (payment) {
     this.payment_history = payment.payment_history;
     this.bank_information = payment.bank_information;
     this.rate_per_hour = payment.rate_per_hour;
-
 };
 payment.create = (newpayment, result) => {
   sql.query("INSERT INTO payment SET ?", newpayment, (err, res) => {
