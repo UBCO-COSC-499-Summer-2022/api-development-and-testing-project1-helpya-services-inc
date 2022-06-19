@@ -15,8 +15,6 @@ const business = function (business) {
   this.pictures = business.pictures;
   this.description = business.description;
   this.generalID = business.generalID;
-  
-  this.generalID = business.generalID;
 };
 business.create = (newbusiness, result) => {
   sql.query("INSERT INTO business SET ?", newbusiness, (err, res) => {
