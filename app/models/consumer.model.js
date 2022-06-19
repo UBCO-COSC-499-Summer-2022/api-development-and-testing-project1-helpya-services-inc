@@ -1,9 +1,14 @@
 const sql = require("./db.js");
 // constructor
 const consumer = function (consumer) {
+  this.consumerID = consumer.consumerID;
   this.fname_of_consumer = consumer.fname_of_consumer;
-  this.description = consumer.description;
-  this.published = consumer.published;
+  this.lname_of_consumer = consumer.lname_of_consumer;
+  this.email = consumer.email;
+  this.phone_number = consumer.phone_number;
+  this.location = consumer.location;
+  this.consumer_profile = consumer.consumer_profile;
+  this.generalID = consumer.generalID;
 };
 consumer.create = (newconsumer, result) => {
   sql.query("INSERT INTO consumer SET ?", newconsumer, (err, res) => {
@@ -47,6 +52,7 @@ consumer.getAll = (title, result) => {
     result(null, res);
   });
 };
+/*
 consumer.getAllPublished = (result) => {
   sql.query("SELECT * FROM consumer WHERE published=true", (err, res) => {
     if (err) {
@@ -58,10 +64,11 @@ consumer.getAllPublished = (result) => {
     result(null, res);
   });
 };
+*/
 consumer.updateById = (id, consumer, result) => {
   sql.query(
-    "UPDATE consumer SET title = ?, description = ?, published = ? WHERE id = ?",
-    [consumer.title, consumer.description, consumer.published, id],
+    "UPDATE consumer SET fname_of_consumer = ?, lname_of_consumer = ?, email = ?, phone_number = ?, location = ?, consumer_profile = ? WHERE id = ?",
+    [consumer.fname_of_consumer, consumer.lname_of_consumer, consumer.email, consumer.phone_number, consumer.location, consumer.consumer_profile, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
