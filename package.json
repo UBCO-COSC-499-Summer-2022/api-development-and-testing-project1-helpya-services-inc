@@ -1,0 +1,31 @@
+{
+  "name": "api-development-and-testing-project1-helpya-services-inc",
+  "version": "1.0.0",
+  "description": "![Open in Codespaces](https://classroom.github.com/assets/open-in-codespaces-abfff4d4e15f9e1bd8274d9a39a0befe03a0632bb0f153d0ec72ff541cedbe34.svg)\r # Project-Starter\r Please use the provided folder structure for your scope & charter, design documenation, communications log, weekly logs and final documentation.    You are free to organize any additional folder structure as required by the project.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UBCO-COSC-499-Summer-2022/api-development-and-testing-project1-helpya-services-inc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UBCO-COSC-499-Summer-2022/api-development-and-testing-project1-helpya-services-inc/issues"
+  },
+  "homepage": "https://github.com/UBCO-COSC-499-Summer-2022/api-development-and-testing-project1-helpya-services-inc#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "helmet": "^5.1.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  }
+}
