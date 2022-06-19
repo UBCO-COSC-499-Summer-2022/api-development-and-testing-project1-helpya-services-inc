@@ -1,6 +1,7 @@
 const sql = require("./db.js");
 // constructor
 const payment = function (payment) {
+    this.paymentID = payment.paymentID;
     this.consumerID = payment.consumerID;
     this.businessID = payment.businessID;
     this.payment_history = payment.payment_history;
@@ -19,7 +20,7 @@ payment.create = (newpayment, result) => {
   });
 };
 payment.findById = (id, result) => {
-  sql.query(`SELECT * FROM payment WHERE id = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM payment WHERE paymentID = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -84,7 +85,7 @@ payment.updateById = (id, payment, result) => {
 };
 
 payment.remove = (id, result) => {
-  sql.query("DELETE FROM payment WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM payment WHERE paymentID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

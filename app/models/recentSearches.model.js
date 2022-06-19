@@ -18,7 +18,7 @@ recentSearches.create = (newrecentSearches, result) => {
   });
 };
 recentSearches.findById = (id, result) => {
-  sql.query(`SELECT * FROM recentSearches WHERE id = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM recentSearches WHERE consumerID = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -83,7 +83,7 @@ recentSearches.updateById = (id, recentSearches, result) => {
 };
 
 recentSearches.remove = (id, result) => {
-  sql.query("DELETE FROM recentSearches WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM recentSearches WHERE consumerID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
