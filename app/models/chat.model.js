@@ -1,6 +1,7 @@
 const sql = require("./db.js");
 // constructor
 const chat= function (chat) {
+    this.chatID = chat.chatID;
     this.consumerID = chat.consumerID;
     this.businessID = chat.businessID;
     this.fname_of_consumer = chat.fname_of_consumer;
@@ -12,7 +13,7 @@ const chat= function (chat) {
     this.business_profile = chat.business_profile;
 };
 chat.create = (newchat, result) => {
-  sql.query("INSERT INTO chatSET ?", newchat, (err, res) => {
+  sql.query("INSERT INTO chat SET ?", newchat, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -23,7 +24,7 @@ chat.create = (newchat, result) => {
   });
 };
 chat.findById = (id, result) => {
-  sql.query(`SELECT * FROM chat WHERE id = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM chat WHERE chatID = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -89,7 +90,7 @@ chat.updateById = (id, chat, result) => {
 };
 */
 chat.remove = (id, result) => {
-  sql.query("DELETE FROM chat WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM chat WHERE chatID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

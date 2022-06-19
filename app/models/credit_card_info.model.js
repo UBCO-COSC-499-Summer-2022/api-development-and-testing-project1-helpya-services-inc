@@ -20,7 +20,7 @@ credit_card_info.create = (newcredit_card_info, result) => {
   });
 };
 credit_card_info.findById = (id, result) => {
-  sql.query(`SELECT * FROM credit_card_info WHERE id = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM credit_card_info WHERE consumerID = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -85,7 +85,7 @@ credit_card_info.updateById = (id, credit_card_info, result) => {
 };
 
 credit_card_info.remove = (id, result) => {
-  sql.query("DELETE FROM credit_card_info WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM credit_card_info WHERE consumerID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

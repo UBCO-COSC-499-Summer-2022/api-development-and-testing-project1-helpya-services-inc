@@ -22,7 +22,7 @@ consumer.create = (newconsumer, result) => {
   });
 };
 consumer.findById = (id, result) => {
-  sql.query(`SELECT * FROM consumer WHERE id = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM consumer WHERE consumerID = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -86,7 +86,7 @@ consumer.updateById = (id, consumer, result) => {
   );
 };
 consumer.remove = (id, result) => {
-  sql.query("DELETE FROM consumer WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM consumer WHERE consumerID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

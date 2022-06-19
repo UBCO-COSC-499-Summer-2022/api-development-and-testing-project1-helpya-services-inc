@@ -19,7 +19,7 @@ accounting.create = (newaccounting, result) => {
   });
 };
 accounting.findById = (id, result) => {
-  sql.query(`SELECT * FROM accounting WHERE id = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM accounting WHERE businessID = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -84,7 +84,7 @@ accounting.updateById = (id, accounting, result) => {
 };
 
 accounting.remove = (id, result) => {
-  sql.query("DELETE FROM accounting WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM accounting WHERE businessID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

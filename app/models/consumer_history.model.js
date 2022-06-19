@@ -1,7 +1,6 @@
 const sql = require("./db.js");
 // constructor
 const consumer_history = function (consumer_history) {
-
     this.consumerID = consumer_history.consumerID;
     this.businessID = consumer_history.businessID;
     this.payment_method = consumer_history.payment_method;
@@ -20,7 +19,7 @@ consumer_history.create = (newconsumer_history, result) => {
   });
 };
 consumer_history.findById = (id, result) => {
-  sql.query(`SELECT * FROM consumer_history WHERE id = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM consumer_history WHERE consumerID = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -85,7 +84,7 @@ consumer_history.updateById = (id, consumer_history, result) => {
 };
 
 consumer_history.remove = (id, result) => {
-  sql.query("DELETE FROM consumer_history WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM consumer_history WHERE consumerID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

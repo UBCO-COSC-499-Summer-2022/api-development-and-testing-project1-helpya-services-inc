@@ -28,7 +28,7 @@ business.create = (newbusiness, result) => {
   });
 };
 business.findById = (id, result) => {
-  sql.query(`SELECT * FROM business WHERE id = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM business WHERE businessID = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -92,7 +92,7 @@ business.updateById = (id, business, result) => {
   );
 };
 business.remove = (id, result) => {
-  sql.query("DELETE FROM business WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM business WHERE businessID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
