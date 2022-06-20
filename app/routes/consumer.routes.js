@@ -6,7 +6,7 @@ module.exports = (app) => {
   // Retrieve all consumer
   router.get("/", consumer.findAll);
   // Retrieve all published consumer
-  router.get("/published", consumer.findAllPublished);
+  //router.get("/published", consumer.findAllPublished);
   // Retrieve a single Tutorial with id
   router.get("/:id", consumer.findOne);
   // Update a Tutorial with id
