@@ -5,7 +5,6 @@ const accounting = function (accounting) {
   this.payment_history = accounting.payment_history;
   this.bank_information = accounting.bank_information;
   this.rate_per_hour = accounting.rate_per_hour;
-  this.generalID = accounting.generalID;
 };
 accounting.create = (newaccounting, result) => {
   sql.query("INSERT INTO accounting SET ?", newaccounting, (err, res) => {
