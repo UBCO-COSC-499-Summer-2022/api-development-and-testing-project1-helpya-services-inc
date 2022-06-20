@@ -1,4 +1,6 @@
-CREATE TABLE consumer(
+CREATE DATABASE IF NOT EXISTS helpyadb
+
+CREATE TABLE IF NOT EXISTS consumer(
 consumerID INT NOT NULL UNIQUE PRIMARY KEY,
 fname_of_consumer varchar(150) NOT NULL,
 lname_of_consumer varchar(150) NOT NULL,
@@ -9,7 +11,7 @@ consumer_profile varchar(250),
 generalID INT NOT NULL
 );
 
-CREATE TABLE recentSearches(
+CREATE TABLE IF NOT EXISTS recentSearches(
 
 businessID INT NOT NULL UNIQUE,
 consumerID INT,
@@ -20,7 +22,7 @@ FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
 );
 
 
-CREATE TABLE credit_card_info(
+CREATE TABLE IF NOT EXISTS credit_card_info(
 consumerID INT NOT NULL UNIQUE,
 name_on_card varchar(150) NOT NULL,
 credit_card_number char(16) NOT NULL,
@@ -29,7 +31,7 @@ csc_num INT NOT NULL,
 PRIMARY KEY (consumerID)
 );
 
-CREATE TABLE payment(
+CREATE TABLE IF NOT EXISTS payment(
 consumerID INT NOT NULL UNIQUE,
 businessID INT NOT NULL UNIQUE,
 payment_logs VARCHAR(250),
@@ -37,7 +39,7 @@ payment_method VARCHAR(50),
 PRIMARY KEY(consumerID, businessID)
 );
 
-CREATE TABLE business(
+CREATE TABLE IF NOT EXISTS business(
 businessID INT NOT NULL UNIQUE PRIMARY KEY,
 business_name VARCHAR(150) NOT NULL UNIQUE,
 owner_fname VARCHAR(150),
@@ -54,7 +56,7 @@ description VARCHAR(500),
 general_ID INT NOT NULL
 );
 
-CREATE TABLE consumer_history(
+CREATE TABLE IF NOT EXISTS consumer_history(
 consumerID INT NOT NULL PRIMARY KEY,
 businessID INT, 
 payment_method VARCHAR(50),
@@ -63,7 +65,7 @@ payment_logs VARCHAR(250),
 FOREIGN KEY (businessID) REFERENCES payment(businessID)
 );
 
-CREATE TABLE chat(
+CREATE TABLE IF NOT EXISTS chat(
 consumerID INT,
 businessID INT,
 fname_of_consumer VARCHAR(150),
@@ -77,7 +79,7 @@ FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
 
-CREATE TABLE accounting(
+CREATE TABLE IF NOT EXISTS accounting(
 businessID INT NOT NULL PRIMARY KEY,
 payment_history VARCHAR(150),
 bank_information VARCHAR(150),
