@@ -133,4 +133,5 @@ business.removeAll = (result) => {
     result(null, res);
   });
 };
+
 module.exports = business;
