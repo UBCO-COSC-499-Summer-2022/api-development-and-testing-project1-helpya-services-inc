@@ -43,15 +43,15 @@ business.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
-business.getAll = (title, result) => {
+business.getAll = (business_name, result) => {
   let query = "SELECT * FROM business";
-  if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
+  if (business_name) {
+    query += ` WHERE business_name LIKE '%${business_name}%'`;
   }
   sql.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);
-      result(null, err);
+      result(err, null);
       return;
     }
     console.log("business: ", res);
@@ -71,10 +71,25 @@ business.getAllPublished = (result) => {
   });
 };
 */
-business.updateById = (id, business, result) => {
+business.updateById = (businessID, business, result) => {
+  var sqlupdatequery = "UPDATE business SET business_name = ?, owner_fname = ?, owner_lname = ?, business_profile = ?, email = ?, phone_number = ?, rate_per_hour = ?, location = ?, keywords = ?, education = ?, pictures = ?, description = ? WHERE businessID = ?"
   sql.query(
-    "UPDATE business SET business_name = ?, owner_fname = ?, owner_lname = ?, business_profile = ?, email = ?, phone_number = ?, rate_per_hour = ?, location = ?, keywords = ?, education = ?, pictures = ?, description = ? WHERE id = ?",
-    [business.fname_of_business, business.lname_of_business, business.email, business.phone_number, business.location, business.business_profile, id],
+    sqlupdatequery,
+    [
+      business.business_name,
+      business.fname_of_business,
+      business.lname_of_business,
+      business.business_profile,
+      business.email,
+      business.phone_number,
+      business.rate_per_hour,
+      business.location,
+      business.keywords,
+      business.education,
+      business.pictures,
+      business.description,
+      businessID,
+    ],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
