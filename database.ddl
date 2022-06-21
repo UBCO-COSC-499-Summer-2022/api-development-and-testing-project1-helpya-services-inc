@@ -66,6 +66,7 @@ FOREIGN KEY (businessID) REFERENCES payment(businessID)
 );
 
 CREATE TABLE IF NOT EXISTS chat(
+chatID INT NOT NULL PRIMARY KEY,
 consumerID INT,
 businessID INT,
 fname_of_consumer VARCHAR(150),
