@@ -8,25 +8,27 @@ exports.create = (req, res) => {
       message: "Content can not be empty!",
     });
   }
+  console.log(req.body);
   // Create a business
   const Business = new business({
-    businessID: req.body.businessID,
-    business_name: req.body.business_name,
-    owner_fname: req.body.owner_fname,
-    owner_lname: req.body.owner_lname,
-    business_profile: req.body.business_profile,
-    email: req.body.email,
-    phone_number: req.body.phone_number,
-    rate_per_hour: req.body.rate_per_hour,
-    location: req.body.location,
-    keywords: req.body.keywords,
-    education: req.body.education,
-    pictures: req.body.pictures,
-    description: req.body.description,
-    generalID: req.body.generalID,
+    businessID: req.query.businessID,
+    business_name: req.query.business_name,
+    owner_fname: req.query.owner_fname,
+    owner_lname: req.query.owner_lname,
+    business_profile: req.query.business_profile,
+    email: req.query.email,
+    phone_number: req.query.phone_number,
+    rate_per_hour: req.query.rate_per_hour,
+    location: req.query.location,
+    keywords: req.query.keywords,
+    education: req.query.education,
+    pictures: req.query.pictures,
+    description: req.query.description,
+    general_ID: req.query.general_ID,
   });
-
-  // Save business in the database
+//localhost:8080/api/business?businessID=1150&business_name=baby sitting support&owner_fname=lance&owner_lname=armstrong&business_profile=insert link&email=blah@blah.com&phone_number=1112223333&rate_per_hour=200&location=moon&keywords=baby/not die&education=degree&pictures=insert link&description=sdsada&general_ID=50
+// Save business in the database
+http: console.log(req.body);
   business.create(Business, (err, data) => {
     if (err)
       res.status(500).send({
