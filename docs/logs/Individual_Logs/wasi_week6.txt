@@ -1,4 +1,4 @@
-updated and talked about db design 2h
+updated and talked about db redesign 2h
 made webhooks for tables 4h
 tested api hooks 4h
 node api setup 4h
