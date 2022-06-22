@@ -14,10 +14,11 @@ const business = function (business) {
   this.education = business.education;
   this.pictures = business.pictures;
   this.description = business.description;
-  this.generalID = business.generalID;
+  this.general_ID = business.general_ID;
 };
 
 business.create = (newbusiness, result) => {
+  //console.log(newbusiness)
   sql.query("INSERT INTO business SET ?", newbusiness, (err, res) => {
     if (err) {
       console.log("error: ", err);
