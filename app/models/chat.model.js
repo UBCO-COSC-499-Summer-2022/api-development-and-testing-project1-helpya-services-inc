@@ -12,6 +12,7 @@ const chat= function (chat) {
     this.business_email = chat.business_email;
     this.business_profile = chat.business_profile;
 };
+
 chat.create = (newchat, result) => {
   sql.query("INSERT INTO chat SET ?", newchat, (err, res) => {
     if (err) {
@@ -23,6 +24,7 @@ chat.create = (newchat, result) => {
     result(null, { id: res.insertId, ...newchat});
   });
 };
+
 chat.findById = (id, result) => {
   sql.query(`SELECT * FROM chat WHERE chatID = ${id}`, (err, res) => {
     if (err) {
@@ -39,11 +41,9 @@ chat.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
-chat.getAll = (title, result) => {
+
+chat.getAll = (result) => {
   let query = "SELECT * FROM chat";
-  if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
-  }
   sql.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -54,6 +54,7 @@ chat.getAll = (title, result) => {
     result(null, res);
   });
 };
+
 /*
 chat.getAllPublished = (result) => {
   sql.query("SELECT * FROM chatWHERE published=true", (err, res) => {
@@ -67,10 +68,10 @@ chat.getAllPublished = (result) => {
   });
 };
 */
-/*
+
 chat.updateById = (id, chat, result) => {
   sql.query(
-    "UPDATE chatSET bank_information = ?, rate_per_hour = ? WHERE id = ?",
+    "UPDATE chat SET bank_information = ?, rate_per_hour = ? WHERE id = ?",
     [chat.fname_of_chat, chat.lname_of_chat, chat.email, chat.phone_number, chat.location, chat.chat_profile, id],
     (err, res) => {
       if (err) {
@@ -88,7 +89,8 @@ chat.updateById = (id, chat, result) => {
     }
   );
 };
-*/
+
+
 chat.remove = (id, result) => {
   sql.query("DELETE FROM chat WHERE chatID = ?", id, (err, res) => {
     if (err) {
@@ -105,6 +107,7 @@ chat.remove = (id, result) => {
     result(null, res);
   });
 };
+
 chat.removeAll = (result) => {
   sql.query("DELETE FROM chat", (err, res) => {
     if (err) {
