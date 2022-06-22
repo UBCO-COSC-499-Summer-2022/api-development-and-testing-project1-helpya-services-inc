@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS helpyadb
-
+CREATE DATABASE IF NOT EXISTS helpyadb;
+use helpyadb;
 CREATE TABLE IF NOT EXISTS consumer(
 consumerID INT NOT NULL UNIQUE PRIMARY KEY,
 fname_of_consumer varchar(150) NOT NULL,
@@ -9,6 +9,12 @@ phone_number char(15) NOT NULL UNIQUE,
 location varchar(50) NOT NULL,
 consumer_profile varchar(250),
 generalID INT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS accounting(
+businessID INT NOT NULL PRIMARY KEY,
+payment_history VARCHAR(150),
+bank_information VARCHAR(150),
+rate_per_hour CHAR(10) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS recentSearches(
@@ -75,11 +81,3 @@ businessID INT,
 FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
-
-CREATE TABLE IF NOT EXISTS accounting(
-businessID INT NOT NULL PRIMARY KEY,
-payment_history VARCHAR(150),
-bank_information VARCHAR(150),
-rate_per_hour CHAR(10) NOT NULL
-);
-

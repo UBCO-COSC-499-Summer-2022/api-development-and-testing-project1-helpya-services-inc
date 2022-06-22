@@ -1,5 +1,5 @@
 const business = require("../models/business.model.js");
-const business = require("../models/business.model.js");
+
 // Create and Save a new business
 exports.create = (req, res) => {
   // Validate request
