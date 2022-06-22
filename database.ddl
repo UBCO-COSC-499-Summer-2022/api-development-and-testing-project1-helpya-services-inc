@@ -32,11 +32,14 @@ PRIMARY KEY (consumerID)
 );
 
 CREATE TABLE IF NOT EXISTS payment(
-consumerID INT NOT NULL UNIQUE,
-businessID INT NOT NULL UNIQUE,
+transactionID INT NOT NULL UNIQUE,
+consumerID INT,
+businessID INT,
 payment_logs VARCHAR(250),
 payment_method VARCHAR(50),
-PRIMARY KEY(consumerID, businessID)
+PRIMARY KEY (transactionID),
+FOREIGN KEY (consumerID) REFERENCES credit_card_info (consumerID),
+FOREIGN KEY (businessID) REFERENCES accounting (businessID)
 );
 
 CREATE TABLE IF NOT EXISTS business(
@@ -69,13 +72,6 @@ CREATE TABLE IF NOT EXISTS chat(
 chatID INT NOT NULL PRIMARY KEY,
 consumerID INT,
 businessID INT,
-fname_of_consumer VARCHAR(150),
-lname_of_consumer VARCHAR(150),
-consumer_email varchar(150),
-consumer_profile varchar(250),
-name_of_business VARCHAR(150),
-business_email varchar(150),
-business_profile varchar(250),
 FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
