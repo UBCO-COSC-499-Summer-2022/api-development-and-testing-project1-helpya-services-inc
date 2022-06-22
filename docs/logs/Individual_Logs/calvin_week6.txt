@@ -1,0 +1,7 @@
+create db and test working 2h
+learn how heroku works 1h
+bulid heroku environment 3h
+solve heroku "Econnection" problem 2h
+test everything is working after changing codes for heroku 1h
+learn how docker works 1h
+bulid docker environment (in progress) 2h
