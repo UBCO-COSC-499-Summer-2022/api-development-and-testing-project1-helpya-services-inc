@@ -1,0 +1,7 @@
+updated and talked about db design 2h
+updated diagram with new design 1h
+tested new attributes/changes to ensure everything still worked 3h
+worked on the controllers 3h
+worked on the models 2h
+worked on the routes 1h
+learnt and practiced with node js 3h
