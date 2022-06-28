@@ -81,3 +81,17 @@ businessID INT,
 FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
+
+CREATE TABLE IF NOT EXISTS education_histry(
+businessID,
+education_level INT,
+highest_education_completed VARCHAR(50),
+FOREIGN KEY (businessID) REFERENCES business(businessID)
+);
+
+CREATE TABLE IF NOT EXISTS job_type(
+businessID,
+job_title VARCHAR(50),
+job_category VARCHAR(50),
+FOREIGN KEY (businessID) REFERENCES business(businessID)
+);
