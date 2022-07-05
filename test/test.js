@@ -11,7 +11,7 @@ chai.use(chaiHttp);
 //accounting_API
 describe('Accounting',() => {
   
-  //Create 
+  // //Create 
   it('create',(done) => {
     chai.request(server)
     .post("/api/accounting/")
@@ -27,7 +27,7 @@ describe('Accounting',() => {
     })
   });
 
-  //FindAll
+  // //FindAll
   it('findAll',(done) => {
     chai.request(server)
     .get("/api/accounting/")
@@ -37,25 +37,38 @@ describe('Accounting',() => {
     })
   });
 
-  //FindOne
+  // //FindOne
   it('findOne',(done) => {
     chai.request(server)
     .get("/api/accounting/:id")
-    .send({id:90})
+    .send({id:130})
     .end((err, response)=>{
       response.body.should.be.a("array");
       done();
     })
   });
   
-  //Update
+  // //Update
   it('Update',(done) => {
     chai.request(server)
     .put("/api/accounting/:id")
     .send({
-      'id':100,
+      'id':130,
       'bank_information':"test",
       'rate_per_hour':"test"
+    })
+    .end((err, response)=>{
+      assert.equal(response.text,"success")
+      done();
+    })
+  });
+
+  //delete
+  it('delete',(done) => {
+    chai.request(server)
+    .delete("/api/accounting/:id")
+    .send({
+      'id':130
     })
     .end((err, response)=>{
       assert.equal(response.text,"success")
