@@ -14,7 +14,7 @@ accounting.create = (newaccounting, result) => {
       return;
     }
     console.log("created accounting: ", { id: res.insertId, ...newaccounting });
-    result(null, { id: res.insertId, ...newaccounting });
+    result(null, "success");
   });
 };
 
@@ -37,8 +37,8 @@ accounting.findById = (id, result) => {
       return;
     }
     if (res.length) {
-      console.log("found accounting: ", res[0]);
-      result(null, res[0]);
+      console.log("found accounting: ", res);
+      result(null, res);
       return;
     }
     // not found accounting with the id
@@ -54,7 +54,6 @@ accounting.getAll = (result) => {
       result(null, err);
       return;
     }
-    console.log("accounting: ", res);
     result(null, res);
   });
 };
@@ -74,7 +73,7 @@ accounting.getAllPublished = (result) => {
 accounting.updateById = (id, accounting, result) => {
   sql.query(
     "UPDATE accounting SET bank_information = ?, rate_per_hour = ? WHERE businessID = ?",
-    [bank_information, rate_per_hour],
+    [accounting.bank_information, accounting.rate_per_hour,id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -87,7 +86,7 @@ accounting.updateById = (id, accounting, result) => {
         return;
       }
       console.log("updated accounting: ", { id: id, ...accounting });
-      result(null, { id: id, ...accounting });
+      result(null, "success");
     }
   );
 };

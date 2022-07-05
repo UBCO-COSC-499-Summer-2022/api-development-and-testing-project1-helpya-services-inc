@@ -89,9 +89,9 @@ FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
 
-CREATE TABLE IF NOT EXISTS education_histry(
+CREATE TABLE IF NOT EXISTS education_history(
 businessID INT,
-education_level INT,
+education_level VARCHAR(255),
 highest_education_completed VARCHAR(50),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );

@@ -10,7 +10,7 @@ module.exports = (app) => {
     // Retrieve a single Tutorial with id
     router.get("/:id", accounting.findOne);
     // Update a Tutorial with id
-    router.put("/:id", accounting.update);
+    router.put("/:id", accounting.update);+
     // Delete a Tutorial with id
     router.delete("/:id", accounting.delete);
     // Delete all accounting

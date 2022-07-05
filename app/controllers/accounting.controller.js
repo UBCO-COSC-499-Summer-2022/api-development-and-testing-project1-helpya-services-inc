@@ -9,14 +9,14 @@ exports.create = (req, res) => {
   }
   // Create a business
   const Accounting = new accounting({
-    businessID: req.query.businessID,
-    payment_history: req.query.payment_histor,
-    bank_information: req.query.bank_information,
-    rate_per_hour: req.query.rate_per_hour
+    businessID: req.body.businessID,
+    payment_history: req.body.payment_history,
+    bank_information: req.body.bank_information,
+    rate_per_hour: req.body.rate_per_hour
   });
 
   // Save business in the database
-  business.create(Accounting, (err, data) => {
+  accounting.create(Accounting, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -47,7 +47,6 @@ exports.createPaymentHistory = (req, res) => {
 // Retrieve all accounting from the database (with condition).
 exports.findAll = (req, res) => {
   accounting.getAll((err, data) => {
-    console.log("test");
     if (err)
       res.status(500).send({
         message:
@@ -58,7 +57,7 @@ exports.findAll = (req, res) => {
 };
 // Find a single accounting with a id
 exports.findOne = (req, res) => {
-  accounting.findById(req.params.id, (err, data) => {
+  accounting.findById(req.body.id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -83,7 +82,7 @@ exports.update = (req, res) => {
     });
   }
   console.log(req.body);
-  accounting.updateById(req.params.id, new business(req.body), (err, data) => {
+  accounting.updateById(req.body.id, req.body, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
