@@ -1,7 +1,7 @@
 module.exports = {
-  HOST: "localhost",
-  USER: "root",
+  HOST: "192.168.1.77",
+  USER: "quqi",
   PASSWORD: "password",
-  DB: "helpyadb",
+  DB: "testing",
   port: '3306',
 };
