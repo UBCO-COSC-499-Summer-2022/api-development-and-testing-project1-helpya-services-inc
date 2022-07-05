@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS credit_card_info(
 consumerID INT NOT NULL UNIQUE,
 name_on_card varchar(150) NOT NULL,
 credit_card_number char(16) NOT NULL,
-exp_date char(5) NOT NULL,
+exp_date char(255) NOT NULL,
 csc_num INT NOT NULL,
 PRIMARY KEY (consumerID)
 );
@@ -78,19 +78,26 @@ CREATE TABLE IF NOT EXISTS chat(
 chatID INT NOT NULL PRIMARY KEY,
 consumerID INT,
 businessID INT,
+fname_of_consumer VARCHAR(250), 
+lname_of_consumer VARCHAR(250), 
+consumer_email VARCHAR(250), 
+consumer_profile VARCHAR(250), 
+name_of_business VARCHAR(250), 
+business_email VARCHAR(250), 
+business_profile VARCHAR(250),
 FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
 
 CREATE TABLE IF NOT EXISTS education_histry(
-businessID,
+businessID INT,
 education_level INT,
 highest_education_completed VARCHAR(50),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
 
 CREATE TABLE IF NOT EXISTS job_type(
-businessID,
+businessID INT,
 job_title VARCHAR(50),
 job_category VARCHAR(50),
 FOREIGN KEY (businessID) REFERENCES business(businessID)

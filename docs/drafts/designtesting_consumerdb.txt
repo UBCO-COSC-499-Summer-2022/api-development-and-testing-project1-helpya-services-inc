@@ -1,5 +1,5 @@
 INSERT INTO consumer (consumerID, fname_of_consumer, lname_of_consumer, email, phone_number, location, consumer_profile, generalID) VALUES 
-(0001, 'bob', 'sanchez', 'bob_s123@hotmail.com', '16041231234', 'kelowna', 'insert link', 231);
+(0001, 'bob', 'sanchez', 'bob_s123@hotmail.com', '16041231234', 'kelowna', 'insert link', 231),
 (0002, 'sam', 'li', 'sam25343@hotmail.com', '16041324364', 'kelowna', 'insert link', 865),
 (0003, 'gerald', 'lassy', 'gglas32@hotmail.com', '12501231234', 'kelowna', 'insert link', 23731),
 (0004, 'paul', 'smith', 'smithpaul@hotmail.com', '12501111111', 'kelowna', 'insert link', 73),

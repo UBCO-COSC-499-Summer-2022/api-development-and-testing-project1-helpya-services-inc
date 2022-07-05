@@ -1,3 +1,4 @@
+//package import
 var assert = require("assert");
 let chai = require("chai");
 const { ChildProcess } = require("child_process");
@@ -6,16 +7,20 @@ let server = require("../server");
 chai.should();
 chai.use(chaiHttp);
 
-describe("Array", function () {
-  describe("#indexOf()", function () {
-    it("should return -1 when the value is not present", function () {
-      assert.equal(-1, -1);
-    });
-  });
-});
-//accounting 
+
+//accounting_API
 describe('Accounting',() => {
   
+  //Create 
+  it('create',(done) => {
+    chai.request(server)
+    .post("/api/accounting/")
+    .send({businessID:10})
+    .end((err, response)=>{
+      console.log(response);
+      done();
+    })
+  });
   //FindAll
   it('findAll',(done) => {
     chai.request(server)
@@ -26,5 +31,5 @@ describe('Accounting',() => {
     })
   });
 
-  //Create 
+  
 });

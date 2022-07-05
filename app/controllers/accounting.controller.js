@@ -9,10 +9,10 @@ exports.create = (req, res) => {
   }
   // Create a business
   const Accounting = new accounting({
-    businessID: req.body.businessID,
-    payment_history: req.body.payment_histor,
-    bank_information: req.body.bank_information,
-    rate_per_hour: req.body.rate_per_hour
+    businessID: req.query.businessID,
+    payment_history: req.query.payment_histor,
+    bank_information: req.query.bank_information,
+    rate_per_hour: req.query.rate_per_hour
   });
 
   // Save business in the database

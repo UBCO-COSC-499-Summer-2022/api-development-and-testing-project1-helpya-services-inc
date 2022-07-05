@@ -1,0 +1,5 @@
+INSERT INTO job_type(businessID, job_title, job_category) VALUES
+(1150, 'market manager', 'IT'),
+(1151, 'project manager', 'Consulting'),
+(1152, 'CEO', 'IT'),
+(1153, 'server', 'resturant');
