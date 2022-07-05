@@ -47,6 +47,7 @@ exports.createPaymentHistory = (req, res) => {
 // Retrieve all accounting from the database (with condition).
 exports.findAll = (req, res) => {
   accounting.getAll((err, data) => {
+    console.log("test");
     if (err)
       res.status(500).send({
         message:
