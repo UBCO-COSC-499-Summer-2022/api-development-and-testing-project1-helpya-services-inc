@@ -99,6 +99,7 @@ consumer_history.remove = (id, result) => {
     result(null, res);
   });
 };
+
 consumer_history.removeAll = (result) => {
   sql.query("DELETE FROM consumer_history", (err, res) => {
     if (err) {

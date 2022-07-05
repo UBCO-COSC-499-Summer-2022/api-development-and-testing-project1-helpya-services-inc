@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS helpyadb
-
+CREATE DATABASE IF NOT EXISTS helpyadb;
+use helpyadb;
 CREATE TABLE IF NOT EXISTS consumer(
 consumerID INT NOT NULL UNIQUE PRIMARY KEY,
 fname_of_consumer varchar(150) NOT NULL,
@@ -9,6 +9,12 @@ phone_number char(15) NOT NULL UNIQUE,
 location varchar(50) NOT NULL,
 consumer_profile varchar(250),
 generalID INT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS accounting(
+businessID INT NOT NULL PRIMARY KEY,
+payment_history VARCHAR(150),
+bank_information VARCHAR(150),
+rate_per_hour CHAR(10) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS recentSearches(
@@ -32,11 +38,14 @@ PRIMARY KEY (consumerID)
 );
 
 CREATE TABLE IF NOT EXISTS payment(
-consumerID INT NOT NULL UNIQUE,
-businessID INT NOT NULL UNIQUE,
+transactionID INT NOT NULL UNIQUE,
+consumerID INT,
+businessID INT,
 payment_logs VARCHAR(250),
 payment_method VARCHAR(50),
-PRIMARY KEY(consumerID, businessID)
+PRIMARY KEY (transactionID),
+FOREIGN KEY (consumerID) REFERENCES credit_card_info (consumerID),
+FOREIGN KEY (businessID) REFERENCES accounting (businessID)
 );
 
 CREATE TABLE IF NOT EXISTS business(
@@ -69,21 +78,20 @@ CREATE TABLE IF NOT EXISTS chat(
 chatID INT NOT NULL PRIMARY KEY,
 consumerID INT,
 businessID INT,
-fname_of_consumer VARCHAR(150),
-lname_of_consumer VARCHAR(150),
-consumer_email varchar(150),
-consumer_profile varchar(250),
-name_of_business VARCHAR(150),
-business_email varchar(150),
-business_profile varchar(250),
 FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
 
-CREATE TABLE IF NOT EXISTS accounting(
-businessID INT NOT NULL PRIMARY KEY,
-payment_history VARCHAR(150),
-bank_information VARCHAR(150),
-rate_per_hour CHAR(10) NOT NULL
+CREATE TABLE IF NOT EXISTS education_histry(
+businessID,
+education_level INT,
+highest_education_completed VARCHAR(50),
+FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
 
+CREATE TABLE IF NOT EXISTS job_type(
+businessID,
+job_title VARCHAR(50),
+job_category VARCHAR(50),
+FOREIGN KEY (businessID) REFERENCES business(businessID)
+);

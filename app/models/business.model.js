@@ -14,9 +14,11 @@ const business = function (business) {
   this.education = business.education;
   this.pictures = business.pictures;
   this.description = business.description;
-  this.generalID = business.generalID;
+  this.general_ID = business.general_ID;
 };
+
 business.create = (newbusiness, result) => {
+  //console.log(newbusiness)
   sql.query("INSERT INTO business SET ?", newbusiness, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -27,6 +29,7 @@ business.create = (newbusiness, result) => {
     result(null, { id: res.insertId, ...newbusiness });
   });
 };
+
 business.findById = (id, result) => {
   sql.query(`SELECT * FROM business WHERE businessID = ${id}`, (err, res) => {
     if (err) {
@@ -43,6 +46,7 @@ business.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
+
 business.getAll = (business_name, result) => {
   let query = "SELECT * FROM business";
   if (business_name) {
@@ -58,6 +62,7 @@ business.getAll = (business_name, result) => {
     result(null, res);
   });
 };
+
 /*
 business.getAllPublished = (result) => {
   sql.query("SELECT * FROM business WHERE published=true", (err, res) => {
@@ -71,8 +76,10 @@ business.getAllPublished = (result) => {
   });
 };
 */
+
 business.updateById = (businessID, business, result) => {
-  var sqlupdatequery = "UPDATE business SET business_name = ?, owner_fname = ?, owner_lname = ?, business_profile = ?, email = ?, phone_number = ?, rate_per_hour = ?, location = ?, keywords = ?, education = ?, pictures = ?, description = ? WHERE businessID = ?"
+  var sqlupdatequery =
+    "UPDATE business SET business_name = ?, owner_fname = ?, owner_lname = ?, business_profile = ?, email = ?, phone_number = ?, rate_per_hour = ?, location = ?, keywords = ?, education = ?, pictures = ?, description = ? WHERE businessID = ?";
   sql.query(
     sqlupdatequery,
     [
@@ -106,6 +113,7 @@ business.updateById = (businessID, business, result) => {
     }
   );
 };
+
 business.remove = (id, result) => {
   sql.query("DELETE FROM business WHERE businessID = ?", id, (err, res) => {
     if (err) {
@@ -122,6 +130,7 @@ business.remove = (id, result) => {
     result(null, res);
   });
 };
+
 business.removeAll = (result) => {
   sql.query("DELETE FROM business", (err, res) => {
     if (err) {
