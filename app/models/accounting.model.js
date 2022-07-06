@@ -18,14 +18,18 @@ accounting.create = (newaccounting, result) => {
 };
 
 accounting.createPayment_History = (paymentHistory, result) => {
-  sql.query("INSERT INTO accounting SET payment_history VALUES ?", paymentHistory, (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
+  sql.query(
+    "INSERT INTO accounting SET payment_history VALUES ?",
+    paymentHistory,
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(err, null);
+        return;
+      }
+      result(null, { id: res.insertId, ...newaccounting });
     }
-    result(null, { id: res.insertId, ...newaccounting });
-  });
+  );
 };
 accounting.findById = (id, result) => {
   sql.query(`SELECT * FROM accounting WHERE businessID = ${id}`, (err, res) => {
@@ -71,7 +75,7 @@ accounting.getAllPublished = (result) => {
 accounting.updateById = (id, accounting, result) => {
   sql.query(
     "UPDATE accounting SET bank_information = ?, rate_per_hour = ? WHERE businessID = ?",
-    [accounting.bank_information, accounting.rate_per_hour,id],
+    [accounting.bank_information, accounting.rate_per_hour, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
