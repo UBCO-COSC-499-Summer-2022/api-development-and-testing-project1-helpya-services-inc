@@ -17,6 +17,8 @@ exports.create = (req, res) => {
 
   // Save business in the database
   accounting.create(Accounting, (err, data) => {
+
+
     if (err)
       res.status(500).send({
         message:
@@ -82,7 +84,9 @@ exports.update = (req, res) => {
     });
   }
   console.log(req.body);
+
   accounting.updateById(req.params.id, req.query, (err, data) => {
+
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({

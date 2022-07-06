@@ -28,8 +28,10 @@ exports.create = (req, res) => {
 
 // Retrieve all consumer history from the database (with condition).
 exports.findAll = (req, res) => {
+
   const title = req.query.title;
   consumer_history.getAll(title,(err, data) => {
+
     if (err)
       res.status(500).send({
         message: err.message || "Some error occurred while retrieving consumer history.",
@@ -64,8 +66,10 @@ exports.update = (req, res) => {
       });
     }
     console.log(req.body);
+
     consumer_history.updateById(req.params.id,req.query, (err, data) => {
       console.log(req.body);
+
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({

@@ -1,7 +1,7 @@
 module.exports = {
   HOST: "localhost",
   USER: "root",
-  PASSWORD: "password",
-  DB: "testing",
+  PASSWORD: "Cosc499api!",
+  DB: "helpyadb",
   port: '3306',
 };
