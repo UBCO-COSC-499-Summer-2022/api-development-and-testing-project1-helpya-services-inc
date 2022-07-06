@@ -22,7 +22,7 @@ require("./app/routes/credit_card_info.routes.js")(app);
 require("./app/routes/payment.routes.js")(app);
 require("./app/routes/recentSearches.routes.js")(app);
 // set port, listen for requests
-const PORT = process.env.PORT || 8082;
+const PORT = process.env.PORT || 8080;
 module.exports=app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
