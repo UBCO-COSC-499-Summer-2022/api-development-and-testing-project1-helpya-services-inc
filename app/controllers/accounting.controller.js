@@ -109,7 +109,7 @@ exports.delete = (req, res) => {
           message: "Could not delete business with id " + req.params.id,
         });
       }
-    } else res.send({ message: `business was deleted successfully!` });
+    } else res.send(data);
   });
 };
 // Delete all accounting from the database.

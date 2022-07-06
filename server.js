@@ -23,6 +23,6 @@ require("./app/routes/payment.routes.js")(app);
 require("./app/routes/recentSearches.routes.js")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+module.exports=app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

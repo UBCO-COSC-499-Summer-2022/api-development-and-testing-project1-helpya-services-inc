@@ -13,8 +13,7 @@ accounting.create = (newaccounting, result) => {
       result(err, null);
       return;
     }
-    console.log("created accounting: ", { id: res.insertId, ...newaccounting });
-    result(null, { id: res.insertId, ...newaccounting });
+    result(null, "success");
   });
 };
 
@@ -25,10 +24,6 @@ accounting.createPayment_History = (paymentHistory, result) => {
       result(err, null);
       return;
     }
-    console.log("created accounting: ", {
-      id: res.insertId,
-      ...paymentHistory,
-    });
     result(null, { id: res.insertId, ...newaccounting });
   });
 };
@@ -40,8 +35,8 @@ accounting.findById = (id, result) => {
       return;
     }
     if (res.length) {
-      console.log("found accounting: ", res[0]);
-      result(null, res[0]);
+      console.log("found accounting: ", res);
+      result(null, res);
       return;
     }
     // not found accounting with the id
@@ -57,7 +52,6 @@ accounting.getAll = (result) => {
       result(null, err);
       return;
     }
-    console.log("accounting: ", res);
     result(null, res);
   });
 };
@@ -89,8 +83,7 @@ accounting.updateById = (id, accounting, result) => {
         result({ kind: "not_found" }, null);
         return;
       }
-     console.log("updated accounting: ", { id: id, ...accounting });
-     result(null, { id: id, ...accounting });
+      result(null, "success");
     }
   );
 };
@@ -117,7 +110,6 @@ accounting.removeAll = (result) => {
       result(null, err);
       return;
     }
-    console.log(`deleted ${res.affectedRows} accounting`);
     result(null, res);
   });
 };
