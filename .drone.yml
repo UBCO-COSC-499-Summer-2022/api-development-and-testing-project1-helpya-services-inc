@@ -13,6 +13,7 @@ steps:
   image: node:latest
   commands:
   - npm install
+  - netstat -a | more
   - npm test
 
 services:
