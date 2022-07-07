@@ -17,7 +17,7 @@ steps:
 
 services:
 - name: database
-  image: mysql:8
+  image: mysql
   ports:
   - 3306
   environment:
