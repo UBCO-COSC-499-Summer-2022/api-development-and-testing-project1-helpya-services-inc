@@ -24,11 +24,7 @@ services:
   database: helpyadb
   user: root
   environment:
-    MYSQL_DATABASE: helpyadb
-    MYSQL_ROOT_PASSWORD: Cosc499api
-    MYSQL_ROOT_HOST: local
-    MYSQL_ROOT_PORT: 3306
-    MYSQL_PORT: 3306
+     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
 ---
 kind: pipeline
