@@ -17,6 +17,7 @@ services:
     MYSQL_PASSWORD: Cosc499api
     MYSQL_ROOT_PASSWORD: Cosc499api
     MYSQL_ROOT_HOST: local
+    MySQL_PORT: 3306
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
 ---
