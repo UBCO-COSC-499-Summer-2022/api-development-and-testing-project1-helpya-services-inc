@@ -22,7 +22,8 @@ services:
     MYSQL_DATABASE: helpyadb
     MYSQL_ROOT_PASSWORD: Cosc499api
     MYSQL_ROOT_HOST: local
-    MYSQL_ROOT_PORT: 0
+    MYSQL_ROOT_PORT: 3306
+    MYSQL_PORT: 3306
 
 ---
 kind: pipeline
