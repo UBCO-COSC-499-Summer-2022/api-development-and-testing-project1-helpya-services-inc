@@ -19,7 +19,7 @@ services:
 - name: database
   image: mysql:latest
   ports:
-  - 8080:3306
+  - 3306
   passsword: Cosc499api
   database: helpyadb
   user: root
