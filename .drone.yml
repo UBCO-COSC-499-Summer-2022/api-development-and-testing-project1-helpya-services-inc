@@ -11,9 +11,10 @@ steps:
 
 services:
 - name: database
-  image: mysql
+  image: mysql:latest
   environment:
     MYSQL_DATABASE: helpyadb
+    MYSQL_USER: helpya
     MYSQL_PASSWORD: Cosc499api
     MYSQL_ROOT_PASSWORD: Cosc499api
     MYSQL_ROOT_HOST: local
