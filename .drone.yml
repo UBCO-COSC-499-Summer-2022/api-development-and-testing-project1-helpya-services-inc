@@ -20,7 +20,6 @@ services:
     MYSQL_ROOT_HOST: local
     MYSQL_ROOT_PORT: 3306
     MySQL_PORT: 3306
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
 ---
 kind: pipeline
