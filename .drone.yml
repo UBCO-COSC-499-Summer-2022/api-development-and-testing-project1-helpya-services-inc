@@ -13,22 +13,22 @@ steps:
   image: node:latest
   commands:
   - npm install
-  - sleep 20
   - npm test
   env:
   - NODE_ENV=test
   - NODE_PORT=8080
   - NODE_HOST=localhost
-  - NODE_DB_PORT=8080
+  - NODE_DB_PORT=3306
 
 
 services:
 - name: database
   image: mysql
   ports:
-  - 8080
+  - 33306
   environment:
-     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    MYSQL_DATABASE: test
 
 ---
 kind: pipeline
