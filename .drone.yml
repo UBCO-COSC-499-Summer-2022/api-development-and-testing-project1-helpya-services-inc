@@ -11,7 +11,10 @@ steps:
   commands:
   - docker ps -a #docker-compose -f docker-compose.yml up -d
   - npm test
-
+  volumes:
+- name: dockersock
+  host:
+    path: /var/run/docker.sock
 ---
 kind: pipeline
 name: node14
