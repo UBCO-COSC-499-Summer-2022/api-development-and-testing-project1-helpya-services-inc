@@ -7,7 +7,8 @@ steps:
   image: mysql
   commands:
   - sleep 30
-  - mysql -u root -h database --execute="SELECT VERSION();"
+  - while ! mysqladmin ping -h mysql-server -u drone -pdrone --silent; do sleep 1; done
+  - mysql -h mysql-server -u drone -pdrone -e "CREATE TABLE IF NOT EXISTS drone_db.pipelines (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50) NOT NULL);"
 
 - name: test
   image: node:latest
@@ -21,7 +22,6 @@ steps:
   - NODE_DB_PORT=3306
   ports:
   - 3306
-  - 8080
 
 
 services:
