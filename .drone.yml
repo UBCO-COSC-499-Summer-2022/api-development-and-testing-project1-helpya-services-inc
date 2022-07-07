@@ -18,7 +18,7 @@ services:
     MYSQL_PASSWORD: Cosc499api
     MYSQL_ROOT_PASSWORD: Cosc499api
     MYSQL_ROOT_HOST: local
-    MYSQL_ROOT_PORT: 3306
+    MYSQL_ROOT_PORT: 8080
     MySQL_PORT: 3306
 
 ---
