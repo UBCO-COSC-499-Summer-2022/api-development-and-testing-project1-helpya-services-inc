@@ -13,13 +13,14 @@ steps:
   image: node:latest
   commands:
   - npm install
+  - netstat -a | more
   - npm test
 
 services:
 - name: database
   image: mysql
   ports:
-  - 3306
+  - 8080
   environment:
      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
