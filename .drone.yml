@@ -13,8 +13,11 @@ services:
 - name: database
   image: mysql
   environment:
-    MYSQL_DATABASE: test
+    MYSQL_DATABASE: helpyadb
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+  command:
+    - sleep 15
+    - mysql -u root -h localhost -p Cosc499api
 
 ---
 kind: pipeline
