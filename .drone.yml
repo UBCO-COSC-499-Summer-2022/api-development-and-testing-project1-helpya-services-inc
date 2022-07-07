@@ -8,7 +8,7 @@ steps:
   commands:
   - sleep 30
   - while ! mysqladmin ping -h database -u root; do sleep 1; done
-  - mysql -h database -u root -e "CREATE TABLE IF NOT EXISTS drone_db.pipelines (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50) NOT NULL);"
+  - mysql -h database -u root -e "CREATE TABLE IF NOT EXISTS database.pipelines (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50) NOT NULL);"
 
 - name: test
   image: node:latest
