@@ -17,12 +17,9 @@ steps:
 
 services:
 - name: database
-  image: mysql:latest
+  image: mysql:8
   ports:
   - 3306
-  passsword: Cosc499api
-  database: helpyadb
-  user: root
   environment:
      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
