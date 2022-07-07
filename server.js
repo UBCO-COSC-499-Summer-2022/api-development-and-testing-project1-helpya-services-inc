@@ -1,9 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+require("dotenv").config();
+
 var corsOptions = {
   origin: "http://localhost:3306",
 };
+
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -13,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
+
 require("./app/routes/consumer.routes.js")(app);
 require("./app/routes/accounting.routes.js")(app);
 require("./app/routes/business.routes.js")(app);
@@ -21,8 +25,9 @@ require("./app/routes/consumer_history.routes.js")(app);
 require("./app/routes/credit_card_info.routes.js")(app);
 require("./app/routes/payment.routes.js")(app);
 require("./app/routes/recentSearches.routes.js")(app);
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
-module.exports=app.listen(PORT, () => {
+module.exports = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
