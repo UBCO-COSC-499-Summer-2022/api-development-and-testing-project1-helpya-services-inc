@@ -3,11 +3,11 @@ kind: pipeline
 name: node-latest
 
 steps:
-- name: test
+- name: db-setup
   image: mysql
   commands:
   - sleep 15
-  - mysql -u root -h database --execute="SELECT VERSION();"
+  - mysql -u root -h helpyadb --execute="SELECT VERSION();"
 
 
 - name: test
