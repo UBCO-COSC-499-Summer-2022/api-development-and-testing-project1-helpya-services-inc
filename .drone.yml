@@ -7,7 +7,7 @@ steps:
   image: mysql
   commands:
   - sleep 30
-  - mysql -u root -h database --execute="SELECT VERSION();"
+  - mysql -u root -h helpyadb --execute="SELECT VERSION();"
 
 - name: test
   image: node:latest
@@ -28,7 +28,7 @@ services:
   - 33306
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    MYSQL_DATABASE: test
+    MYSQL_DATABASE: helpyadb
 
 ---
 kind: pipeline
