@@ -6,7 +6,7 @@ steps:
 - name: test
   image: docker
   commands:
-  - npm install
+  - docker-compose -f docker-compose.yml up -d
   - npm test
 
 ---
