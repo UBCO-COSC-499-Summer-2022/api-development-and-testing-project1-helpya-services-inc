@@ -4,8 +4,9 @@ name: node12
 
 steps:
 - name: test
-  image: mysql
+  image: node:12.10.0/mysql
   commands:
+  -npm install
   - sleep 15
   - mysql -u root -h database --execute="SELECT VERSION();"
 
