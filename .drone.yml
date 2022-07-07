@@ -19,7 +19,7 @@ services:
 - name: database
   image: mysql
   ports:
-  - 8080
+  - 3306
   environment:
      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
