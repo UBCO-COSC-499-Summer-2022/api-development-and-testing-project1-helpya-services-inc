@@ -5,8 +5,11 @@ name: node12
 steps:
 - name: test
   image: docker
+  volumes:
+  - name: dockersock
+    path: /var/run/docker.sock
   commands:
-  - docker-compose -f docker-compose.yml up -d
+  - docker ps -a #docker-compose -f docker-compose.yml up -d
   - npm test
 
 ---
