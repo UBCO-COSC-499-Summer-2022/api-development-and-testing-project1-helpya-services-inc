@@ -14,7 +14,6 @@ services:
   image: mysql
   environment:
     MYSQL_DATABASE: helpyadb
-    MYSQL_USER: root
     MYSQL_PASSWORD: Cosc499api
     MYSQL_ROOT_PASSWORD: Cosc499api
     MYSQL_ROOT_HOST: local
