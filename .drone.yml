@@ -15,33 +15,15 @@ steps:
   commands:
   - npm install
   - npm test
-  env:
-  - NODE_ENV=test
-  - NODE_PORT=3306
-  - NODE_HOST=localhost
-  - NODE_DB_PORT=3306
-  ports:
-  - 3306
-
 
 services:
 - name: database
   image: mysql
   ports:
   - 3306
+  password: drone
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     MYSQL_DATABASE: helpyadb
-
----
-kind: pipeline
-name: node14
-
-steps:
-- name: test
-  image: node:14
-  commands:
-  - npm install
-  - npm test
 
 ...
