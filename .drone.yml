@@ -4,6 +4,13 @@ name: node-latest
 
 steps:
 - name: test
+  image: mysql
+  commands:
+  - sleep 15
+  - mysql -u root -h database --execute="SELECT VERSION();"
+
+
+- name: test
   image: node:latest
   commands:
   - npm install
@@ -16,8 +23,7 @@ services:
     MYSQL_DATABASE: helpyadb
     MYSQL_ROOT_PASSWORD: Cosc499api
     MYSQL_ROOT_HOST: local
-    MYSQL_ROOT_PORT: 8080
-    MySQL_PORT: 3306
+    MYSQL_ROOT_PORT: 3306
 
 ---
 kind: pipeline
