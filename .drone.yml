@@ -7,6 +7,7 @@ steps:
   image: node:latest
   commands:
   - npm install
+  - mysql -u root -h localhost -p Cosc499api
   - npm test
 
 services:
@@ -15,8 +16,6 @@ services:
   environment:
     MYSQL_DATABASE: helpyadb
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-  command:
-    - mysql -u root -h localhost -p Cosc499api
 
 ---
 kind: pipeline
