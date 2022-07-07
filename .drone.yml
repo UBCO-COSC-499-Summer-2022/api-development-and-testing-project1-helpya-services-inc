@@ -1,21 +1,21 @@
 ---
 kind: pipeline
-name: node12
+name: node-latest
 
 steps:
 - name: test
-  image: node:12.10.0/mysql
+  image: node:latest
   commands:
-  -npm install
-  - sleep 15
-  - mysql -u root -h database --execute="SELECT VERSION();"
+  - npm install
+  - npm test
 
 services:
 - name: database
   image: mysql
   environment:
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     MYSQL_DATABASE: test
+    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+
 ---
 kind: pipeline
 name: node14
