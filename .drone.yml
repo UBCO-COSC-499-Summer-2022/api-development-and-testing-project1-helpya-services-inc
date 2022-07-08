@@ -8,7 +8,7 @@ steps:
   image: mysql
   commands:
   - sleep 30
-  - mysql -u root -h database --execute="SELECT VERSION();"
+  - mysql -u test -h database --execute="SELECT VERSION();"
 
 - name: test
   image: node:latest
