@@ -1,0 +1,6 @@
+adding new tables/features to ddl 2h
+creating new diagram 1h
+testing new tables 1h
+worked on the new controllers 3h
+worked on the new models 4
+worked on the new routes 2h

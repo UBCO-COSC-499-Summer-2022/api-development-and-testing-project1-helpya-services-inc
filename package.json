@@ -7,7 +7,11 @@
     "doc": "docs"
   },
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1"
+=======
+    "test": "mocha test/**/*.js"
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
   },
   "repository": {
     "type": "git",
@@ -25,6 +29,10 @@
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "helmet": "^5.1.0",
+<<<<<<< HEAD
+=======
+    "mocha": "^10.0.0",
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
     "morgan": "^1.10.0",
     "mysql": "^2.18.1"
   }

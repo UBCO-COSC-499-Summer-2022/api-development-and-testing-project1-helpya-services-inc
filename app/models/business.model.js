@@ -14,9 +14,17 @@ const business = function (business) {
   this.education = business.education;
   this.pictures = business.pictures;
   this.description = business.description;
+<<<<<<< HEAD
   this.generalID = business.generalID;
 };
 business.create = (newbusiness, result) => {
+=======
+  this.general_ID = business.general_ID;
+};
+
+business.create = (newbusiness, result) => {
+  //console.log(newbusiness)
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
   sql.query("INSERT INTO business SET ?", newbusiness, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -27,6 +35,10 @@ business.create = (newbusiness, result) => {
     result(null, { id: res.insertId, ...newbusiness });
   });
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
 business.findById = (id, result) => {
   sql.query(`SELECT * FROM business WHERE businessID = ${id}`, (err, res) => {
     if (err) {
@@ -43,6 +55,10 @@ business.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
 business.getAll = (business_name, result) => {
   let query = "SELECT * FROM business";
   if (business_name) {
@@ -58,6 +74,10 @@ business.getAll = (business_name, result) => {
     result(null, res);
   });
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
 /*
 business.getAllPublished = (result) => {
   sql.query("SELECT * FROM business WHERE published=true", (err, res) => {
@@ -71,8 +91,15 @@ business.getAllPublished = (result) => {
   });
 };
 */
+<<<<<<< HEAD
 business.updateById = (businessID, business, result) => {
   var sqlupdatequery = "UPDATE business SET business_name = ?, owner_fname = ?, owner_lname = ?, business_profile = ?, email = ?, phone_number = ?, rate_per_hour = ?, location = ?, keywords = ?, education = ?, pictures = ?, description = ? WHERE businessID = ?"
+=======
+
+business.updateById = (businessID, business, result) => {
+  var sqlupdatequery =
+    "UPDATE business SET business_name = ?, owner_fname = ?, owner_lname = ?, business_profile = ?, email = ?, phone_number = ?, rate_per_hour = ?, location = ?, keywords = ?, education = ?, pictures = ?, description = ? WHERE businessID = ?";
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
   sql.query(
     sqlupdatequery,
     [
@@ -106,6 +133,10 @@ business.updateById = (businessID, business, result) => {
     }
   );
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
 business.remove = (id, result) => {
   sql.query("DELETE FROM business WHERE businessID = ?", id, (err, res) => {
     if (err) {
@@ -122,6 +153,10 @@ business.remove = (id, result) => {
     result(null, res);
   });
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
 business.removeAll = (result) => {
   sql.query("DELETE FROM business", (err, res) => {
     if (err) {

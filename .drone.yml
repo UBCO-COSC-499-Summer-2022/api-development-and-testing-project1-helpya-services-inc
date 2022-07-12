@@ -1,0 +1,23 @@
+---
+kind: pipeline
+name: node12
+
+steps:
+- name: test
+  image: node:12
+  commands:
+  - npm install
+  - npm test
+
+---
+kind: pipeline
+name: node14
+
+steps:
+- name: test
+  image: node:14
+  commands:
+  - npm install
+  - npm test
+
+...

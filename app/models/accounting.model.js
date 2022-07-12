@@ -17,6 +17,21 @@ accounting.create = (newaccounting, result) => {
     result(null, { id: res.insertId, ...newaccounting });
   });
 };
+<<<<<<< HEAD
+=======
+
+accounting.createPayment_History = (paymentHistory, result) => {
+  sql.query("INSERT INTO accounting SET payment_history VALUES ?", paymentHistory, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+    console.log("created accounting: ", { id: res.insertId, ...paymentHistory });
+    result(null, { id: res.insertId, ...newaccounting });
+  });
+};
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
 accounting.findById = (id, result) => {
   sql.query(`SELECT * FROM accounting WHERE businessID = ${id}`, (err, res) => {
     if (err) {
@@ -33,11 +48,17 @@ accounting.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
+<<<<<<< HEAD
 accounting.getAll = (title, result) => {
   let query = "SELECT * FROM accounting";
   if (title) {
     query += ` WHERE title LIKE '%${title}%'`;
   }
+=======
+accounting.getAll = (result) => {
+  let query = "SELECT * FROM accounting";
+
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
   sql.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -63,8 +84,13 @@ accounting.getAllPublished = (result) => {
 */
 accounting.updateById = (id, accounting, result) => {
   sql.query(
+<<<<<<< HEAD
     "UPDATE accounting SET bank_information = ?, rate_per_hour = ? WHERE id = ?",
     [accounting.fname_of_accounting, accounting.lname_of_accounting, accounting.email, accounting.phone_number, accounting.location, accounting.accounting_profile, id],
+=======
+    "UPDATE accounting SET bank_information = ?, rate_per_hour = ? WHERE businessID = ?",
+    [bank_information, rate_per_hour],
+>>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
     (err, res) => {
       if (err) {
         console.log("error: ", err);
