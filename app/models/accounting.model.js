@@ -13,21 +13,23 @@ accounting.create = (newaccounting, result) => {
       result(err, null);
       return;
     }
-    console.log("created accounting: ", { id: res.insertId, ...newaccounting });
-    result(null, { id: res.insertId, ...newaccounting });
+    result(null, "success");
   });
 };
 
 accounting.createPayment_History = (paymentHistory, result) => {
-  sql.query("INSERT INTO accounting SET payment_history VALUES ?", paymentHistory, (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
+  sql.query(
+    "INSERT INTO accounting SET payment_history VALUES ?",
+    paymentHistory,
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(err, null);
+        return;
+      }
+      result(null, { id: res.insertId, ...newaccounting });
     }
-    console.log("created accounting: ", { id: res.insertId, ...paymentHistory });
-    result(null, { id: res.insertId, ...newaccounting });
-  });
+  );
 };
 accounting.findById = (id, result) => {
   sql.query(`SELECT * FROM accounting WHERE businessID = ${id}`, (err, res) => {
@@ -37,8 +39,8 @@ accounting.findById = (id, result) => {
       return;
     }
     if (res.length) {
-      console.log("found accounting: ", res[0]);
-      result(null, res[0]);
+      console.log("found accounting: ", res);
+      result(null, res);
       return;
     }
     // not found accounting with the id
@@ -54,7 +56,6 @@ accounting.getAll = (result) => {
       result(null, err);
       return;
     }
-    console.log("accounting: ", res);
     result(null, res);
   });
 };
@@ -74,7 +75,7 @@ accounting.getAllPublished = (result) => {
 accounting.updateById = (id, accounting, result) => {
   sql.query(
     "UPDATE accounting SET bank_information = ?, rate_per_hour = ? WHERE businessID = ?",
-    [bank_information, rate_per_hour],
+    [accounting.bank_information, accounting.rate_per_hour, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -86,8 +87,7 @@ accounting.updateById = (id, accounting, result) => {
         result({ kind: "not_found" }, null);
         return;
       }
-      console.log("updated accounting: ", { id: id, ...accounting });
-      result(null, { id: id, ...accounting });
+      result(null, "success");
     }
   );
 };
@@ -104,8 +104,7 @@ accounting.remove = (id, result) => {
       result({ kind: "not_found" }, null);
       return;
     }
-    console.log("deleted accounting with id: ", id);
-    result(null, res);
+    result(null, "success");
   });
 };
 accounting.removeAll = (result) => {
@@ -115,7 +114,6 @@ accounting.removeAll = (result) => {
       result(null, err);
       return;
     }
-    console.log(`deleted ${res.affectedRows} accounting`);
     result(null, res);
   });
 };
