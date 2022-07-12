@@ -10,6 +10,7 @@ location varchar(50) NOT NULL,
 consumer_profile varchar(250),
 generalID INT NOT NULL
 );
+
 CREATE TABLE IF NOT EXISTS accounting(
 businessID INT NOT NULL PRIMARY KEY,
 payment_history VARCHAR(150),
@@ -27,12 +28,11 @@ PRIMARY KEY(businessID),
 FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
 );
 
-
 CREATE TABLE IF NOT EXISTS credit_card_info(
 consumerID INT NOT NULL UNIQUE,
 name_on_card varchar(150) NOT NULL,
 credit_card_number char(16) NOT NULL,
-exp_date char(5) NOT NULL,
+exp_date char(255) NOT NULL,
 csc_num INT NOT NULL,
 PRIMARY KEY (consumerID)
 );
@@ -82,15 +82,15 @@ FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
 
-CREATE TABLE IF NOT EXISTS education_histry(
-businessID,
-education_level INT,
+CREATE TABLE IF NOT EXISTS education_history(
+businessID INT,
+education_level VARCHAR(255),
 highest_education_completed VARCHAR(50),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
 
 CREATE TABLE IF NOT EXISTS job_type(
-businessID,
+businessID INT,
 job_title VARCHAR(50),
 job_category VARCHAR(50),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
