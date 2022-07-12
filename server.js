@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to HelpYa application." });
 });
 require("./app/routes/consumer.routes.js")(app);
 require("./app/routes/accounting.routes.js")(app);
@@ -21,6 +21,8 @@ require("./app/routes/consumer_history.routes.js")(app);
 require("./app/routes/credit_card_info.routes.js")(app);
 require("./app/routes/payment.routes.js")(app);
 require("./app/routes/recentSearches.routes.js")(app);
+require("./app/routes/education_history.routes.js")(app);
+require("./app/routes/job_type.routes.js")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
