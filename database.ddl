@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-CREATE DATABASE IF NOT EXISTS helpyadb
-
-=======
 CREATE DATABASE IF NOT EXISTS helpyadb;
 use helpyadb;
->>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
 CREATE TABLE IF NOT EXISTS consumer(
 consumerID INT NOT NULL UNIQUE PRIMARY KEY,
 fname_of_consumer varchar(150) NOT NULL,
@@ -15,15 +10,12 @@ location varchar(50) NOT NULL,
 consumer_profile varchar(250),
 generalID INT NOT NULL
 );
-<<<<<<< HEAD
-=======
 CREATE TABLE IF NOT EXISTS accounting(
 businessID INT NOT NULL PRIMARY KEY,
 payment_history VARCHAR(150),
 bank_information VARCHAR(150),
 rate_per_hour CHAR(10) NOT NULL
 );
->>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
 
 CREATE TABLE IF NOT EXISTS recentSearches(
 
@@ -46,13 +38,6 @@ PRIMARY KEY (consumerID)
 );
 
 CREATE TABLE IF NOT EXISTS payment(
-<<<<<<< HEAD
-consumerID INT NOT NULL UNIQUE,
-businessID INT NOT NULL UNIQUE,
-payment_logs VARCHAR(250),
-payment_method VARCHAR(50),
-PRIMARY KEY(consumerID, businessID)
-=======
 transactionID INT NOT NULL UNIQUE,
 consumerID INT,
 businessID INT,
@@ -61,7 +46,6 @@ payment_method VARCHAR(50),
 PRIMARY KEY (transactionID),
 FOREIGN KEY (consumerID) REFERENCES credit_card_info (consumerID),
 FOREIGN KEY (businessID) REFERENCES accounting (businessID)
->>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
 );
 
 CREATE TABLE IF NOT EXISTS business(
@@ -94,29 +78,10 @@ CREATE TABLE IF NOT EXISTS chat(
 chatID INT NOT NULL PRIMARY KEY,
 consumerID INT,
 businessID INT,
-<<<<<<< HEAD
-fname_of_consumer VARCHAR(150),
-lname_of_consumer VARCHAR(150),
-consumer_email varchar(150),
-consumer_profile varchar(250),
-name_of_business VARCHAR(150),
-business_email varchar(150),
-business_profile varchar(250),
-=======
->>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
 FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
 
-<<<<<<< HEAD
-CREATE TABLE IF NOT EXISTS accounting(
-businessID INT NOT NULL PRIMARY KEY,
-payment_history VARCHAR(150),
-bank_information VARCHAR(150),
-rate_per_hour CHAR(10) NOT NULL
-);
-
-=======
 CREATE TABLE IF NOT EXISTS education_histry(
 businessID,
 education_level INT,
@@ -130,4 +95,3 @@ job_title VARCHAR(50),
 job_category VARCHAR(50),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
->>>>>>> cb1acd7dfbf9a98b3694d42ea09ec374954ba06a
