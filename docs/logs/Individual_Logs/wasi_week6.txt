@@ -1,5 +1,0 @@
-updated and talked about db redesign 2h
-made webhooks for tables 4h
-tested api hooks 4h
-node api setup 4h
-meeting with client 2h
