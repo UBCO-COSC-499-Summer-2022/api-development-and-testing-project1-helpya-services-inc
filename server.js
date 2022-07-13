@@ -1,4 +1,6 @@
 const express = require("express");
+const { expressjwt: expressjwt } = require("express-jwt");
+const auth = require("./app/middleware/auth.js");
 const cors = require("cors");
 const app = express();
 var corsOptions = {
@@ -11,10 +13,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Verify which apis do not require tokens
 app.use(expressjwt({
-  secret:JWT_CONFIG.scriect,
+  secret:auth.JWT_CONFIG.scriect,
   algorithms: ['HS256']
 }).unless({
-  path: JWT_CONFIG.path
+  path: auth.JWT_CONFIG.path
 }))
 // validation token 
 app.use((req,res,next)=>{
