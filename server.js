@@ -9,9 +9,19 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET"],
+    credentials: true,
+  })
+);
+app.length("/data", (req, res) => {
+  res.json({ user_name: "test", password: "test" });
+});
+app.put("/data", (req, res) => {
+  res.json({});
 });
 require("./app/routes/consumer.routes.js")(app);
 require("./app/routes/accounting.routes.js")(app);
@@ -23,6 +33,8 @@ require("./app/routes/payment.routes.js")(app);
 require("./app/routes/recentSearches.routes.js")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
-module.exports=app.listen(PORT, () => {
+module.exports = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+
+app.listen(3000);
