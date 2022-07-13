@@ -8,7 +8,9 @@ email varchar(150) NOT NULL UNIQUE,
 phone_number char(15) NOT NULL UNIQUE,
 location varchar(50) NOT NULL,
 consumer_profile varchar(250),
-generalID INT NOT NULL
+generalID INT NOT NULL,
+user_name varchar(250) NOT NULL,
+password varchar(250) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS accounting(
@@ -62,7 +64,9 @@ keywords VARCHAR(50),
 education VARCHAR(150),
 pictures VARCHAR(500),
 description VARCHAR(500),
-general_ID INT NOT NULL
+general_ID INT NOT NULL,
+user_name varchar(250) NOT NULL,
+password varchar(250) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS consumer_history(
