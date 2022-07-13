@@ -78,15 +78,6 @@ CREATE TABLE IF NOT EXISTS chat(
 chatID INT NOT NULL PRIMARY KEY,
 consumerID INT,
 businessID INT,
-
-fname_of_consumer VARCHAR(150),
-lname_of_consumer VARCHAR(150),
-consumer_email VARCHAR(150),
-consumer_profile VARCHAR(150),
-name_of_business VARCHAR(50),
-business_email VARCHAR(150),
-business_profile VARCHAR(150),
-
 FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
 FOREIGN KEY (businessID) REFERENCES business(businessID)
 );
