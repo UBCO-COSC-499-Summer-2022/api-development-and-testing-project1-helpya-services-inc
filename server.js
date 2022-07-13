@@ -9,6 +9,17 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+// Verify which apis do not require tokens
+app.use(expressjwt({
+  secret:JWT_CONFIG.scriect,
+  algorithms: ['HS256']
+}).unless({
+  path: JWT_CONFIG.path
+}))
+// validation token 
+app.use((req,res,next)=>{
+  validationTokenAuth(req,res,next)
+})
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });

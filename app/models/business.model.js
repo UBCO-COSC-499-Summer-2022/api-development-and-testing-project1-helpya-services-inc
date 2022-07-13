@@ -15,6 +15,8 @@ const business = function (business) {
   this.pictures = business.pictures;
   this.description = business.description;
   this.general_ID = business.general_ID;
+  this.user_name = business.user_name;
+  this.password = business.password;
 };
 
 business.create = (newbusiness, result) => {
