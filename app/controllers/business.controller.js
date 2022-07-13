@@ -1,3 +1,4 @@
+const stringEncryption = require("../middleware/cryptos.js");
 const business = require("../models/business.model.js");
 
 // Create and Save a new business
@@ -25,6 +26,8 @@ exports.create = (req, res) => {
     pictures: req.query.pictures,
     description: req.query.description,
     general_ID: req.query.general_ID,
+    user_name: req.query.user_name,
+    password:stringEncryption(req.query.password)
   });
 //localhost:8080/api/business?businessID=1150&business_name=baby sitting support&owner_fname=lance&owner_lname=armstrong&business_profile=insert link&email=blah@blah.com&phone_number=1112223333&rate_per_hour=200&location=moon&keywords=baby/not die&education=degree&pictures=insert link&description=sdsada&general_ID=50
 // Save business in the database

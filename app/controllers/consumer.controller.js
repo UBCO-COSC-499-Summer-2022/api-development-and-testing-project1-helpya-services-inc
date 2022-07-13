@@ -1,3 +1,4 @@
+const stringEncryption = require("../middleware/cryptos.js");
 const consumer = require("../models/consumer.model.js");
 // Create and Save a new consumer
 exports.create = (req, res) => {
@@ -17,6 +18,8 @@ exports.create = (req, res) => {
     location: req.query.location,
     consumer_profile: req.query.consumer_profile,
     generalID: req.query.generalID,
+    user_name:req.query.user_name,
+    password:stringEncryption(req.query.password)
   });
 
   // Save consumer in the database

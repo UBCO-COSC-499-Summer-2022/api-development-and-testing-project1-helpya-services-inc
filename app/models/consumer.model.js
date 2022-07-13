@@ -9,6 +9,7 @@ const consumer = function (consumer) {
   this.location = consumer.location;
   this.consumer_profile = consumer.consumer_profile;
   this.generalID = consumer.generalID;
+  this.user_name = consumer.user_name;
 };
 consumer.create = (newconsumer, result) => {
   sql.query("INSERT INTO consumer SET ?", newconsumer, (err, res) => {
