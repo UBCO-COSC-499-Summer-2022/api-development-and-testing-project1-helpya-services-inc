@@ -10,16 +10,10 @@ exports.create = (req, res) => {
   }
   // Create a chat
   const Chat = new chat({
-    chatID: req.body.chatID,
-    consumerID: req.body.consumerID,
-    chatID: req.body.chatID,
-    fname_of_owner: req.body.fname_of_owner,
-    lname_of_owner: req.body.lname_of_owner,
-    consumer_email: req.body.consumer_email,
-    consumer_profile: req.body.consumer_profile,
-    name_of_chat: req.body.name_of_chat,
-    chat_email: req.body.chat_email,
-    consumer_profile: req.body.chat_profile,
+
+    chatID: req.query.chatID,
+    consumerID: req.query.consumerID,
+    businessID:req.query.businessID
   });
 
   // Save chat in the database
@@ -72,7 +66,9 @@ exports.update = (req, res) => {
     });
   }
   console.log(req.body);
+
   chat.updateById(req.params.id, new chat(req.body), (err, data) => {
+
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({

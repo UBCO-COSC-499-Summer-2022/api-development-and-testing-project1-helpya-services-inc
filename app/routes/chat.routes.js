@@ -10,7 +10,9 @@ module.exports = (app) => {
     // Retrieve a single Tutorial with id
     router.get("/:id", chat.findOne);
     // Update a Tutorial with id
-   // router.put("/:id", chat.update);
+
+    router.put("/:id", chat.update);
+
     // Delete a Tutorial with id
     router.delete("/:id", chat.delete);
     // Delete all chat

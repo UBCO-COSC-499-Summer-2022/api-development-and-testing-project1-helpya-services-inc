@@ -45,8 +45,10 @@ consumer_history.getAll = (title, result) => {
       result(null, err);
       return;
     }
-    console.log("consumer_history: ", res);
-    result(null, res);
+
+result(null,res);
+    
+
   });
 };
 /*
@@ -64,8 +66,10 @@ consumer_history.getAllPublished = (result) => {
 */
 consumer_history.updateById = (id, consumer_history, result) => {
   sql.query(
-    "UPDATE consumer_history SET payment_method = ?, payment_logs = ? WHERE id = ?",
-    [consumer_history.fname_of_consumer_history, consumer_history.lname_of_consumer_history, consumer_history.email, consumer_history.phone_number, consumer_history.location, consumer_history.consumer_history_profile, id],
+
+    "UPDATE consumer_history SET payment_method = ?, payment_logs = ? WHERE consumerID = ?",
+    [  consumer_history.payment_method,consumer_history.payment_logs, id],
+
     (err, res) => {
       if (err) {
         console.log("error: ", err);

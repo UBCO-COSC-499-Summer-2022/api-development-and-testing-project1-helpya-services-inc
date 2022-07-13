@@ -74,7 +74,9 @@ accounting.getAllPublished = (result) => {
 accounting.updateById = (id, accounting, result) => {
   sql.query(
     "UPDATE accounting SET bank_information = ?, rate_per_hour = ? WHERE businessID = ?",
-    [bank_information, rate_per_hour],
+
+    [accounting.bank_information, accounting.rate_per_hour,id],
+
     (err, res) => {
       if (err) {
         console.log("error: ", err);

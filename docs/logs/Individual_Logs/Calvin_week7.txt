@@ -1,0 +1,18 @@
+Fix database during unit test (6h)
+-forerign key issues (done)
+-unmatched variable names (done)
+-set more testing data (done)
+-logical bugs in controller and model for accounting (done)
+-correct type error in database (done)
+
+Unit Testing (7h)
+-connecting to local database (done)
+-learn mocha and chai methods (done)
+-*testing all the components for accounting with example data and solve bugs(all of accounting components passed)
+-testing components for bussiness with example data (in progress)
+-push the test file to github (done)
+-fixing bugs when pull request and merge to main branch (in progess)
+
+Creating PowerPoint for MVP Presesntation (1h)
+
+Writing weekly log (0.5h)

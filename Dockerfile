@@ -2,15 +2,14 @@
 
 FROM node:12.18.1
 
-# change to production
-ENV NODE_ENV=development
-
 WORKDIR /app
 
-COPY ["package.json", "package-lock.json*", "./"]
+COPY "package.json" "./"
 
 RUN npm install --production
 
 COPY . .
 
+ENV PORT=3306
+EXPOSE 3306
 CMD [ "node", "server.js" ]
