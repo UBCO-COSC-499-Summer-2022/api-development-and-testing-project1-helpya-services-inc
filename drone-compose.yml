@@ -8,6 +8,8 @@ services:
       - "3306"
     volumes:
       - db:/var/lib/mysql
+      - ./server.js:/app/server.js
+      - ./app:/app/app
   app:
     depends_on:
       - mysqldb
