@@ -4,19 +4,19 @@ type: docker
 name: node-latest
 
 steps:
-- name: db-setup
-  image: compose:1.29.2
-  volumes:
-  - name: docker_sock
-    path: /var/run/docker.sock
-  commands:
-  - up
+  - name: db-setup
+    image: compose:1.29.2
+    volumes:
+      - name: docker_sock
+        path: /var/run/docker.sock
+    commands:
+      - up
 
-- name: test
-  image: node:latest
-  commands:
-  - npm install
-  - npm test
+  - name: test
+    image: node:latest
+    commands:
+      - npm install
+      - npm test
 
 volumes:
   - name: docker_sock
