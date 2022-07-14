@@ -10,6 +10,4 @@ RUN npm install --production
 
 COPY . .
 
-ENV PORT=3306
-EXPOSE 3306
 CMD [ "node", "server.js" ]

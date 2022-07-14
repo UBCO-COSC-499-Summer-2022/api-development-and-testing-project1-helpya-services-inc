@@ -5,10 +5,12 @@ name: node-latest
 
 steps:
 - name: db-setup
-  image: mysql
+  image: compose:1.29.2
+  volumes:
+  - name: docker_sock
+    path: /var/run/docker.sock
   commands:
-  - sleep 30
-  - mysql -u test -h database --execute="SELECT VERSION();"
+  - up
 
 - name: test
   image: node:latest
@@ -16,12 +18,7 @@ steps:
   - npm install
   - npm test
 
-services:
-- name: database
-  image: mysql
-  ports:
-  - 3306
-  environment:
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    MYSQL_DATABASE: test
-...
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
