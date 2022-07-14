@@ -14,10 +14,12 @@ steps:
 
   - name: test
     image: node:latest
+    volumes:
+      - name: docker_sock
+        path: /var/run/docker.sock
     commands:
       - npm install
       - npm test
-
 volumes:
   - name: docker_sock
     host:

@@ -3,7 +3,7 @@ var assert = require("assert");
 let chai = require("chai");
 const { ChildProcess } = require("child_process");
 let chaiHttp = require("chai-http");
-let server = require("../server.js");
+let server = require("../server");
 chai.should();
 chai.use(chaiHttp);
 

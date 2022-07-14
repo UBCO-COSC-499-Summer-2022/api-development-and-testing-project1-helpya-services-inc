@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     env_file: ./.env
     expose:
-      - "8080"
+      - "3306"
     volumes:
       - db:/var/lib/mysql
   app:
