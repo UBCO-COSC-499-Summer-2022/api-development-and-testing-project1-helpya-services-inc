@@ -8,8 +8,6 @@ services:
       - "3306"
     volumes:
       - db:/var/lib/mysql
-      - ./server.js:/app/server.js
-      - ./app:/app/app
   app:
     depends_on:
       - mysqldb
@@ -25,7 +23,7 @@ services:
       - DB_NAME=$MYSQLDB_DATABASE
       - DB_PORT=$MYSQLDB_DOCKER_PORT
     volumes:
-      - ./server.js:/app/server.js
+      - ./server.js:/app/app/server.js
       - ./app:/app/app
 volumes: 
   db:
