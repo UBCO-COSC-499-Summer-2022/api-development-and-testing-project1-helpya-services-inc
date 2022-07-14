@@ -17,6 +17,8 @@ steps:
     volumes:
       - name: docker_sock
         path: /var/run/docker.sock
+    expose:
+      - "8080"
     commands:
       - npm install
       - npm test
