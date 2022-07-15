@@ -1,9 +1,19 @@
 version: '3.8'
 services:
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    env_file: ./.env
+    expose:
+      - "3306"
+    volumes:
+      - db:/var/lib/mysql
+      - ./app:/app/app
+      
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    depends_on:
+      - mysqldb
+    build: ./
     restart: unless-stopped
     env_file: ./.env
     expose:
@@ -11,15 +21,5 @@ services:
     volumes:
       - ./server.js:/app/app/server.js
       - ./app:/app/app
-      - '/app/node_modules'
-
-    mysql_server:
-      image: mysql:latest
-      restart: unless-stopped
-      env_file: ./.env
-      expose:
-        - "3306"
-      volumes:
-        - db:/var/lib/mysql
-        - .:/app
-      env_file: ./.env
+volumes: 
+  db:
