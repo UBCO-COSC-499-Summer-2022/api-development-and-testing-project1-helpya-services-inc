@@ -25,5 +25,6 @@ services:
     volumes:
       - ./server.js:/app/server.js
       - ./app:/app/app
+      - ./app/routes/consumer.routes.js:/app/app/routes/consumer.routes.js
 volumes: 
   db:
