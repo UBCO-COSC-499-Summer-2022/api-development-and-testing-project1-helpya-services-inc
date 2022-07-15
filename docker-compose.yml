@@ -23,7 +23,6 @@ services:
       - DB_NAME=$MYSQLDB_DATABASE
       - DB_PORT=$MYSQLDB_DOCKER_PORT
     volumes:
-      - ./server.js:/app/server.js
       - .:/app
 volumes: 
   db:
