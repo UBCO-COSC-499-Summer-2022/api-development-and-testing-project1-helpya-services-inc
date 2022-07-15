@@ -10,7 +10,7 @@ location varchar(50) NOT NULL,
 consumer_profile varchar(250),
 generalID INT NOT NULL,
 user_name varchar(250) NOT NULL,
-password varchar(250) NOT NULL
+password VARbinary(250) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS accounting(
@@ -66,7 +66,7 @@ pictures VARCHAR(500),
 description VARCHAR(500),
 general_ID INT NOT NULL,
 user_name varchar(250) NOT NULL,
-password varchar(250) NOT NULL
+password VARbinary(250) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS consumer_history(
