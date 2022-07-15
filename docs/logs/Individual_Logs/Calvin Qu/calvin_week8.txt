@@ -1,0 +1,4 @@
+Learing about sercurity and login (3h)
+code for login part (9h)
+debug login (2h)
+update test file (2h)
