@@ -9,10 +9,8 @@ steps:
     volumes:
       - name: docker_sock
         path: /var/run/docker.sock
-    environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     commands:
-      - docker-compose -f drone-compose.yml up
+      - docker-compose -f drone-compose.yml up --build
 
   - name: test
     image: node:latest
