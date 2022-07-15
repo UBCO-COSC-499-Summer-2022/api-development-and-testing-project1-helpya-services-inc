@@ -10,6 +10,7 @@ steps:
       - name: docker_sock
         path: /var/run/docker.sock
     commands:
+      - cd ./src
       - docker-compose -f drone-compose.yml up 
 
   - name: test
