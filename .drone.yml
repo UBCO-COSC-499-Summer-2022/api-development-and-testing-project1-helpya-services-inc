@@ -9,6 +9,8 @@ steps:
     volumes:
       - name: docker_sock
         path: /var/run/docker.sock
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     commands:
       - docker-compose -f drone-compose.yml up
 
@@ -18,7 +20,7 @@ steps:
       - name: docker_sock
         path: /var/run/docker.sock
     expose:
-      - "8080"
+      - 8080
     commands:
       - npm install
       - npm test
