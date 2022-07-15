@@ -5,9 +5,10 @@ services:
     restart: unless-stopped
     env_file: ./.env
     expose:
-      - 3306
+      - "3306"
     volumes:
       - db:/var/lib/mysql
+      - .:/app
   app:
     depends_on:
       - mysqldb
@@ -15,7 +16,13 @@ services:
     restart: unless-stopped
     env_file: ./.env
     expose:
-      - 8080
+      - "8080"
+    environment:
+      - DB_HOST=mysqldb
+      - DB_USER=$MYSQLDB_USER
+      - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
+      - DB_NAME=$MYSQLDB_DATABASE
+      - DB_PORT=$MYSQLDB_DOCKER_PORT
     volumes:
       - ./server.js:/app/app/server.js
       - ./app:/app/app
