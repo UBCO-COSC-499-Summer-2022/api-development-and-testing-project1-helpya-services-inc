@@ -19,6 +19,7 @@ steps:
         path: /var/run/docker.sock
     expose:
       - "8080"
+      - "3306"
     commands:
       - npm install
       - npm test
