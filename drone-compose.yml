@@ -1,30 +1,25 @@
 version: '3.8'
 services:
-  mysqldb:
-    image: mysql:5.7
-    restart: unless-stopped
-    env_file: ./.env
-    expose:
-      - "3306"
-    volumes:
-      - db:/var/lib/mysql
-      - .:/app
   app:
-    depends_on:
-      - mysqldb
-    build: ./
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
     env_file: ./.env
     expose:
-      - "8080"
-    environment:
-      - DB_HOST=mysqldb
-      - DB_USER=$MYSQLDB_USER
-      - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
-      - DB_NAME=$MYSQLDB_DATABASE
-      - DB_PORT=$MYSQLDB_DOCKER_PORT
+      - 8080:8080
     volumes:
       - ./server.js:/app/app/server.js
       - ./app:/app/app
-volumes: 
-  db:
+      - '/app/node_modules'
+
+    mysql_server:
+      image: mysql:latest
+      restart: unless-stopped
+      env_file: ./.env
+      expose:
+        - "3306"
+      volumes:
+        - db:/var/lib/mysql
+        - .:/app
+      env_file: ./.env
