@@ -1,4 +1,4 @@
-fetch("http://localhost:3306/data", { method: 
-"GET", credentials: 'include'})
+fetch("http://localhost:3306/data", { 
+    credentials: 'include'})
     .then(res => res.json())
     .then(data => console.log(data))
