@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     env_file: ./.env
     expose:
-      - 8080:8080
+      - "8080"
     volumes:
       - ./server.js:/app/app/server.js
       - ./app:/app/app
