@@ -1,13 +1,13 @@
 # syntax=docker/dockerfile:1
 
-FROM node:latest
+FROM node:12.18.1
 
 WORKDIR /app
 
-COPY "package.json" "./"
+COPY package*.json ./
 
-RUN npm install --production
+RUN npm install
 
 COPY . .
 
-CMD [ "node", "server.js" ]
+CMD [ "npm", "start" ]
