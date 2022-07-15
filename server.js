@@ -10,16 +10,31 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+//admins
+app.use(
+  cors({
+    origin: "http://localhost:3306",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+//general user
 app.use(
   cors({
     origin: "*",
     credentials: true,
   })
 );
-app.length("/data", (req, res) => {
-  res.json({ user_name: "test", password: "test" });
+app.get("/data", (req, res) => {
+  res.json({});
+});
+app.post("/data", (req, res) => {
+  res.json({});
 });
 app.put("/data", (req, res) => {
+  res.json({});
+});
+app.delete("/data", (req, res) => {
   res.json({});
 });
 require("./app/routes/consumer.routes.js")(app);
