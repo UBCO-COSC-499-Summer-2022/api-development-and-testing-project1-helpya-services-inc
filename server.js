@@ -1,6 +1,7 @@
 const express = require("express");
 const { expressjwt: expressjwt } = require("express-jwt");
 const auth = require("./app/middleware/auth.js");
+const { validationTokenAuth, JWT_CONFIG } = require("./app/middleware/auth.js");
 const cors = require("cors");
 const app = express();
 var corsOptions = {
@@ -36,6 +37,7 @@ require("./app/routes/payment.routes.js")(app);
 require("./app/routes/recentSearches.routes.js")(app);
 require("./app/routes/education_history.routes.js")(app);
 require("./app/routes/job_type.routes.js")(app);
+require("./app/routes/login.routes.js")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 module.exports=app.listen(PORT, () => {
