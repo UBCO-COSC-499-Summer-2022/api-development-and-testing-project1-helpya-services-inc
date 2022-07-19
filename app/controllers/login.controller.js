@@ -7,9 +7,9 @@ const AccountType = Object.freeze({
 })
 
 const loginAccount = (type, params,res) => {
-  if(!params.user_name){
+  if(!params.email){
     return res.status(400).send({
-      message: 'user_name is required'
+      message: 'email is required'
     })
   }
   if(!params.password){
@@ -17,7 +17,7 @@ const loginAccount = (type, params,res) => {
       message: 'password is required'
     })
   }
-  login.findByUserName(type,params.user_name,(err, data)=>{
+  login.findByUserName(type,params.email,(err, data)=>{
     if(data) {
       if(stringEncryption(params.password)===data.password){
         // success

@@ -2,8 +2,8 @@ const sql = require("./db.js");
 // constructor
 const login = function(login){}
 
-login.findByUserName = (type,userName,result)=>{
-  sql.query(`SELECT * FROM ${type} WHERE user_name='${userName}'`, (err, res) => {
+login.findByUserName = (type,email,result)=>{
+  sql.query(`SELECT * FROM ${type} WHERE email='${email}'`, (err, res) => {
     if (err) {
       result(err, null);
       return;
