@@ -3,8 +3,7 @@ const jwt = require('jsonwebtoken')
 const JWT_CONFIG = {
   scriect: "jvp3_D*@vccs.f9skqlop#z",
   path: [
-    {url:'/api/login/consumer',method:"POST"},
-    {url:'/api/login/business',method:"POST"}
+    {url:'/api/login/consumer',method:"POST"}
   ]
 }
 

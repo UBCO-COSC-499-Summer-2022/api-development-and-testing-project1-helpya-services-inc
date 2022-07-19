@@ -3,8 +3,7 @@ const stringEncryption = require("../middleware/cryptos.js");
 const login = require("../models/login.model.js");
 
 const AccountType = Object.freeze({
-  consumer: 'consumer',
-  business: 'business'
+  consumer: 'consumer'
 })
 
 const loginAccount = (type, params,res) => {
@@ -46,11 +45,3 @@ exports.loginConsumerAccount = (req, res) => {
   loginAccount(AccountType.consumer,req.body,res);
 }
 
-exports.loginBusinessAccount = (req, res) => {
-  if (!req.body) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-  }
-  loginAccount(AccountType.business,req.body,res);
-}
