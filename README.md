@@ -37,16 +37,22 @@ This endpoint will take in the contents for accounting. The accounting endpoint 
 
 -**Business:**
 This endpoint will hold the contents for the business table. You will be able to manipulate this table using the businessID. This endpoint will have all contents the business's will need to make a account.
+
 -**Chat:**
 This endpoint represents the communication between a consumer and business. This will hold basic information on the user side and on the admin side will have the ID's of both users in the chat. To find and manipulate the chat you can do so using the chatID. 
+
 -**Consumer_History:**
 The consumer history endpoint will hold the accounting information for the consumer. This will be able to be accessed using the consumerID. 
+
 -**Consumer:**
 This endpoint will hold the contents for the consumer table. You will be able to manipulate this table using the consumerID. This endpoint will have all contents the consumer's will need to make a account.
+
 -**Credit_Card_Info:**
 This endpoint will hold the payment information for the consumer, it can be accessed and manipulated using the consumerID. You will be able to create, find, delete and update this endpoint. 
+
 -**Education_History:**
 This endpoint holds the education level of the business's owners. Will have a number associated with this as well as description of their highest level of education completed. Can be accessed and manipulated using the businessID.
+
 -**Job_Type:**
 This endpoint holds the jobs the business's are offering - they will also be able to categorize these jobs from a selected list.
 -**Login:**
