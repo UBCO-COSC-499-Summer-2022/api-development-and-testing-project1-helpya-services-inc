@@ -1,0 +1,2 @@
+Learning about adding token to test files (4h)
+Coding test file for all the tables for db (in progress) (5h)
