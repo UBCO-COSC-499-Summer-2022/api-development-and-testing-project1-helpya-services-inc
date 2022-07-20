@@ -12,6 +12,7 @@ exports.create = (req, res) => {
   const Chat = new chat({
     chatID: req.body.chatID,
     consumerID: req.body.consumerID,
+    businessID: req.body.businessID,
     chatID: req.body.chatID,
     fname_of_owner: req.body.fname_of_owner,
     lname_of_owner: req.body.lname_of_owner,
