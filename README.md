@@ -34,6 +34,7 @@ These are staff members who can access the backend and frontend of the software 
 # Descriptions of the Endpoints
 -**Accounting:**
 This endpoint will take in the contents for accounting. The accounting endpoint is associated with the businesses. You will be able to find the business' accounting's using the businessID. 
+
 -**Business:**
 This endpoint will hold the contents for the business table. You will be able to manipulate this table using the businessID. This endpoint will have all contents the business's will need to make a account.
 -**Chat:**
