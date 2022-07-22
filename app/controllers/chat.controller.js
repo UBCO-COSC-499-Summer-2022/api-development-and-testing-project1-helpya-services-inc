@@ -63,7 +63,7 @@ exports.findOne = (req, res) => {
 
 // find all published chat
 exports.findAllPublished = (req, res) => {};
-
+/*
 // Update a chat identified by the id in the request
 exports.update = (req, res) => {
   // Validate Request
@@ -87,7 +87,7 @@ exports.update = (req, res) => {
     } else res.send(data);
   });
 };
-
+*/
 // Delete a chat with the specified id in the request
 exports.delete = (req, res) => {
   chat.remove(req.params.id, (err, data) => {
