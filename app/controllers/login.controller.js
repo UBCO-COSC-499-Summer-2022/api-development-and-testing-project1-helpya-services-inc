@@ -3,14 +3,13 @@ const stringEncryption = require("../middleware/cryptos.js");
 const login = require("../models/login.model.js");
 
 const AccountType = Object.freeze({
-  consumer: 'consumer',
-  business: 'business'
+  consumer: 'consumer'
 })
 
 const loginAccount = (type, params,res) => {
-  if(!params.user_name){
+  if(!params.email){
     return res.status(400).send({
-      message: 'user_name is required'
+      message: 'email is required'
     })
   }
   if(!params.password){
@@ -18,7 +17,7 @@ const loginAccount = (type, params,res) => {
       message: 'password is required'
     })
   }
-  login.findByUserName(type,params.user_name,(err, data)=>{
+  login.findByUserName(type,params.email,(err, data)=>{
     if(data) {
       if(stringEncryption(params.password)===data.password){
         // success
@@ -46,11 +45,3 @@ exports.loginConsumerAccount = (req, res) => {
   loginAccount(AccountType.consumer,req.body,res);
 }
 
-exports.loginBusinessAccount = (req, res) => {
-  if (!req.body) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-  }
-  loginAccount(AccountType.business,req.body,res);
-}
