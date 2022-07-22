@@ -12,6 +12,8 @@ These are any users looking for services.
 These are companies or services that are looking to gain popularity and provide services to whomever are looking for them.
 - **Admin Account:**
 These are staff members who can access the backend and frontend of the software and edit the data.
+- **Helpya Account: **
+This account is purely used to create subscriptions and deals for businesses to purchase
 
 # User Interface
 **List of Features:** 
