@@ -30,5 +30,5 @@ const validationTokenAuth = (req,res,next) => {
 module.exports = {
   setToken,
   validationTokenAuth,
-  JWT_CONFIG
+  
 }
