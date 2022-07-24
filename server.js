@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use((req,res,next)=>{
 //   validationTokenAuth(req,res,next)
 // })
+
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to HelpYa application." });
