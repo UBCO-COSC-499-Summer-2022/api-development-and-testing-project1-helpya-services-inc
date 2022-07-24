@@ -16,6 +16,7 @@ describe('consumer API',()=>{
     it('create',(done) => {
       chai.request(server)
       .post("/api/consumer/")
+      .set('Authorization',`Bearer ${token}`)
       .send({
         'consumerID': consumerID,
         'fname_of_consumer': 'fname',
