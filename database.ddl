@@ -63,7 +63,8 @@ keywords VARCHAR(50),
 education VARCHAR(150),
 pictures VARCHAR(500),
 description VARCHAR(500),
-general_ID INT NOT NULL
+general_ID INT NOT NULL,
+active_account BIT(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS consumer_history(
