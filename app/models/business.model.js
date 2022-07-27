@@ -15,8 +15,7 @@ const business = function (business) {
   this.pictures = business.pictures;
   this.description = business.description;
   this.general_ID = business.general_ID;
-  this.user_name = business.user_name;
-  this.password = business.password;
+  this.active_account = business.active_account;
 };
 
 business.create = (newbusiness, result) => {
@@ -27,8 +26,7 @@ business.create = (newbusiness, result) => {
       result(err, null);
       return;
     }
-    console.log("created business: ", { id: res.insertId, ...newbusiness });
-    result(null, { id: res.insertId, ...newbusiness });
+    result(null, "success");
   });
 };
 
