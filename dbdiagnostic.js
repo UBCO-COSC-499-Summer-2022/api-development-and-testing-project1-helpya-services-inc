@@ -8,7 +8,7 @@ const con = mysql2.createPool({
   password: "",
   database: "heroku_7d45a1c09c1d741",
   port: 3306,
-  debug: true,
+  debug: false,
 });
 
 con.getConnection(function (err) {
