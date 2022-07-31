@@ -8,12 +8,12 @@ steps:
   commands:
   - sleep 30
   - mysql -u root -h database --execute="SELECT VERSION();"
-  - mysql -u root -h database --execute="CREATE DATABASE IF NOT EXISTS heroku_7d45a1c09c1d741"
-  - mysql -u root -h database --execute="CREATE USER 'be51542c7ae965'@'database' IDENTIFIED BY '8fbdc8b3';"
-  - mysql -u root -h database --execute="GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'be51542c7ae965'@'database' WITH GRANT OPTION;"
-  - mysql -u root -h database --execute="SELECT host,user,authentication_string FROM mysql.user"
-  - mysql -u root -h database heroku_7d45a1c09c1d741 < database.sql
-  - mysql -u root -h database --execute="SHOW DATABASES;"
+  # - mysql -u root -h database --execute="CREATE DATABASE IF NOT EXISTS heroku_7d45a1c09c1d741"
+  # - mysql -u root -h database --execute="CREATE USER 'be51542c7ae965'@'database' IDENTIFIED BY '8fbdc8b3';"
+  # - mysql -u root -h database --execute="GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'be51542c7ae965'@'database' WITH GRANT OPTION;"
+  # - mysql -u root -h database --execute="SELECT host,user,authentication_string FROM mysql.user"
+  # - mysql -u root -h database heroku_7d45a1c09c1d741 < database.sql
+  # - mysql -u root -h database --execute="SHOW DATABASES;"
 
 - name: test
   image: node:latest
@@ -28,11 +28,11 @@ services:
   ports:
   - 3306
   environment:
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes' 
     MYSQL_DATABASE: heroku_7d45a1c09c1d741
     MYSQL_USER: be51542c7ae965
     MYSQL_PASSWORD: 8fbdc8b3
-
+    MYSQL_Grant: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'be51542c7ae965'@'database' WITH GRANT OPTION
 
 ---
 kind: pipeline
