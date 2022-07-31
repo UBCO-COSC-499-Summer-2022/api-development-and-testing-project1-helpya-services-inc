@@ -1,6 +1,6 @@
 ---
 kind: pipeline
-name: app-test
+name: database
 
 steps:
 - name: db-setup
