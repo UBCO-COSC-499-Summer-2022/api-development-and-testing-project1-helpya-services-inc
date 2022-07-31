@@ -8,9 +8,9 @@ steps:
   commands:
   - sleep 30
   - mysql -u root -h database --execute="SELECT VERSION();"
-  - mysql -u root -h database --execute="SHOW DATABASES;"
+  - mysql -u root -h database --execute="CREATE DATABASE IF NOT EXISTS helpyadb"
   - mysql -u root -h database --execute="CREATE USER 'be51542c7ae965'@'localhost' IDENTIFIED BY '8fbdc8b3';"
-  - mysql -u root -h database database < database.sql
+  - mysql -u root -h database helpyadb < database.sql
 - name: test
   image: node:latest
   commands:
