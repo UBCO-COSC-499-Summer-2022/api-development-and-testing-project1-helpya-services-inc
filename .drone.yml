@@ -2,6 +2,7 @@
 kind: pipeline
 name: node-latest
 
+
 steps:
 - name: db-setup
   image: mysql
