@@ -28,7 +28,6 @@ services:
   ports:
   - 3306
   environment:
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes' 
     MYSQL_DATABASE: heroku_7d45a1c09c1d741
     MYSQL_USER: be51542c7ae965
     MYSQL_PASSWORD: 8fbdc8b3
