@@ -4,7 +4,7 @@ name: app-test
 
 steps:
 - name: db-setup
-  image: mysql:lates
+  image: mysql:latest
   commands:
   - sleep 30
   - mysql -u root -p password -h database --execute="SELECT VERSION();"
