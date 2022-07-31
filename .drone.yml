@@ -8,7 +8,7 @@ steps:
   commands:
   - sleep 30
   - mysql -u root -h database --execute="SELECT VERSION();"
-  - mysql -u root -h database --execute="CREATE DATABASE IF NOT EXISTS heroku_7d45a1c09c1d741pyadb"
+  - mysql -u root -h database --execute="CREATE DATABASE IF NOT EXISTS heroku_7d45a1c09c1d741"
   - mysql -u root -h database --execute="CREATE USER 'be51542c7ae965'@'localhost' IDENTIFIED BY '8fbdc8b3';"
   - mysql -u root -h database --execute="GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'be51542c7ae965'@'localhost' WITH GRANT OPTION;"
   - mysql -u root -h database --execute="SELECT host,user,authentication_string FROM mysql.user"
