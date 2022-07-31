@@ -9,7 +9,7 @@ steps:
   - sleep 30
   # - mysql -u root -h database --execute="ALTER USER 'root'@'database' IDENTIFIED WITH mysql_native_password BY 'password';"
   # - mysql -u root -h database --execute="SELECT VERSION();"
-  - mysql -u root -p password -h database --execute="CREATE DATABASE IF NOT EXISTS heroku_b5b309c959adca7"
+  - mysql -u root -p -h database --execute="CREATE DATABASE IF NOT EXISTS heroku_b5b309c959adca7"
   # - mysql -u root -h database --execute="CREATE USER 'be51542c7ae965'@'database' IDENTIFIED BY '8fbdc8b3';"
   # - mysql -u root -h database --execute="GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'be51542c7ae965'@'database' WITH GRANT OPTION;"
   # - mysql -u root -h database --execute="SELECT host,user,authentication_string FROM mysql.user"
