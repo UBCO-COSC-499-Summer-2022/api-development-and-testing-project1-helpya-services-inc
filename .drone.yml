@@ -36,14 +36,14 @@ services:
 
 
 ---
-kind: pipeline
-name: node14
+# kind: pipeline
+# name: node14
 
-steps:
-- name: test
-  image: node:14
-  commands:
-  - npm install
-  - npm test
+# steps:
+# - name: test
+#   image: node:14
+#   commands:
+#   - npm install
+#   - npm test
 
 ...
