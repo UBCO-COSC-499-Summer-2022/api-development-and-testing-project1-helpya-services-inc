@@ -19,7 +19,7 @@ steps:
   image: node:latest
   commands:
   - npm install
-  - node dbdiagnostic.js
+  # - node dbdiagnostic.js
   - npm test
 
 services:
