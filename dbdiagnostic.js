@@ -11,7 +11,7 @@ const con = mysql.createPool({
   debug: true,
 });
 
-con.connect(function (err) {
+con.getConnection(function (err) {
   if (err) throw err;
   con.query(
     "SELECT host,user,authentication_string FROM mysql.user",
@@ -21,7 +21,7 @@ con.connect(function (err) {
     }
   );
 });
-con.connect(function (err) {
+con.getConnection(function (err) {
   if (err) throw err;
   con.query("SHOW DATABASES", function (err, result, fields) {
     if (err) throw err;
