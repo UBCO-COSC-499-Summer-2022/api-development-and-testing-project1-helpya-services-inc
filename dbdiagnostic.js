@@ -28,3 +28,5 @@ con.getConnection(function (err) {
     console.log(result);
   });
 });
+
+con.end();
