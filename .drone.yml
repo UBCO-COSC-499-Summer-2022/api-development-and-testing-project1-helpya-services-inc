@@ -9,7 +9,7 @@ steps:
   - sleep 30
   - mysql -u root -h database --execute="SELECT VERSION();"
   - mysql -u root -h database --execute="CREATE DATABASE IF NOT EXISTS helpyadb"
-  - mysql -u root -h database --execute="CREATE USER 'be51542c7ae965'@'localhost' IDENTIFIED BY '8fbdc8b3';"
+  - mysql -u root -h database --execute="CREATE USER 'be51542c7ae965'@'ip-10-0-3-24.ec2.internal' IDENTIFIED BY '8fbdc8b3';"
   - mysql -u root -h database helpyadb < database.sql
 - name: test
   image: node:latest
