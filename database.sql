@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS helpyadb;
-use helpyadb;
+CREATE DATABASE IF NOT EXISTS heroku_7d45a1c09c1d741;
+use heroku_7d45a1c09c1d741;
 CREATE TABLE IF NOT EXISTS consumer(
 consumerID INT NOT NULL UNIQUE PRIMARY KEY,
 fname_of_consumer varchar(150) NOT NULL,
