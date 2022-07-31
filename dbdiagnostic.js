@@ -1,12 +1,12 @@
-const mysql = require("mysql");
+const mysql2 = require("mysql2");
 //const dbConfig = require("../config/db.heroku.config.js");
 // Create a connection to the database
-const con = mysql.createPool({
+const con = mysql2.createPool({
   connectionLimit: 100,
   host: "database",
   user: "root",
   password: "",
-  database: "database",
+  database: "heroku_7d45a1c09c1d741",
   port: 3306,
   debug: true,
 });
