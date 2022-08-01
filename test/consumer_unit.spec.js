@@ -22,7 +22,6 @@ describe("consumer unit test",()=>{
       'location': 'AS',
       'consumer_profile': 'abc',
       'generalID': 1,
-      'user_name': 'ali',
       'password': stringEncryption('123456')
     }
     it("should add a new consumer",(done)=>{
@@ -40,7 +39,6 @@ describe("consumer unit test",()=>{
       expect(result.location).to.be.an("string")
       expect(result.consumer_profile).to.be.an("string")
       expect(result.generalID).to.be.an("number")
-      expect(result.user_name).to.be.an("string")
       expect(result.password).to.be.an("string")
       done()
     })

@@ -32,7 +32,6 @@ require("./app/routes/accounting.routes.js")(app);
 require("./app/routes/business.routes.js")(app);
 require("./app/routes/chat.routes.js")(app);
 require("./app/routes/consumer_history.routes.js")(app);
-require("./app/routes/credit_card_info.routes.js")(app);
 require("./app/routes/payment.routes.js")(app);
 require("./app/routes/recentSearches.routes.js")(app);
 require("./app/routes/education_history.routes.js")(app);

@@ -14,7 +14,7 @@ const business = function (business) {
   this.education = business.education;
   this.pictures = business.pictures;
   this.description = business.description;
-  this.general_ID = business.general_ID;
+  this.generalID = business.generalID;
   this.active_account = business.active_account;
 };
 
