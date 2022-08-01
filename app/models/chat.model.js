@@ -68,7 +68,7 @@ chat.getAllPublished = (result) => {
   });
 };
 */
-
+/*
 chat.updateById = (id, chat, result) => {
   sql.query(
     "UPDATE chat SET bank_information = ?, rate_per_hour = ? WHERE id = ?",
@@ -90,7 +90,7 @@ chat.updateById = (id, chat, result) => {
   );
 };
 
-
+*/
 chat.remove = (id, result) => {
   sql.query("DELETE FROM chat WHERE chatID = ?", id, (err, res) => {
     if (err) {

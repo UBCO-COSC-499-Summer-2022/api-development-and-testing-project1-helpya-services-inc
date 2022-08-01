@@ -1,12 +1,11 @@
 const jwt = require('jsonwebtoken')
 
-const JWT_CONFIG = {
-  scriect: "jvp3_D*@vccs.f9skqlop#z",
-  path: [
-    {url:'/api/login/consumer',method:"POST"},
-    {url:'/api/login/business',method:"POST"}
-  ]
-}
+// const JWT_CONFIG = {
+//   scriect: "jvp3_D*@vccs.f9skqlop#z",
+//   path: [
+//     {url:'/api/login/consumer',method:"POST"}
+//   ]
+// }
 
 const setToken = (type,userId) => {
   return jwt.sign({type,id:userId},JWT_CONFIG.scriect,{expiresIn:"24h"});
@@ -36,5 +35,5 @@ const validationTokenAuth = (req,res,next) => {
 module.exports = {
   setToken,
   validationTokenAuth,
-  JWT_CONFIG
+  // JWT_CONFIG
 }

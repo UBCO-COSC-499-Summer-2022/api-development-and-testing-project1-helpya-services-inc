@@ -12,6 +12,7 @@ exports.create = (req, res) => {
   const Chat = new chat({
     chatID: req.body.chatID,
     consumerID: req.body.consumerID,
+    businessID: req.body.businessID,
     chatID: req.body.chatID,
     fname_of_owner: req.body.fname_of_owner,
     lname_of_owner: req.body.lname_of_owner,
@@ -62,7 +63,7 @@ exports.findOne = (req, res) => {
 
 // find all published chat
 exports.findAllPublished = (req, res) => {};
-
+/*
 // Update a chat identified by the id in the request
 exports.update = (req, res) => {
   // Validate Request
@@ -86,7 +87,7 @@ exports.update = (req, res) => {
     } else res.send(data);
   });
 };
-
+*/
 // Delete a chat with the specified id in the request
 exports.delete = (req, res) => {
   chat.remove(req.params.id, (err, data) => {
