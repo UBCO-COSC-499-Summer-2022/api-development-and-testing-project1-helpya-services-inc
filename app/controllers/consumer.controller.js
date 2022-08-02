@@ -10,16 +10,15 @@ exports.create = (req, res) => {
   }
   // Create a Consumer
   const Consumer = new consumer({
-    consumerID: req.query.consumerID,
-    fname_of_consumer: req.query.fname_of_consumer,
-    lname_of_consumer: req.query.lname_of_consumer,
-    email: req.query.email,
-    phone_number: req.query.phone_number,
-    location: req.query.location,
-    consumer_profile: req.query.consumer_profile,
-    generalID: req.query.generalID,
-    user_name:req.query.user_name,
-    password:stringEncryption(req.query.password)
+    consumerID: req.body.consumerID,
+    fname_of_consumer: req.body.fname_of_consumer,
+    lname_of_consumer: req.body.lname_of_consumer,
+    email: req.body.email,
+    phone_number: req.body.phone_number,
+    location: req.body.location,
+    consumer_profile: req.body.consumer_profile,
+    generalID: req.body.generalID,
+    password:stringEncryption(req.body.password)
   });
 
   // Save consumer in the database
@@ -66,20 +65,25 @@ exports.update = (req, res) => {
           message: "Content can not be empty!",
         });
       }
-      console.log(req.body);
-      consumer.updateById(req.params.id, new consumer(req.body), (err, data) => {
-        if (err) {
-          if (err.kind === "not_found") {
-            res.status(404).send({
-              message: `Not found consumer with id ${req.params.id}.`,
-            });
-          } else {
-            res.status(500).send({
-              message: "Error updating consumer with id " + req.params.id,
-            });
-          }
-        } else res.send(data);
-      });
+      // add select consumer
+      consumer.findById(req.params.id,(err,data)=>{
+        if(err) throw new Error(err)
+        if(data){
+          consumer.updateById(req.params.id, {...data,...req.body}, (err, data) => {
+            if (err) {
+              if (err.kind === "not_found") {
+                res.status(404).send({
+                  message: `Not found consumer with id ${req.params.id}.`,
+                });
+              } else {
+                res.status(500).send({
+                  message: "Error updating consumer with id " + req.params.id,
+                });
+              }
+            } else res.send(data);
+          });
+        }
+      })
 };
 // Delete a consumer with the specified id in the request
 exports.delete = (req, res) => {
