@@ -22,7 +22,7 @@ INSERT INTO consumer (consumerID, fname_of_consumer, lname_of_consumer, email, p
 (0014, 'daniel', 'sanchez', 'dan_san1923@hotmail.com', '12500000000', 'kelowna', 'insert link', 2313, '5f4dcc3b5aa765d61d8327deb882cf99'), 
 (0015, 'yas', 'akinawawa', 'akinawawa_yas18653@yahoo.com', '12502222222', 'kelowna', 'insert link', 8764,'5f4dcc3b5aa765d61d8327deb882cf99');
 
-INSERT INTO business(businessID, business_name, owner_fname, owner_lname, business_profile, email, phone_number, rate_per_hour, location, keywords, education, pictures, description, general_ID, active_account) VALUES
+INSERT INTO business(businessID, business_name, owner_fname, owner_lname, business_profile, email, phone_number, rate_per_hour, location, keywords, education, pictures, description, generalID, active_account) VALUES
 (1150, 'baby sitting support', 'lance', NULL, 'insert link', 'babysupport123@support.com','19999999999', '20.53', 'kelowna', 'happy/baby/care', 'diploma', 'insert link', 'Created in 2020 during pandemic we will take care of your kid', 15, 'TRUE'),
 (1151, 'Film Maker', NULL, NULL, 'insert link', 'filmcreation@hotmail.com','11111111111', '50.00', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description', 166, 'TRUE'),
 (1152, 'Baked Goods', NULL, 'gerald', 'insert link', 'bakinggoods@qq.com','16353733333', '80.12', 'kelowna', 'happy/food/nice', 'associates degree', 'insert link', 'insert description', 745, 'FALSE'),
