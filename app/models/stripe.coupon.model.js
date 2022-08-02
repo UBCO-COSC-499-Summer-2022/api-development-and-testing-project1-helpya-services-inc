@@ -16,6 +16,9 @@ coupon.create = async (newCoupon, result) => {
       percent_off: newCoupon.percentage_off,
       duration: newCoupon.duration,
       duration_in_months: newCoupon.duration_in_months,
+      max_redemptions: newCoupon.max_redemptions,
+      redeem_by: newCoupon.redeem_by,
+      amount_off: newCoupon.amount_off,
     });
     console.log(coupon);
     result(null, newCoupon);

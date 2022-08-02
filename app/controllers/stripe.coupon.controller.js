@@ -3,18 +3,21 @@ const coupon = require("../models/stripe.coupon.model.js");
 // Create and Save a new Coupon
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body) {
+  if (!req.query) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
   }
-
+  console.log(req.query.name);
   // make a Coupon
   const Coupon = new coupon({
-    name: req.body.name,
-    percentage_off: req.body.percentage_off,
-    duration: req.body.duration,
-    duration_in_months: req.body.duration_in_months,
+    name: req.query.name,
+    percentage_off: req.query.percentage_off,
+    duration: req.query.duration,
+    duration_in_months: req.query.duration_in_months,
+    max_redemptions: req.query.max_redemptions,
+    redeem_by: req.query.redeem_by,
+    amount_off: req.query.amount_off,
   });
 
   // make coupon via stripe sevice
@@ -65,13 +68,13 @@ exports.delete = (req, res) => {
 // update coupon by id
 exports.update = (req, res) => {
     // Validate Request
-    if (!req.body) {
+    if (!req.query) {
         res.status(400).send({
             message: "Content can not be empty!",
         });
     }
 
-    coupon.update(req.params.id, new coupon(req.body), (err, data) => {
+    coupon.update(req.params.id, new coupon(req.query), (err, data) => {
         if (err) {
         if (err.kind === "not_found") {
             res.status(404).send({

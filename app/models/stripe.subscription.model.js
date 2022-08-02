@@ -12,8 +12,8 @@ const sub = function (sub){
 sub.signSub = async (newSub, result) => {
   try {
     const subscription = await stripeAPI.subscriptions.create({
-      customer: sub.customer,
-      items: [{ price: sub.subID }],
+      customer: newSub.customer,
+      items: [{ price: newSub.subID }],
     });
     console.log(subscription);
     result(null, newSub);
@@ -29,7 +29,7 @@ sub.applyCoupon = async (newSub, result) => {
   try {
     const subscription = await stripe.subscriptions.update(
       sub.subID,
-      {coupon: sub.couponID}
+      {coupon: newSub.couponID}
     );
     console.log(subscription);
     result(null, newSub);

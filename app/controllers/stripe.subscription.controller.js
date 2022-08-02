@@ -8,14 +8,15 @@ exports.signSub = (req, res) => {
       message: "Content can not be empty!",
     });
   }
+  console.log(req.query.customer);
   // Create a stripe
   const Sub = new sub({
-    customer: req.body.customer,
-    price: req.body.price,
+    customer: req.query.customer,
+    subID: req.query.subID,
   });
 
   // Save stripe in the database
-  stripe.signSub(Stripe, (err, data) => {
+  sub.signSub(Sub, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -40,7 +41,7 @@ exports.ApplyCoupon = (req, res) => {
   });
 
   // Save stripe in the database
-  stripe.ApplyCoupon(Stripe, (err, data) => {
+  sub.ApplyCoupon(Stripe, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -65,7 +66,7 @@ exports.getSubByCustomer = (req, res) => {
   });
 
   // Save stripe in the database
-  stripe.getSubByCustomer(Stripe, (err, data) => {
+  sub.getSubByCustomer(Stripe, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -90,7 +91,7 @@ exports.deleteSub = (req, res) => {
   });
 
   // Save stripe in the database
-  stripe.deleteSub(Stripe, (err, data) => {
+  sub.deleteSub(Stripe, (err, data) => {
     if (err)
       res.status(500).send({
         message:
