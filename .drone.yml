@@ -17,7 +17,9 @@ steps:
   - mysql -u root -h database --execute="SELECT host,user,authentication_string FROM mysql.user"
   - mysql -u root -h database heroku_b5b309c959adca7 < database.sql
   - mysql -u root -h database heroku_b5b309c959adca7 < testing_with_all_tables.txt
-  # - mysql -u root -h database --execute="SHOW DATABASES;"
+  - mysql -u root -h database --execute="SHOW GRANTS;"
+  - mysql -u root -h database --execute="SHOW DATABASES;"
+  - mysql -u root -h database --execute="FLUSH PRIVILEGES;"
 
 - name: test
   image: node:latest
