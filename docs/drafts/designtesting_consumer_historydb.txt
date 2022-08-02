@@ -1,7 +1,0 @@
-INSERT INTO consumer_history(consumerID, businessID, payment_method, business_name, payment_logs) VALUES
-(0001, 1153, 'visa', 'professional wedding photos', '5 hour photo session / march 05 2022 / total $350.83'),
-(0002, 1154, 'visa', 'professional wedding photos', '1 hour photo session / march 15 2021 / total $124.22'),
-(0003, 1157, 'visa', 'professional wedding photos', '2 hour photo session / april 11 2019 / total $274.22'),
-(0004, 1156, 'visa', 'professional wedding photos', '3 hour photo session / may 18 2022 / total $166.22'),
-(0005, 1157, 'visa', 'professional wedding photos', '8 hour photo session / september 20 2022 / total $500.22'),
-(0006, 1153, 'visa', 'professional wedding photos', '6 hour photo session / octoaber 27 2021 / total $434.62');

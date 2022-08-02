@@ -1,5 +1,0 @@
-INSERT INTO education_history(businessID, education_level, highest_education_completed) VALUES
-(1150, 'high school', 'middle school'),
-(1150, 'university', 'high school'),
-(1150, 'college', 'college'),
-(1150, 'college', 'high school');

@@ -9,7 +9,7 @@ const consumer = function (consumer) {
   this.location = consumer.location;
   this.consumer_profile = consumer.consumer_profile;
   this.generalID = consumer.generalID;
-  this.user_name = consumer.user_name;
+  this.password = consumer.password;
 };
 consumer.create = (newconsumer, result) => {
   sql.query("INSERT INTO consumer SET ?", newconsumer, (err, res) => {
@@ -38,7 +38,7 @@ consumer.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
-consumer.getAll = (title, result) => {
+consumer.getAll = (result,title) => {
   let query = "SELECT * FROM consumer";
   if (title) {
     query += ` WHERE title LIKE '%${title}%'`;
@@ -68,7 +68,7 @@ consumer.getAllPublished = (result) => {
 */
 consumer.updateById = (id, consumer, result) => {
   sql.query(
-    "UPDATE consumer SET fname_of_consumer = ?, lname_of_consumer = ?, email = ?, phone_number = ?, location = ?, consumer_profile = ? WHERE id = ?",
+    "UPDATE consumer SET fname_of_consumer = ?, lname_of_consumer = ?, email = ?, phone_number = ?, location = ?, consumer_profile = ? WHERE consumerID = ?",
     [consumer.fname_of_consumer, consumer.lname_of_consumer, consumer.email, consumer.phone_number, consumer.location, consumer.consumer_profile, id],
     (err, res) => {
       if (err) {
