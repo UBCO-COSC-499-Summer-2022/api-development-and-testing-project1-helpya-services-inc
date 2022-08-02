@@ -1,8 +1,0 @@
-INSERT INTO recentSearches (businessID, consumerID, store_name, store_profile) VALUES
-(1153, 0001, 'peta paka photos', 'insert link'),
-(1154, 0002, 'we make food 4U', 'insert link'),
-(1155, 0003, 'hippo cafe', 'insert link'),
-(1156, 0004, 'WEE make CRAFTS 4U', 'insert link'),
-(1157, 0005, 'Star Buy Bucks', 'insert link'),
-(1158, 0006, 'Professinal Wedding Photos', 'insert link'),
-(1159, 0007, 'Boat ride tour', 'insert link');

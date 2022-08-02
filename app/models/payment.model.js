@@ -1,12 +1,11 @@
 const sql = require("./db.js");
 // constructor
 const payment = function (payment) {
-    this.paymentID = payment.paymentID;
+    this.transactionID = payment.transactionID;
     this.consumerID = payment.consumerID;
     this.businessID = payment.businessID;
-    this.payment_history = payment.payment_history;
-    this.bank_information = payment.bank_information;
-    this.rate_per_hour = payment.rate_per_hour;
+    this.payment_logs = payment.payment_logs;
+    this.payment_method = payment.payment_method;
 };
 payment.create = (newpayment, result) => {
   sql.query("INSERT INTO payment SET ?", newpayment, (err, res) => {
