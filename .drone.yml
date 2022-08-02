@@ -6,7 +6,7 @@ steps:
 - name: db-setup
   image: mysql:latest
   commands:
-  - sleep 30
+  - sleep 60
   - mysql -u root -h database --execute="CREATE USER 'b734bbe733ac95'@'database' IDENTIFIED BY '23fc955b';"
   - mysql -u root -h database --execute="GRANT ALL PRIVILEGES ON *.* TO 'b734bbe733ac95'@'%' WITH GRANT OPTION;"
   # - mysql -u root -h database --execute="ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';"
