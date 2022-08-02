@@ -46,17 +46,6 @@ INSERT INTO job_type(businessID, job_title, job_category) VALUES
 (1152, 'CEO', 'IT'),
 (1153, 'server', 'resturant');
 
-INSERT INTO credit_card_info (consumerID, name_on_card, credit_card_number, exp_date, csc_num) VALUES
-(0001, 'bob sanchez', '1111123456781234',12/24,123),
-(0002, 'sam li', '2222222222222222',12/22,123),
-(0003, 'gerald lassy', '1234123412341234',03/24,123),
-(0004, 'paul smith', '2345234523452345',11/26,123),
-(0005, 'aaron calling', '3456345634563456',09/28,123),
-(0006, 'bob best', '1111123456781234',12/22,123),
-(0007, 'zara smith makefield', '1111123456781234',01/24,123),
-(0008, 'charlie charlie', '1111123456781234',12/25,123),
-(0009, 'lee sung', '1111123456781234',07/26,123);
-
 INSERT INTO recentSearches (businessID, consumerID, store_name, store_profile) VALUES
 (1153, 0001, 'peta paka photos', 'insert link'),
 (1154, 0002, 'we make food 4U', 'insert link'),
