@@ -21,7 +21,6 @@ describe("Login api", () => {
           // response.text -> token -> string
           expect(response.text).to.be.a("string");
           console.log(response.text);
-          done();
         });
       done();
     });
