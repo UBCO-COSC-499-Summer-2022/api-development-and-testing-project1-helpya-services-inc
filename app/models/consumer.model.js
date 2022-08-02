@@ -38,7 +38,7 @@ consumer.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
-consumer.getAll = (result,title) => {
+consumer.getAll = (result, title) => {
   let query = "SELECT * FROM consumer";
   if (title) {
     query += ` WHERE title LIKE '%${title}%'`;
@@ -69,7 +69,15 @@ consumer.getAllPublished = (result) => {
 consumer.updateById = (id, consumer, result) => {
   sql.query(
     "UPDATE consumer SET fname_of_consumer = ?, lname_of_consumer = ?, email = ?, phone_number = ?, location = ?, consumer_profile = ? WHERE consumerID = ?",
-    [consumer.fname_of_consumer, consumer.lname_of_consumer, consumer.email, consumer.phone_number, consumer.location, consumer.consumer_profile, id],
+    [
+      consumer.fname_of_consumer,
+      consumer.lname_of_consumer,
+      consumer.email,
+      consumer.phone_number,
+      consumer.location,
+      consumer.consumer_profile,
+      id,
+    ],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
