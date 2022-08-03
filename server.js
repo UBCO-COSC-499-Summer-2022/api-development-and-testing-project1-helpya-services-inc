@@ -29,11 +29,11 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to HelpYa application." });
 });
 require("./app/routes/consumer.routes.js")(app);
-require("./app/routes/accounting.routes.js")(app);
+require("./app/routes/stripe.accounting.routes.js")(app);
 require("./app/routes/business.routes.js")(app);
 require("./app/routes/chat.routes.js")(app);
 require("./app/routes/consumer_history.routes.js")(app);
-require("./app/routes/payment.routes.js")(app);
+require("./app/routes/stripe.payment.routes.js")(app);
 require("./app/routes/recentSearches.routes.js")(app);
 require("./app/routes/education_history.routes.js")(app);
 require("./app/routes/job_type.routes.js")(app);
