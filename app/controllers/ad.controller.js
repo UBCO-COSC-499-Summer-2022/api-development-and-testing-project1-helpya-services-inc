@@ -38,6 +38,15 @@ exports.findAll = (req, res) => {
     else res.send(data);
   });
 };
+exports.findAllBusinessAds = (req, res) => {
+  ad.getAllAds((err, data) => {
+    if (err)
+      res.status(500).send({
+        message: err.message || "Error occured retrieving business's ads",
+      });
+    else res.send(data);
+  });
+};
 // Find a single ad with a id
 exports.findOne = (req, res) => {
   ad.findById(req.body.id, (err, data) => {

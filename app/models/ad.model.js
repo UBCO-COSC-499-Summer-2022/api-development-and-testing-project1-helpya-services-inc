@@ -7,7 +7,7 @@ const ad = function (ad) {
   this.job_title = ad.job_title;
   this.job_category = ad.job_category;
   this.location = ad.location;
-  this.rate_per_hour = ad.rate_per_hourl
+  this.rate_per_hour = ad.rate_per_hourl;
 };
 ad.create = (newad, result) => {
   sql.query("INSERT INTO ad SET ?", newad, (err, res) => {
@@ -63,11 +63,33 @@ ad.getAll = (result) => {
     result(null, res);
   });
 };
+//get all business's ads
+ad.getAllAds = (name_of_business, result) => {
+  sql.query(
+    `SELECT * FROM ad WHERE business_name = ${name_of_business}`,
+    (err, res) => {
+      if (err) {
+        console.log("error: ", error);
+        result(null, err);
+        return;
+      }
+      console.log(`found ad for business: ${name_of_business}`, res);
+      result(null, res);
+    }
+  );
+};
 //update a specific ad
 ad.updateById = (id, ad, result) => {
   sql.query(
     "UPDATE ad SET business_name = ?, job_title = ?, job_category = ?, location = ?, rate_per_hour = ? WHERE adID = ?",
-    [ad.business_name, ad.job_title, ad.job_category, ad.location, ad.rate_per_hour, id],
+    [
+      ad.business_name,
+      ad.job_title,
+      ad.job_category,
+      ad.location,
+      ad.rate_per_hour,
+      id,
+    ],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

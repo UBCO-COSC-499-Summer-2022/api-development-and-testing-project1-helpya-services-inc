@@ -13,6 +13,8 @@ module.exports = (app) => {
     router.delete("/:id", ad.delete);
     // Delete all ad
     router.delete("/", ad.deleteAll);
+    //Retrieve an ad for a business
+    router.get("/:id", ad.findAllBusinessAds);
     
     app.use("/api/ad", router);
   };
