@@ -16,7 +16,6 @@ CREATE TABLE
     active_account BIT(50) NOT NULL,
     strip_customer_id varchar(250) --NOT NULL,
   );
-
 CREATE TABLE
   IF NOT EXISTS recentSearches(
     businessID INT NOT NULL UNIQUE,
