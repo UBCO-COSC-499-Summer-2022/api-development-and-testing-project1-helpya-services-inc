@@ -4,4 +4,5 @@ module.exports = {
   PASSWORD: "23fc955b",
   DB: "heroku_b5b309c959adca7",
   port: "3306",
+  "secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
 };
