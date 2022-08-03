@@ -3,17 +3,31 @@ const stripeAPI = require("stripe")(
 );
 //Constructor
 const sub = function (sub){
+  this.id = sub.id;
+  this.cancel_at_period_end = sub.cancel_at_period_end;
+  this.currency = sub.currency;
+  this.current_period_end = sub.current_period_end;
+  this.current_period_start = sub.current_period_start;
   this.customer = sub.customer;
-  this.subID = sub.subID;
-  this.couponID = sub.couponID;
+  this.default_payment_method = sub.default_payment_method;
+  this.items = {
+    object: sub.object,
+    data: sub.items.data,
+    has_more: sub.items.has_more,
+    url: sub.items.url,
+  }
+  this.latest_invoice = sub.items.latest_invoice;
+  this.pending_setup_intent = sub.pending_setup_intent;
+  this.pending_update = sub.pending_update;
+  this.status = sub.status; //allpossible values: trialing, active, past_due, unpaid, canceled, or unpaid (more information at https://stripe.com/docs/api/subscriptions/object#subscription_object-status)
 } 
 
 //signup customer for subscription
-sub.signSub = async (newSub, result) => {
+sub.signSub = async (subID, result) => {
   try {
     const subscription = await stripeAPI.subscriptions.create({
       customer: newSub.customer,
-      items: [{ price: newSub.subID }],
+      items: [{ price: subID }],
     });
     console.log(subscription);
     result(null, subscription);
@@ -25,11 +39,11 @@ sub.signSub = async (newSub, result) => {
 };
 
 //signup customer for subscription
-sub.applyCoupon = async (newSub, result) => {
+sub.applyCoupon = async (couponID, result) => {
   try {
     const subscription = await stripe.subscriptions.update(
       sub.subID,
-      {coupon: newSub.couponID}
+      {coupon: couponID}
     );
     console.log(subscription);
     result(null, subscription);

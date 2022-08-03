@@ -16,14 +16,6 @@ CREATE TABLE
   );
 
 CREATE TABLE
-  IF NOT EXISTS accounting(
-    businessID INT NOT NULL PRIMARY KEY,
-    payment_history VARCHAR(150),
-    bank_information VARCHAR(150),
-    rate_per_hour CHAR(10) NOT NULL
-  );
-
-CREATE TABLE
   IF NOT EXISTS recentSearches(
     businessID INT NOT NULL UNIQUE,
     consumerID INT,
@@ -31,18 +23,6 @@ CREATE TABLE
     store_profile varchar(250),
     PRIMARY KEY(businessID),
     FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
-  );
-
-CREATE TABLE
-  IF NOT EXISTS payment(
-    transactionID INT NOT NULL UNIQUE,
-    consumerID INT,
-    businessID INT,
-    payment_logs VARCHAR(250),
-    payment_method VARCHAR(50),
-    PRIMARY KEY (transactionID),
-    FOREIGN KEY (consumerID) REFERENCES consumer (consumerID),
-    FOREIGN KEY (businessID) REFERENCES accounting (businessID)
   );
 
 CREATE TABLE
