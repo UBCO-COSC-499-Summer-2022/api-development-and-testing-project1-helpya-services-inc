@@ -111,19 +111,3 @@ exports.delete = (req, res) => {
     } else res.send(data);
   });
 };
-// Delete all accounting from the database.
-exports.deleteAll = (req, res) => {
-  accounting.remove(req.body.id, (err, data) => {
-    if (err) {
-      if (err.kind === "not_found") {
-        res.status(404).send({
-          message: `Not found business with ad ${req.params.id}.`,
-        });
-      } else {
-        res.status(500).send({
-          message: "Could not delete business with ad " + req.params.id,
-        });
-      }
-    } else res.send(data);
-  });
-};
