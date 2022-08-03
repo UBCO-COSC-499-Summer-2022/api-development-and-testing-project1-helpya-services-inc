@@ -2,19 +2,26 @@ CREATE DATABASE IF NOT EXISTS heroku_b5b309c959adca7;
 
 use heroku_b5b309c959adca7;
 
-IF NOT EXISTS consumer(
-  consumerID INT NOT NULL UNIQUE PRIMARY KEY,
-  fname_of_consumer varchar(150) NOT NULL,
-  lname_of_consumer varchar(150) NOT NULL,
-  email varchar(150) NOT NULL UNIQUE,
-  phone_number char(15) NOT NULL UNIQUE,
-  location varchar(50) NOT NULL,
-  consumer_profile varchar(250),
-  password varchar(250) NOT NULL,
-  role varchar(150) NOT NULL,
-  active_account BIT(50) NOT NULL,
-  strip_customer_id varchar(250) --NOT NULL,
-);
+CREATE TABLE
+  IF NOT EXISTS consumer(
+    consumerID INT NOT NULL UNIQUE PRIMARY KEY,
+    fname_of_consumer varchar(150) NOT NULL,
+    lname_of_consumer varchar(150) NOT NULL,
+    email varchar(150) NOT NULL UNIQUE,
+    phone_number char(15) NOT NULL UNIQUE,
+    location varchar(50) NOT NULL,
+    consumer_profile varchar(250),
+    generalID INT NOT NULL,
+    password varchar(250) NOT NULL
+  );
+
+CREATE TABLE
+  IF NOT EXISTS accounting(
+    businessID INT NOT NULL PRIMARY KEY,
+    payment_history VARCHAR(150),
+    bank_information VARCHAR(150),
+    rate_per_hour CHAR(10) NOT NULL
+  );
 
 CREATE TABLE
   IF NOT EXISTS recentSearches(
@@ -27,8 +34,19 @@ CREATE TABLE
   );
 
 CREATE TABLE
+  IF NOT EXISTS payment(
+    transactionID INT NOT NULL UNIQUE,
+    consumerID INT,
+    businessID INT,
+    payment_logs VARCHAR(250),
+    payment_method VARCHAR(50),
+    PRIMARY KEY (transactionID),
+    FOREIGN KEY (consumerID) REFERENCES consumer (consumerID),
+    FOREIGN KEY (businessID) REFERENCES accounting (businessID)
+  );
+
+CREATE TABLE
   IF NOT EXISTS business(
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
     businessID INT NOT NULL UNIQUE PRIMARY KEY,
     business_name VARCHAR(150) NOT NULL UNIQUE,
     owner_fname VARCHAR(150),
@@ -42,6 +60,8 @@ CREATE TABLE
     education VARCHAR(150),
     pictures VARCHAR(500),
     description VARCHAR(500),
+    generalID INT NOT NULL,
+    active_account BIT(50) NOT NULL
   );
 
 CREATE TABLE
