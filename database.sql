@@ -14,7 +14,6 @@ CREATE TABLE
     generalID INT NOT NULL,
     password varchar(250) NOT NULL
   );
-
 CREATE TABLE
   IF NOT EXISTS recentSearches(
     businessID INT NOT NULL UNIQUE,
