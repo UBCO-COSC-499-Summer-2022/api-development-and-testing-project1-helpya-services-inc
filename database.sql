@@ -11,8 +11,10 @@ CREATE TABLE
     phone_number char(15) NOT NULL UNIQUE,
     location varchar(50) NOT NULL,
     consumer_profile varchar(250),
-    generalID INT NOT NULL,
-    password varchar(250) NOT NULL
+    password varchar(250) NOT NULL,
+    role varchar(150) NOT NULL,
+    active_account BIT(50) NOT NULL,
+    strip_customer_id varchar(250) --NOT NULL,
   );
 
 CREATE TABLE
@@ -27,6 +29,7 @@ CREATE TABLE
 
 CREATE TABLE
   IF NOT EXISTS business(
+    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
     businessID INT NOT NULL UNIQUE PRIMARY KEY,
     business_name VARCHAR(150) NOT NULL UNIQUE,
     owner_fname VARCHAR(150),
@@ -40,7 +43,6 @@ CREATE TABLE
     education VARCHAR(150),
     pictures VARCHAR(500),
     description VARCHAR(500),
-    generalID INT NOT NULL,
     active_account BIT(50) NOT NULL
   );
 

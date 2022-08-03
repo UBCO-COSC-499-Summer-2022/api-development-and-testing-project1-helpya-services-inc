@@ -21,7 +21,7 @@ bank_account.create = async (newbank_account, result) => {
       newbank_account.id,
       {
         external_account: {
-          object: "bank_account",
+          //object: "bank_account",
           account_holder_name: newbank_account.account_holder_name,
           account_holder_type: newbank_account.account_holder_type,
           bank_name: newbank_account.bank_name,

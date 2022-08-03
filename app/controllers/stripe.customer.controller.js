@@ -1,82 +1,100 @@
-const stripe = require("stripe")(
-  "sk_test_51LN9iJJ1ttqNM1k30e0LTKwvIU6ZPdeCyPewNhuYCpipuSGjvhyKwBJZDM4v24b1LANdAF17amgq6H9fJHIZIG8O00oR8i1Ari"
-);
+//make stripe customer controller
+const customer = require("../models/stripe.customer.model.js");
 
-//make stripe customer controllers
-exports.create = async (req, res) => {
-    try {
-        const customer = await stripe.customers.create({
-        email: req.body.email,
-        phone: req.body.phone_number,
-        address: req.body.address,
-        description: req.body.description,
-        name: req.body.name,
-        });
-        console.log(customer);
-        res.send(customer);
-    } catch (err) {
-        console.log("error: ", err);
-        res.status(500).send({
-        message: err.message || "Some error occurred while creating the Customer.",
-        });
-    }
-    };
+//make stripe customer
+exports.create = (req, res) => {
+  // Validate request
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+  }
 
-exports.listAll = async (req, res) => {
-    try {
-        const customers = await stripe.customers.list();
-        console.log(customers);
-        res.send(customers);
-    } catch (err) {
-        console.log("error: ", err);
-        res.status(500).send({
-        message: err.message || "Some error occurred while retrieving customers.",
-        });
-    }
+  // Create a Customer
+  const customer = new customer({
+    name: req.body.name,
+    email: req.body.email,
+    phone: req.body.phone,
+    address: req.body.address,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
+    country: req.body.country,
+  });
+
+  // Save Customer in the database
+  customer.create(customer, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the Customer.",
+      });
+    else res.send(data);
+  });
 };
 
-exports.findById = async (req, res) => {
-    try {
-        const customer = await stripe.customers.retrieve(req.params.id);
-        console.log(customer);
-        res.send(customer);
-    } catch (err) {
-        console.log("error: ", err);
-        res.status(500).send({
-        message: err.message || "Some error occurred while retrieving customers.",
-        });
-    }
+exports.listAll = (req, res) => {
+  customer.getAll((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else res.send(data);
+  });
 };
 
-exports.updateById = async (req, res) => {
-    try {
-        const customer = await stripe.customers.update(req.params.id, {
-        email: req.body.email,
-        phone: req.body.phone_number,
-        address: req.body.address,
-        description: req.body.description,
-        name: req.body.name,
+exports.findById = (req, res) => {
+  customer.findById(req.params.id, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Customer with id ${req.params.id}.`,
         });
-        console.log(customer);
-        res.send(customer);
-    } catch (err) {
-        console.log("error: ", err);
+      } else {
         res.status(500).send({
-        message: err.message || "Some error occurred while retrieving customers.",
+          message: "Error retrieving Customer with id " + req.params.id,
         });
-    }
+      }
+    } else res.send(data);
+  });
 };
 
-exports.deleteById = async (req, res) => {
-    try {
-        const customer = await stripe.customers.del(req.params.id);
-        console.log(customer);
-        res.send(customer);
-    } catch (err) {
-        console.log("error: ", err);
-        res.status(500).send({
-        message: err.message || "Some error occurred while retrieving customers.",
+exports.updateById = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+  }
+
+  customer.updateById(req.params.id, new customer(req.body), (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Customer with id ${req.params.id}.`,
         });
-    }
+      } else {
+        res.status(500).send({
+          message: "Error updating Customer with id " + req.params.id,
+        });
+      }
+    } else res.send(data);
+  });
 };
 
+exports.deleteById = (req, res) => {
+  customer.remove(req.params.id, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Customer with id ${req.params.id}.`,
+        });
+      } else {
+        res.status(500).send({
+          message: "Could not delete Customer with id " + req.params.id,
+        });
+      }
+    } else res.send({ message: `Customer was deleted successfully!` });
+  });
+};
