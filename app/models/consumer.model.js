@@ -1,4 +1,7 @@
 const sql = require("./db.js");
+const stripe = require("stripe")(
+  "sk_test_51LN9iJJ1ttqNM1k30e0LTKwvIU6ZPdeCyPewNhuYCpipuSGjvhyKwBJZDM4v24b1LANdAF17amgq6H9fJHIZIG8O00oR8i1Ari"
+);
 // constructor
 const consumer = function (consumer) {
   this.consumerID = consumer.consumerID;
@@ -10,8 +13,14 @@ const consumer = function (consumer) {
   this.consumer_profile = consumer.consumer_profile;
   this.generalID = consumer.generalID;
   this.password = consumer.password;
+  this.strip_customer_id = consumer.strip_customer_id;
 };
-consumer.create = (newconsumer, result) => {
+consumer.create = async (newconsumer, result) => {
+  const customer = await stripe.customers.create({
+    email: newconsumer.email,
+    phone: newconsumer.phone_number,
+  });
+  newconsumer.strip_customer_id = customer.id;
   sql.query("INSERT INTO consumer SET ?", newconsumer, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -38,7 +47,7 @@ consumer.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
-consumer.getAll = (result,title) => {
+consumer.getAll = (result, title) => {
   let query = "SELECT * FROM consumer";
   if (title) {
     query += ` WHERE title LIKE '%${title}%'`;
@@ -69,7 +78,15 @@ consumer.getAllPublished = (result) => {
 consumer.updateById = (id, consumer, result) => {
   sql.query(
     "UPDATE consumer SET fname_of_consumer = ?, lname_of_consumer = ?, email = ?, phone_number = ?, location = ?, consumer_profile = ? WHERE consumerID = ?",
-    [consumer.fname_of_consumer, consumer.lname_of_consumer, consumer.email, consumer.phone_number, consumer.location, consumer.consumer_profile, id],
+    [
+      consumer.fname_of_consumer,
+      consumer.lname_of_consumer,
+      consumer.email,
+      consumer.phone_number,
+      consumer.location,
+      consumer.consumer_profile,
+      id,
+    ],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

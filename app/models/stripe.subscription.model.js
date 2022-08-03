@@ -16,7 +16,7 @@ sub.signSub = async (newSub, result) => {
       items: [{ price: newSub.subID }],
     });
     console.log(subscription);
-    result(null, newSub);
+    result(null, subscription);
   } catch(err) {
     console.log("error: ", err);
     result(err, null);
@@ -32,7 +32,7 @@ sub.applyCoupon = async (newSub, result) => {
       {coupon: newSub.couponID}
     );
     console.log(subscription);
-    result(null, newSub);
+    result(null, subscription);
   } catch(err) {
     console.log("error: ", err);
     result(err, null);
@@ -47,7 +47,7 @@ sub.getSubByCustomer = async (newSub, result) => {
       customer: newSub.customer,
     });
     console.log(subscriptions);
-    result(null, newSub);
+    result(null, subscriptions);
   } catch (err) {
     console.log("error: ", err);
     result(err, null);
@@ -62,7 +62,7 @@ sub.deleteSub = async (newSub, result) => {
       newSub.subscription
     );
     console.log(deleted);
-    result(null, newSub);
+    result(null, deleted);
   } catch (err) {
     console.log("error: ", err);
     result(err, null);

@@ -21,7 +21,7 @@ coupon.create = async (newCoupon, result) => {
       amount_off: newCoupon.amount_off,
     });
     console.log(coupon);
-    result(null, newCoupon);
+    result(null,  coupon);
   } catch (err) {
     console.log("error: ", err);
     result(err, null);
@@ -34,7 +34,7 @@ coupon.get = async (newCoupon, result) => {
   try {
     const coupon = await stripeAPI.coupons.retrieve(newCoupon.id);
     console.log(coupon);
-    result(null, newCoupon);
+    result(null, coupon);
   } catch (err) {
     console.log("error: ", err);
     result(err, null);
@@ -47,7 +47,7 @@ coupon.delete = async (newCoupon, result) => {
   try {
     const coupon = await stripeAPI.coupons.del(newCoupon.id);
     console.log(coupon);
-    result(null, newCoupon);
+    result(null, coupon);
   } catch (err) {
     console.log("error: ", err);
     result(err, null);
@@ -64,7 +64,7 @@ coupon.update = async (newCoupon, result) => {
             duration_in_months: newCoupon.duration_in_months,
         });
         console.log(coupon);
-        result(null, newCoupon);
+        result(null, coupon);
     } catch (err) {
         console.log("error: ", err);
         result(err, null);
@@ -82,7 +82,7 @@ coupon.getByDate = async (newCoupon, result) => {
             },
         });
         console.log(coupon);
-        result(null, newCoupon);
+        result(null, coupon);
     } catch (err) {
         console.log("error: ", err);
         result(err, null);
