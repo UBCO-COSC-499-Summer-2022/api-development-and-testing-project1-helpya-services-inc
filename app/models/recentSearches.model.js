@@ -3,8 +3,6 @@ const sql = require("./db.js");
 const recentSearches = function (recentSearches) {
   this.businessID = recentSearches.businessID;
   this.consumerID = recentSearches.consumerID;
-  this.store_name = recentSearches.store_name;
-  this.store_profile = recentSearches.store_profile;
 };
 recentSearches.create = (newrecentSearches, result) => {
   sql.query("INSERT INTO recentSearches SET ?", newrecentSearches, (err, res) => {

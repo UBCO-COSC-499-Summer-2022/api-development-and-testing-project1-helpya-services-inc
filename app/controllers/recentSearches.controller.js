@@ -11,8 +11,6 @@ exports.create = (req, res) => {
   const RecentSearches = new recentSearches({
     consumerID: req.query.consumerID,
     businessID: req.query.businessID,
-    store_name: req.query.store_name,
-    store_profile: req.query.store_profile,
   });
 
   // Save recent searches in the database
