@@ -25,8 +25,6 @@ exports.create = (req, res) => {
     education: req.body.education,
     pictures: req.body.pictures,
     description: req.body.description,
-    general_ID: req.body.general_ID,
-    active_account: req.body.active_account
   });
 //localhost:8080/api/business?businessID=1150&business_name=baby sitting support&owner_fname=lance&owner_lname=armstrong&business_profile=insert link&email=blah@blah.com&phone_number=1112223333&rate_per_hour=200&location=moon&keywords=baby/not die&education=degree&pictures=insert link&description=sdsada&general_ID=50
 // Save business in the database
@@ -37,7 +35,7 @@ http: console.log(req.body);
         message:
           err.message || "Some error occurred while creating the business.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
@@ -50,7 +48,7 @@ exports.findAll = (req, res) => {
         message:
           err.message || "Some error occurred while retrieving businesss.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
@@ -67,7 +65,7 @@ exports.findOne = (req, res) => {
           message: "Error retrieving business with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 // find all published business
@@ -92,7 +90,7 @@ exports.update = (req, res) => {
           message: "Error updating business with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 // Delete a business with the specified id in the request
@@ -108,7 +106,7 @@ exports.delete = (req, res) => {
           message: "Could not delete business with id " + req.params.id,
         });
       }
-    } else res.send({ message: `business was deleted successfully!` });
+    } else res.status(200).send({ message: `business was deleted successfully!` });
   });
 };
 // Delete all business from the database.
