@@ -14,7 +14,7 @@ CREATE TABLE
     password varchar(250) NOT NULL,
     role varchar(150) NOT NULL,
     active_account BIT(50) NOT NULL,
-    strip_customer_id varchar(250) NOT NULL
+    strip_customer_id varchar(250)
   );
 
 CREATE TABLE

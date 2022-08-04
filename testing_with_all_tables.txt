@@ -1,38 +1,31 @@
-INSERT INTO accounting(businessID, payment_history, bank_information, rate_per_hour) VALUES
-(1153, '142.12', '1225/1244/54443', '25.33'),
-(1154, '333.12', '1225/1244/54443', '15.33'),
-(1155, '125.12', '1225/1244/54443', '12.33'),
-(1156, '155.12', '1225/1244/54443', '35.33'),
-(1157, '78.12', '1225/1244/54443', '52.33');
+INSERT INTO consumer (consumerID, fname_of_consumer, lname_of_consumer, email, phone_number, location, consumer_profile, password, role, active_account, strip_customer_id) VALUES 
+(0001, 'bob', 'sanchez', 'bob_s123@hotmail.com', '16041231234', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
+(0002, 'sam', 'li', 'sam25343@hotmail.com', '16041324364', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
+(0003, 'gerald', 'lassy', 'gglas32@hotmail.com', '12501231234', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
+(0004, 'paul', 'smith', 'smithpaul@hotmail.com', '12501111111', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
+(0005, 'aaron', 'calling', 'imagamer546@hotmail.com', '12501112222', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'helpya', 'FALSE', ''),
+(0006, 'bob', 'best', 'bobisbest32@hotmail.com', '12506664378', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'FALSE', ''),
+(0007, 'zara', 'makefield', 'zzmake32654@hotmail.com', '17781112222', 'kelowna', 'insert link','5f4dcc3b5aa765d61d8327deb882cf99', 'admin', 'FALSE', ''),
+(0008, 'charlie', 'charlie', 'iamcharlie99@hotmail.com', '12509998888', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
+(0009, 'lee', 'sung', 'sungsungsung234@hotmail.com', '12507777555', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'admin', 'TRUE', ''),
+(0010, 'hong li', 'tao', 'hongli2342@hotmail.com', '12503334444', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
+(0011, 'hyeong le', 'lee', 'hyeongleq2@naver.com', '16043445555', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
+(0012, 'mercedes', 'john', 'merjhon_648@hotmail.com', '12505558888', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
+(0013, 'peter', 'pete', 'peetarpp234@hotmail.com', '12500000011', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
+(0014, 'daniel', 'sanchez', 'dan_san1923@hotmail.com', '12500000000', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''), 
+(0015, 'yas', 'akinawawa', 'akinawawa_yas18653@yahoo.com', '12502222222', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', '');
 
-INSERT INTO consumer (consumerID, fname_of_consumer, lname_of_consumer, email, phone_number, location, consumer_profile, generalID, password) VALUES 
-(0001, 'bob', 'sanchez', 'bob_s123@hotmail.com', '16041231234', 'kelowna', 'insert link', 231, '5f4dcc3b5aa765d61d8327deb882cf99'),
-(0002, 'sam', 'li', 'sam25343@hotmail.com', '16041324364', 'kelowna', 'insert link', 865, '5f4dcc3b5aa765d61d8327deb882cf99'),
-(0003, 'gerald', 'lassy', 'gglas32@hotmail.com', '12501231234', 'kelowna', 'insert link', 23731, '5f4dcc3b5aa765d61d8327deb882cf99'),
-(0004, 'paul', 'smith', 'smithpaul@hotmail.com', '12501111111', 'kelowna', 'insert link', 73,'5f4dcc3b5aa765d61d8327deb882cf99'),
-(0005, 'aaron', 'calling', 'imagamer546@hotmail.com', '12501112222', 'kelowna', 'insert link', 24,'5f4dcc3b5aa765d61d8327deb882cf99'),
-(0006, 'bob', 'best', 'bobisbest32@hotmail.com', '12506664378', 'kelowna', 'insert link', 97, '5f4dcc3b5aa765d61d8327deb882cf99'),
-(0007, 'zara', 'makefield', 'zzmake32654@hotmail.com', '17781112222', 'kelowna', 'insert link', 574,'5f4dcc3b5aa765d61d8327deb882cf99'),
-(0008, 'charlie', 'charlie', 'iamcharlie99@hotmail.com', '12509998888', 'kelowna', 'insert link', 976, '5f4dcc3b5aa765d61d8327deb882cf99'),
-(0009, 'lee', 'sung', 'sungsungsung234@hotmail.com', '12507777555', 'kelowna', 'insert link', 32, '5f4dcc3b5aa765d61d8327deb882cf99'),
-(0010, 'hong li', 'tao', 'hongli2342@hotmail.com', '12503334444', 'kelowna', 'insert link', 85, '5f4dcc3b5aa765d61d8327deb882cf99'),
-(0011, 'hyeong le', 'lee', 'hyeongleq2@naver.com', '16043445555', 'kelowna', 'insert link', 865, '5f4dcc3b5aa765d61d8327deb882cf99'),
-(0012, 'mercedes', 'john', 'merjhon_648@hotmail.com', '12505558888', 'kelowna', 'insert link', 347,'5f4dcc3b5aa765d61d8327deb882cf99'),
-(0013, 'peter', 'pete', 'peetarpp234@hotmail.com', '12500000011', 'kelowna', 'insert link', 8623,'5f4dcc3b5aa765d61d8327deb882cf99'),
-(0014, 'daniel', 'sanchez', 'dan_san1923@hotmail.com', '12500000000', 'kelowna', 'insert link', 2313, '5f4dcc3b5aa765d61d8327deb882cf99'), 
-(0015, 'yas', 'akinawawa', 'akinawawa_yas18653@yahoo.com', '12502222222', 'kelowna', 'insert link', 8764,'5f4dcc3b5aa765d61d8327deb882cf99');
-
-INSERT INTO business(businessID, business_name, owner_fname, owner_lname, business_profile, email, phone_number, rate_per_hour, location, keywords, education, pictures, description, generalID, active_account) VALUES
-(1150, 'baby sitting support', 'lance', NULL, 'insert link', 'babysupport123@support.com','19999999999', '20.53', 'kelowna', 'happy/baby/care', 'diploma', 'insert link', 'Created in 2020 during pandemic we will take care of your kid', 15, 'TRUE'),
-(1151, 'Film Maker', NULL, NULL, 'insert link', 'filmcreation@hotmail.com','11111111111', '50.00', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description', 166, 'TRUE'),
-(1152, 'Baked Goods', NULL, 'gerald', 'insert link', 'bakinggoods@qq.com','16353733333', '80.12', 'kelowna', 'happy/food/nice', 'associates degree', 'insert link', 'insert description', 745, 'FALSE'),
-(1153, 'peta paka photos', 'bobby', 'lee', 'insert link', 'petapakaphotos@hotmail.com','12500000000','23.77' , 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description', 245, 'TRUE'),
-(1154, 'we make food 4U', 'smith', 'tao', 'insert link', 'food4U123@naver.com','16043331111', '36.46', 'kelowna', 'happy/hungry/nice', 'diploma', 'insert link', 'insert description', 111, 'FALSE'),
-(1155, 'hippo cafe', 'park', 'wu', 'insert link', 'hippo_cafe@hotmail.com','19399399393', '25.00', 'kelowna', 'happy/hungry/food', 'diploma', 'insert link', 'insert description', 222, 'TRUE'),
-(1156, 'WEE make CRAFTS 4U', 'wendy', 'sao', 'insert link', 'craftsMade_quick@hotmail.com','16046046046', '23.23', 'kelowna', 'happy/pictures/cool', 'diploma', 'insert link', 'insert description', 6345, 'TRUE'),
-(1157, 'Star Buy Bucks', 'mary', 'accat', 'insert link', 'buckbuystar@yahoo.com','12502502502', '10.00', 'kelowna', 'happy/pictures/drinks', 'diploma', 'insert link', 'insert description', 7234, 'TRUE'),
-(1158, 'Professinal Wedding Photos', 'break', 'we', 'insert link', 'professionalweddingphotos@hotmail.com','17787787787', '355.55', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description', 1221, 'TRUE'),
-(1159, 'Boat ride tour', NULL, NULL, 'insert link', 'boattours@gmail.com','12222222222', '255.12', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description', 1235, 'TRUE');
+INSERT INTO business(consumerID, businessID, business_name, owner_fname, owner_lname, business_profile, email, phone_number, rate_per_hour, location, keywords, education, pictures, description) VALUES
+(0022, 1150, 'baby sitting support', 'lance', NULL, 'insert link', 'babysupport123@support.com','19999999999', '20.53', 'kelowna', 'happy/baby/care', 'diploma', 'insert link', 'Created in 2020 during pandemic we will take care of your kid'),
+(0023, 1151, 'Film Maker', NULL, NULL, 'insert link', 'filmcreation@hotmail.com','11111111111', '50.00', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description'),
+(0024, 1152, 'Baked Goods', NULL, 'gerald', 'insert link', 'bakinggoods@qq.com','16353733333', '80.12', 'kelowna', 'happy/food/nice', 'associates degree', 'insert link', 'insert description'),
+(0025, 1153, 'peta paka photos', 'bobby', 'lee', 'insert link', 'petapakaphotos@hotmail.com','12500000000','23.77' , 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description'),
+(0026, 1154, 'we make food 4U', 'smith', 'tao', 'insert link', 'food4U123@naver.com','16043331111', '36.46', 'kelowna', 'happy/hungry/nice', 'diploma', 'insert link', 'insert description'),
+(0027, 1155, 'hippo cafe', 'park', 'wu', 'insert link', 'hippo_cafe@hotmail.com','19399399393', '25.00', 'kelowna', 'happy/hungry/food', 'diploma', 'insert link', 'insert description'),
+(0028, 1156, 'WEE make CRAFTS 4U', 'wendy', 'sao', 'insert link', 'craftsMade_quick@hotmail.com','16046046046', '23.23', 'kelowna', 'happy/pictures/cool', 'diploma', 'insert link', 'insert description'),
+(0029, 1157, 'Star Buy Bucks', 'mary', 'accat', 'insert link', 'buckbuystar@yahoo.com','12502502502', '10.00', 'kelowna', 'happy/pictures/drinks', 'diploma', 'insert link', 'insert description'),
+(0031, 1158, 'Professinal Wedding Photos', 'break', 'we', 'insert link', 'professionalweddingphotos@hotmail.com','17787787787', '355.55', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description'),
+(0032, 1159, 'Boat ride tour', NULL, NULL, 'insert link', 'boattours@gmail.com','12222222222', '255.12', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description');
 
 INSERT INTO education_history(businessID, education_level, highest_education_completed) VALUES
 (1150, 'high school', 'middle school'),
@@ -46,14 +39,14 @@ INSERT INTO job_type(businessID, job_title, job_category) VALUES
 (1152, 'CEO', 'IT'),
 (1153, 'server', 'resturant');
 
-INSERT INTO recentSearches (businessID, consumerID, store_name, store_profile) VALUES
-(1153, 0001, 'peta paka photos', 'insert link'),
-(1154, 0002, 'we make food 4U', 'insert link'),
-(1155, 0003, 'hippo cafe', 'insert link'),
-(1156, 0004, 'WEE make CRAFTS 4U', 'insert link'),
-(1157, 0005, 'Star Buy Bucks', 'insert link'),
-(1158, 0006, 'Professinal Wedding Photos', 'insert link'),
-(1159, 0007, 'Boat ride tour', 'insert link');
+INSERT INTO recentSearches (businessID, consumerID) VALUES
+(1153, 0001),
+(1154, 0002),
+(1155, 0003),
+(1156, 0004),
+(1157, 0005),
+(1158, 0006),
+(1159, 0007);
 
 INSERT INTO chat(chatID,consumerID, businessID) VALUES
 (1, 0001, 1153),
@@ -61,22 +54,3 @@ INSERT INTO chat(chatID,consumerID, businessID) VALUES
 (3, 0001, 1155),
 (4, 0001, 1156),
 (5, 0001, 1157);
-    
-INSERT INTO payment(transactionID,consumerID, businessID, payment_logs, payment_method) VALUES
-(1, 0001, 1153, '5 hour photo session / march 05 2022 / total $124.22','visa'),
-(2, 0001, 1154, '4 person dinner menu / april 05 2022 / total $424.74','mastercard'),
-(3, 0001, 1153, '2 hour photo session / may 03 2022 / total $45.62','amex'),
-(4, 0001, 1157, 'cranberry smoothie / march 12 2022 / total $11.42','visa'),
-(5, 0001, 1157, 'ride around city / december 05 2021 / total $241.65','visa'),
-(6, 0001, 1153, '1 hour photo session / march 08 2022 / total $34.44','mastercard'),
-(7, 0001, 1153, 'suit making / may 02 2022 / total $318.75','visa'),
-(8, 0001, 1156, 'frames for photos / september 14 2022 / total $22.22','amex'),
-(9, 0001, 1156, 'oragami design 1 / janurary 11 2022 / total $12.22','visa');
-
-INSERT INTO consumer_history(consumerID, businessID, payment_method, business_name, payment_logs) VALUES
-(0001, 1153, 'visa', 'professional wedding photos', '5 hour photo session / march 05 2022 / total $350.83'),
-(0002, 1154, 'visa', 'professional wedding photos', '1 hour photo session / march 15 2021 / total $124.22'),
-(0003, 1157, 'visa', 'professional wedding photos', '2 hour photo session / april 11 2019 / total $274.22'),
-(0004, 1156, 'visa', 'professional wedding photos', '3 hour photo session / may 18 2022 / total $166.22'),
-(0005, 1157, 'visa', 'professional wedding photos', '8 hour photo session / september 20 2022 / total $500.22'),
-(0006, 1153, 'visa', 'professional wedding photos', '6 hour photo session / octoaber 27 2021 / total $434.62');
