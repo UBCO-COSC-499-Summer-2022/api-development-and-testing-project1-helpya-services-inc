@@ -12,7 +12,7 @@ exports.create = (req, res) => {
     businessID: req.body.businessID,
     payment_history: req.body.payment_history,
     bank_information: req.body.bank_information,
-    rate_per_hour: req.body.rate_per_hour
+    rate_per_hour: req.body.rate_per_hour,
   });
 
   // Save business in the database
