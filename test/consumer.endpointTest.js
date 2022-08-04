@@ -58,8 +58,11 @@ describe("GET /api/consumer", () => {
     it("consumer findOne", (done) => {
         chai
         .request(server)
-        .get("/api/consumer/${consumerID}")
+        .get("/api/consumer/")
         .set("Authorization", `Bearer ${token}`)
+        .send({
+            id: 1
+        })
         .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
@@ -74,7 +77,7 @@ describe("PUT /api/consumer", () => {
     it("consumer update", (done) => {
         chai
         .request(server)
-        .put("/api/consumer/${consumerID}")
+        .put("/api/consumer/")
         .set("Authorization", `Bearer ${token}`)
         .send({
             phone: "111111111",
@@ -93,8 +96,11 @@ describe("DELETE /api/consumer", () => {
     it("consumer delete", (done) => {
         chai
         .request(server)
-        .delete("/api/consumer/${consumerID}")
+        .delete("/api/consumer/")
         .set("Authorization", `Bearer ${token}`)
+        .send({
+            id: 1
+        })
         .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
