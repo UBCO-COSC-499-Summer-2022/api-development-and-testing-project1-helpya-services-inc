@@ -76,15 +76,14 @@ describe("GET /api/business", () => {
 describe("GET /api/business", () => {
     it("consumer findOne", (done) => {
         chai
-        .request(server)
-        .get("/api/business/${businessID}")
-        .set("Authorization", `Bearer ${token}`)
-        .end((err, res) => {
+          .request(server)
+          .get("/api/business/1150")
+          .set("Authorization", `Bearer ${token}`)
+          .end((err, res) => {
             res.should.have.status(200);
-            res.body.should.be.a('object');
+            res.body.should.be.a("object");
             console.log(response.body);
-        }
-        );
+          });
         done();
     });
 });
@@ -93,7 +92,7 @@ describe("PUT /api/business", () => {
     it("business update", (done) => {
         chai
         .request(server)
-        .put("/api/business/${businessID}")
+        .put("/api/business/1150")
         .set("Authorization", `Bearer ${token}`)
         .send({
             address: "5678 bobby street",
@@ -112,7 +111,7 @@ describe("DELETE /api/business", () => {
     it("business delete", (done) => {
         chai
         .request(server)
-        .delete("/api/business/${businessID}")
+        .delete("/api/business/1150")
         .set("Authorization", `Bearer ${token}`)
         .end((err, res) => {
             res.should.have.status(200);
