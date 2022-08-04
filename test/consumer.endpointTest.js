@@ -1,11 +1,11 @@
-const auth = require("../app/middleware/auth");
-const chai = require("chai");
-const chaiHttp = require("chai-http");
-const server = require("../server");
+let auth = require("../app/middleware/auth");
+let chai = require("chai");
+let chaiHttp = require("chai-http");
+let server = require("../server");
 chai.use(chaiHttp);
-const expect = chai.expect;
-
-const token = auth.setToken("consumer", "1");
+let expect = chai.expect;
+let should = chai.should();
+let token = auth.setToken("consumer", "1");
 
 console.log(token);
 
@@ -13,8 +13,7 @@ console.log(token);
 //make mocha unit test for consumer create endpoint with token
 describe("POST /api/consumer", () => {
     it("consumer create", (done) => {
-        chai
-        .request(server)
+        chai.request(server)
         .post("/api/consumer")
         .set("Authorization", `Bearer ${token}`)
         .send({
@@ -28,9 +27,76 @@ describe("POST /api/consumer", () => {
             zip: "12345",
             country: "bob country",
         })
+        .end((err, res) => {
+            res.shoud.have.status(200);
+            res.body.should.be.a('object');
+            console.log(response.body);
+        }
+        );
+        done();
+    });
+});
+
+describe("GET /api/consumer", () => {
+    it("consumer findAll", (done) => {
+        chai
+        .request(server)
+        .get("/api/consumer")
+        .set("Authorization", `Bearer ${token}`)
         .end((error, response) => {
-            expect(response).to.have.status(200);
-            expect(response.body).to.be.a("object");
+            res.shoud.have.status(200);
+            res.body.should.be.a('object');
+            console.log(response.body);
+        }
+        );
+        done();
+    });
+});
+
+describe("GET /api/consumer", () => {
+    it("consumer findOne", (done) => {
+        chai
+        .request(server)
+        .get("/api/consumer/${consumerID}")
+        .set("Authorization", `Bearer ${token}`)
+        .end((error, response) => {
+            res.shoud.have.status(200);
+            res.body.should.be.a('object');
+            console.log(response.body);
+        }
+        );
+        done();
+    });
+});
+
+describe("PUT /api/consumer", () => {
+    it("consumer update", (done) => {
+        chai
+        .request(server)
+        .put("/api/consumer/${consumerID}")
+        .set("Authorization", `Bearer ${token}`)
+        .send({
+            phone: "111111111",
+        })
+        .end((error, response) => {
+            res.shoud.have.status(200);
+            res.body.should.be.a('object');
+            console.log(response.body);
+        }
+        );
+        done();
+    });
+});
+
+describe("DELETE /api/consumer", () => {
+    it("consumer delete", (done) => {
+        chai
+        .request(server)
+        .delete("/api/consumer/${consumerID}")
+        .set("Authorization", `Bearer ${token}`)
+        .end((error, response) => {
+            res.shoud.have.status(200);
+            res.body.should.be.a('object');
             console.log(response.body);
         }
         );
