@@ -57,7 +57,7 @@ describe("GET /api/business", () => {
     it("business findAll with send", (done) => {
         chai
         .request(server)
-        .get("/api/business")
+        .get("/api/business/")
         .set("Authorization", `Bearer ${token}`)
         .send({
             name: "bobby",

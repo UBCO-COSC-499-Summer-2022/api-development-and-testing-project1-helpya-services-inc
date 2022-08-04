@@ -25,8 +25,8 @@ exports.create = (req, res) => {
     pictures: req.body.pictures,
     description: req.body.description,
   });
-//localhost:8080/api/business?businessID=1150&business_name=baby sitting support&owner_fname=lance&owner_lname=armstrong&business_profile=insert link&email=blah@blah.com&phone_number=1112223333&rate_per_hour=200&location=moon&keywords=baby/not die&education=degree&pictures=insert link&description=sdsada&general_ID=50
-// Save business in the database
+  //localhost:8080/api/business?businessID=1150&business_name=baby sitting support&owner_fname=lance&owner_lname=armstrong&business_profile=insert link&email=blah@blah.com&phone_number=1112223333&rate_per_hour=200&location=moon&keywords=baby/not die&education=degree&pictures=insert link&description=sdsada&general_ID=50
+  // Save business in the database
   business.create(Business, (err, data) => {
     if (err)
       res.status(500).send({
@@ -66,8 +66,10 @@ exports.findOne = (req, res) => {
     } else res.status(200).send(data);
   });
 };
+
 // find all published business
 exports.findAllPublished = (req, res) => {};
+
 // Update a business identified by the id in the request
 exports.update = (req, res) => {
   if (!req.body) {
@@ -99,6 +101,7 @@ exports.update = (req, res) => {
     }
   });
 };
+
 // Delete a business with the specified id in the request
 exports.delete = (req, res) => {
   business.remove(req.params.id, (err, data) => {
@@ -112,8 +115,10 @@ exports.delete = (req, res) => {
           message: "Could not delete business with id " + req.params.id,
         });
       }
-    } else res.status(200).send({ message: `business was deleted successfully!` });
+    } else
+      res.status(200).send({ message: `business was deleted successfully!` });
   });
 };
+
 // Delete all business from the database.
 exports.deleteAll = (req, res) => {};

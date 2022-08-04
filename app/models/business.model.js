@@ -48,9 +48,6 @@ business.findById = (id, result) => {
 
 business.getAll = (business_name, result) => {
   let query = "SELECT * FROM business";
-  if (business_name) {
-    query += ` WHERE business_name LIKE '%${business_name}%'`;
-  }
   sql.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);
