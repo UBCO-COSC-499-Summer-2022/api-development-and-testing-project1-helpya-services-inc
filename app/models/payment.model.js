@@ -1,12 +1,11 @@
 const sql = require("./db.js");
 // constructor
 const payment = function (payment) {
-    this.paymentID = payment.paymentID;
-    this.consumerID = payment.consumerID;
-    this.businessID = payment.businessID;
-    this.payment_history = payment.payment_history;
-    this.bank_information = payment.bank_information;
-    this.rate_per_hour = payment.rate_per_hour;
+  this.transactionID = payment.transactionID;
+  this.consumerID = payment.consumerID;
+  this.businessID = payment.businessID;
+  this.payment_logs = payment.payment_logs;
+  this.payment_method = payment.payment_method;
 };
 payment.create = (newpayment, result) => {
   sql.query("INSERT INTO payment SET ?", newpayment, (err, res) => {
@@ -66,7 +65,15 @@ payment.getAllPublished = (result) => {
 payment.updateById = (id, payment, result) => {
   sql.query(
     "UPDATE payment SET payment_logs = ?, payment_method = ? WHERE id = ?",
-    [payment.fname_of_payment, payment.lname_of_payment, payment.email, payment.phone_number, payment.location, payment.payment_profile, id],
+    [
+      payment.fname_of_payment,
+      payment.lname_of_payment,
+      payment.email,
+      payment.phone_number,
+      payment.location,
+      payment.payment_profile,
+      id,
+    ],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

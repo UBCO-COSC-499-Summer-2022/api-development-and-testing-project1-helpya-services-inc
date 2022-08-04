@@ -1,6 +1,0 @@
-INSERT INTO chat(chatID,consumerID, businessID) VALUES
-(1, 0001, 1153),
-(2, 0001, 1154),
-(3, 0001, 1155),
-(4, 0001, 1156),
-(5, 0001, 1157);

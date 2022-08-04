@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS helpyadb;
-use helpyadb;
+CREATE DATABASE IF NOT EXISTS heroku_b5b309c959adca7;
+use heroku_b5b309c959adca7;
 CREATE TABLE IF NOT EXISTS consumer(
 consumerID INT NOT NULL UNIQUE PRIMARY KEY,
 fname_of_consumer varchar(150) NOT NULL,
@@ -29,15 +29,6 @@ PRIMARY KEY(businessID),
 FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
 );
 
-CREATE TABLE IF NOT EXISTS credit_card_info(
-consumerID INT NOT NULL UNIQUE,
-name_on_card varchar(150) NOT NULL,
-credit_card_number char(16) NOT NULL,
-exp_date char(255) NOT NULL,
-csc_num INT NOT NULL,
-PRIMARY KEY (consumerID)
-);
-
 CREATE TABLE IF NOT EXISTS payment(
 transactionID INT NOT NULL UNIQUE,
 consumerID INT,
@@ -45,7 +36,7 @@ businessID INT,
 payment_logs VARCHAR(250),
 payment_method VARCHAR(50),
 PRIMARY KEY (transactionID),
-FOREIGN KEY (consumerID) REFERENCES credit_card_info (consumerID),
+FOREIGN KEY (consumerID) REFERENCES consumer (consumerID),
 FOREIGN KEY (businessID) REFERENCES accounting (businessID)
 );
 
@@ -63,7 +54,8 @@ keywords VARCHAR(50),
 education VARCHAR(150),
 pictures VARCHAR(500),
 description VARCHAR(500),
-general_ID INT NOT NULL
+generalID INT NOT NULL,
+active_account BIT(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS consumer_history(
