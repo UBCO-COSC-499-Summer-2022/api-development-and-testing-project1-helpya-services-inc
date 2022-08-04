@@ -15,17 +15,17 @@ INSERT INTO consumer (consumerID, fname_of_consumer, lname_of_consumer, email, p
 (0014, 'daniel', 'sanchez', 'dan_san1923@hotmail.com', '12500000000', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''), 
 (0015, 'yas', 'akinawawa', 'akinawawa_yas18653@yahoo.com', '12502222222', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', '');
 
-INSERT INTO business(consumerID, businessID, business_name, owner_fname, owner_lname, business_profile, email, phone_number, rate_per_hour, location, keywords, education, pictures, description) VALUES
-(0022, 1150, 'baby sitting support', 'lance', NULL, 'insert link', 'babysupport123@support.com','19999999999', '20.53', 'kelowna', 'happy/baby/care', 'diploma', 'insert link', 'Created in 2020 during pandemic we will take care of your kid'),
-(0023, 1151, 'Film Maker', NULL, NULL, 'insert link', 'filmcreation@hotmail.com','11111111111', '50.00', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description'),
-(0024, 1152, 'Baked Goods', NULL, 'gerald', 'insert link', 'bakinggoods@qq.com','16353733333', '80.12', 'kelowna', 'happy/food/nice', 'associates degree', 'insert link', 'insert description'),
-(0025, 1153, 'peta paka photos', 'bobby', 'lee', 'insert link', 'petapakaphotos@hotmail.com','12500000000','23.77' , 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description'),
-(0026, 1154, 'we make food 4U', 'smith', 'tao', 'insert link', 'food4U123@naver.com','16043331111', '36.46', 'kelowna', 'happy/hungry/nice', 'diploma', 'insert link', 'insert description'),
-(0027, 1155, 'hippo cafe', 'park', 'wu', 'insert link', 'hippo_cafe@hotmail.com','19399399393', '25.00', 'kelowna', 'happy/hungry/food', 'diploma', 'insert link', 'insert description'),
-(0028, 1156, 'WEE make CRAFTS 4U', 'wendy', 'sao', 'insert link', 'craftsMade_quick@hotmail.com','16046046046', '23.23', 'kelowna', 'happy/pictures/cool', 'diploma', 'insert link', 'insert description'),
-(0029, 1157, 'Star Buy Bucks', 'mary', 'accat', 'insert link', 'buckbuystar@yahoo.com','12502502502', '10.00', 'kelowna', 'happy/pictures/drinks', 'diploma', 'insert link', 'insert description'),
-(0031, 1158, 'Professinal Wedding Photos', 'break', 'we', 'insert link', 'professionalweddingphotos@hotmail.com','17787787787', '355.55', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description'),
-(0032, 1159, 'Boat ride tour', NULL, NULL, 'insert link', 'boattours@gmail.com','12222222222', '255.12', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description');
+INSERT INTO business(businessID, business_name, owner_fname, owner_lname, business_profile, email, phone_number, rate_per_hour, location, keywords, education, pictures, description) VALUES
+(1150, 'baby sitting support', 'lance', NULL, 'insert link', 'babysupport123@support.com','19999999999', '20.53', 'kelowna', 'happy/baby/care', 'diploma', 'insert link', 'Created in 2020 during pandemic we will take care of your kid'),
+(1151, 'Film Maker', NULL, NULL, 'insert link', 'filmcreation@hotmail.com','11111111111', '50.00', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description'),
+(1152, 'Baked Goods', NULL, 'gerald', 'insert link', 'bakinggoods@qq.com','16353733333', '80.12', 'kelowna', 'happy/food/nice', 'associates degree', 'insert link', 'insert description'),
+(1153, 'peta paka photos', 'bobby', 'lee', 'insert link', 'petapakaphotos@hotmail.com','12500000000','23.77' , 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description'),
+(1154, 'we make food 4U', 'smith', 'tao', 'insert link', 'food4U123@naver.com','16043331111', '36.46', 'kelowna', 'happy/hungry/nice', 'diploma', 'insert link', 'insert description'),
+(1155, 'hippo cafe', 'park', 'wu', 'insert link', 'hippo_cafe@hotmail.com','19399399393', '25.00', 'kelowna', 'happy/hungry/food', 'diploma', 'insert link', 'insert description'),
+(1156, 'WEE make CRAFTS 4U', 'wendy', 'sao', 'insert link', 'craftsMade_quick@hotmail.com','16046046046', '23.23', 'kelowna', 'happy/pictures/cool', 'diploma', 'insert link', 'insert description'),
+(1157, 'Star Buy Bucks', 'mary', 'accat', 'insert link', 'buckbuystar@yahoo.com','12502502502', '10.00', 'kelowna', 'happy/pictures/drinks', 'diploma', 'insert link', 'insert description'),
+(1158, 'Professinal Wedding Photos', 'break', 'we', 'insert link', 'professionalweddingphotos@hotmail.com','17787787787', '355.55', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description'),
+(1159, 'Boat ride tour', NULL, NULL, 'insert link', 'boattours@gmail.com','12222222222', '255.12', 'kelowna', 'happy/pictures/nice', 'diploma', 'insert link', 'insert description');
 
 INSERT INTO education_history(businessID, education_level, highest_education_completed) VALUES
 (1150, 'high school', 'middle school'),
