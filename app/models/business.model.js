@@ -81,8 +81,8 @@ business.updateById = (id, business, result) => {
     "UPDATE business SET business_name = ?, owner_fname = ?, owner_lname = ?, business_profile = ?, email = ?, phone_number = ?, rate_per_hour = ?, location = ?, keywords = ?, education = ?, pictures = ?, description = ? WHERE businessID = ?",
     [
       business.business_name,
-      business.fname_of_business,
-      business.lname_of_business,
+      business.owner_fname,
+      business.owner_lname,
       business.business_profile,
       business.email,
       business.phone_number,
