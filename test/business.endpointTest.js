@@ -96,7 +96,7 @@ describe("PUT /api/business", () => {
         .put("/api/business/${businessID}")
         .set("Authorization", `Bearer ${token}`)
         .send({
-            phone: "111111111",
+            address: "5678 bobby street",
         })
         .end((error, response) => {
             res.should.have.status(200);
