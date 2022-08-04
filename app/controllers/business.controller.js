@@ -9,7 +9,6 @@ exports.create = (req, res) => {
       message: "Content can not be empty!",
     });
   }
-  console.log(req.body);
   // Create a business
   const Business = new business({
     businessID: req.body.businessID,

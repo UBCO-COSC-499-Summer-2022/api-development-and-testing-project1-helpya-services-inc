@@ -43,10 +43,10 @@ describe("GET /api/business", () => {
         .request(server)
         .get("/api/business")
         .set("Authorization", `Bearer ${token}`)
-        .end((error, response) => {
+        .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            console.log(response.body);
+            console.log(res.body);
         }
         );
         done();
@@ -63,7 +63,7 @@ describe("GET /api/business", () => {
             name: "bobby",
             address: "1234 bobby street"
         })
-        .end((error, response) => {
+        .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
             console.log(response.body);
@@ -79,7 +79,7 @@ describe("GET /api/business", () => {
         .request(server)
         .get("/api/business/${businessID}")
         .set("Authorization", `Bearer ${token}`)
-        .end((error, response) => {
+        .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
             console.log(response.body);
@@ -98,10 +98,10 @@ describe("PUT /api/business", () => {
         .send({
             address: "5678 bobby street",
         })
-        .end((error, response) => {
+        .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            console.log(response.body);
+            console.log(res.body);
         }
         );
         done();
@@ -114,10 +114,10 @@ describe("DELETE /api/business", () => {
         .request(server)
         .delete("/api/business/${businessID}")
         .set("Authorization", `Bearer ${token}`)
-        .end((error, response) => {
+        .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            console.log(response.body);
+            console.log(res.body);
         }
         );
         done();
