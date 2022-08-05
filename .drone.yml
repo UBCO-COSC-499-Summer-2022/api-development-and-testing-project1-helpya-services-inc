@@ -22,7 +22,7 @@ steps:
   - mysql -u root -h database --execute="FLUSH PRIVILEGES;"
 
 - name: test
-  image: node:12
+  image: node:latest
   commands:
   - npm install
   # - node dbdiagnostic.js
