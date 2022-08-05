@@ -20,7 +20,7 @@ exports.create = (req, res) => {
     password: stringEncryption(req.body.password),
     role: req.body.role,
     active_account: req.body.active_account,
-    strip_customer_id: req.body.strip_customer_id,
+    strip_customer_id: req.body.strip_customer_id
   });
 
   // Save consumer in the database
