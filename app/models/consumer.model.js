@@ -1,7 +1,4 @@
 const sql = require("./db.js");
-const stripe = require("stripe")(
-  "sk_test_51LN9iJJ1ttqNM1k30e0LTKwvIU6ZPdeCyPewNhuYCpipuSGjvhyKwBJZDM4v24b1LANdAF17amgq6H9fJHIZIG8O00oR8i1Ari"
-);
 // constructor
 const consumer = function (consumer) {
   this.consumerID = consumer.consumerID;
@@ -50,6 +47,9 @@ consumer.findById = (id, result) => {
 };
 consumer.getAll = (result, title) => {
   let query = "SELECT * FROM consumer";
+  if (title) {
+    query += ` WHERE title LIKE '%${title}%'`;
+  }
   sql.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);
