@@ -11,8 +11,9 @@ const consumer = function (consumer) {
   this.phone_number = consumer.phone_number;
   this.location = consumer.location;
   this.consumer_profile = consumer.consumer_profile;
-  this.generalID = consumer.generalID;
   this.password = consumer.password;
+  this.role = consumer.role;
+  this.active_account = consumer.active_account;
   this.strip_customer_id = consumer.strip_customer_id;
 };
 consumer.create = async (newconsumer, result) => {
