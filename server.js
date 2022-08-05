@@ -3,6 +3,13 @@ const { expressjwt: expressjwt } = require("express-jwt");
 const auth = require("./app/middleware/auth.js");
 const { validationTokenAuth, JWT_CONFIG } = require("./app/middleware/auth.js");
 const cors = require("cors");
+const { ROLE, users } = require("./data");
+const { authUser, authRole } = require("./authenticate");
+const projectRouter = require("./routes/account_operations");
+
+app.use(express.json());
+app.use(setUser);
+app.use("/projects", projectRouter);
 const app = express();
 var corsOptions = {
   origin: "http://localhost:3306",
@@ -28,6 +35,35 @@ app.use((req,res,next)=>{
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to HelpYa application." });
 });
+
+app.get("/dashboard", authUser, (req, res) => {
+  res.json({message: 'Home Page'});
+});
+
+app.get("/consumer", authUser, authRole(ROLE.CONSUMER), (req, res) => {
+  res.json({message: 'Consumer Page'});
+});
+
+app.get("/business", authUser, authRole(ROLE.BUSINESS), (req, res) => {
+    res.json({message: 'Business Page'});
+});
+
+app.get("/admin", authUser, authRole(ROLE.ADMIN), (req, res) => {
+    res.json({message: 'Admin Page'});
+});
+
+app.get("/helpya", authUser, authRole(ROLE.HELPYA), (req, res) => {
+  res.json({message: 'Helpya Page'});
+});
+
+function setUser(req, res, next) {
+  const userId = req.body.userId;
+  if (userId) {
+    req.user = users.find((user) => user.id === userId);
+  }
+  next();
+}
+
 require("./app/routes/consumer.routes.js")(app);
 require("./app/routes/accounting.routes.js")(app);
 require("./app/routes/business.routes.js")(app);
