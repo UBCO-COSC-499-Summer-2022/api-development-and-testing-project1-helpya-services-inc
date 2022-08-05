@@ -82,6 +82,7 @@ describe("GET /api/stripe/invoice", () => {
     done();
   });
 });
+
 describe("PUT /api/stripe/invoice", () => {
   it("stripe invoice update", (done) => {
     chai

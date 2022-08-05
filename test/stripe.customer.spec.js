@@ -32,6 +32,7 @@ describe("POST /api/stripe/customer", () => {
     done();
   });
 });
+
 describe("GET /api/stripe/customer", () => {
   it("stripe customer findAll", (done) => {
     chai
@@ -46,6 +47,7 @@ describe("GET /api/stripe/customer", () => {
     done();
   });
 });
+
 describe("GET /api/stripe/customer", () => {
   it("stripe customer findAll with send", (done) => {
     chai
@@ -64,6 +66,7 @@ describe("GET /api/stripe/customer", () => {
     done();
   });
 });
+
 describe("GET /api/stripe/customer", () => {
   it("stripe customer findOne", (done) => {
     chai
@@ -78,6 +81,7 @@ describe("GET /api/stripe/customer", () => {
     done();
   });
 });
+
 describe("PUT /api/stripe/customer", () => {
   it("stripe customer update", (done) => {
     chai
@@ -103,6 +107,7 @@ describe("PUT /api/stripe/customer", () => {
     done();
   });
 });
+
 describe("DELETE /api/stripe/customer", () => {
   it("stripe customer delete", (done) => {
     chai
