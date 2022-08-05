@@ -4,7 +4,7 @@ name: database
 
 steps:
 - name: db-setup
-  image: mysql:latest
+  image: mysql:5.7
   commands:
   - while ! mysqladmin ping -h database -u root --silent; do sleep 1; done
   - mysql -u root -h database --execute="CREATE USER 'b734bbe733ac95'@'database' IDENTIFIED BY '23fc955b';"
@@ -22,7 +22,7 @@ steps:
   - mysql -u root -h database --execute="FLUSH PRIVILEGES;"
 
 - name: test
-  image: node:latest
+  image: node:12
   commands:
   - npm install
   # - node dbdiagnostic.js
