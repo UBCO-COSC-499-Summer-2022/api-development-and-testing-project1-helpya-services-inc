@@ -33,15 +33,15 @@ CREATE TABLE
     education VARCHAR(150),
     pictures VARCHAR(500),
     description VARCHAR(500),
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
+    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID) ON UPDATE CASCADE ON DELETE CASCADE
   );
 
 CREATE TABLE
   IF NOT EXISTS recentSearches(
     businessID INT,
     consumerID INT,
-    FOREIGN KEY (businessID) REFERENCES business(businessID),
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
+    FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID) ON UPDATE CASCADE ON DELETE CASCADE
   );
 
 -- CREATE TABLE
@@ -58,8 +58,8 @@ CREATE TABLE
     chatID INT NOT NULL PRIMARY KEY,
     consumerID INT,
     businessID INT,
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
-    FOREIGN KEY (businessID) REFERENCES business(businessID)
+    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE
   );
 
 CREATE TABLE
@@ -67,7 +67,7 @@ CREATE TABLE
     businessID INT,
     education_level VARCHAR(255),
     highest_education_completed VARCHAR(50),
-    FOREIGN KEY (businessID) REFERENCES business(businessID)
+    FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE
   );
 
 CREATE TABLE
@@ -75,5 +75,16 @@ CREATE TABLE
     businessID INT,
     job_title VARCHAR(50),
     job_category VARCHAR(50),
-    FOREIGN KEY (businessID) REFERENCES business(businessID)
+    FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE
+  );
+
+CREATE TABLE
+  IF NOT EXISTS ads(
+    adID INT NOT NULL PRIMARY KEY,
+    businessID INT,
+    business_name VARCHAR(150) NOT NULL,
+    job_title VARCHAR(50),
+    job_category VARCHAR(50),
+    clocation VARCHAR(50),
+    rate_per_hour CHAR(10)
   );
