@@ -64,6 +64,9 @@ function paginatedResults(model) {
     const results = {};
 
     if (endIndex < (await model.countDocuments().exec())) {
+      if(endIndex > 50){
+        return res.send("forbidden");
+      }
       results.next = {
         page: page + 1,
         limit: limit,
@@ -71,6 +74,9 @@ function paginatedResults(model) {
     }
 
     if (startIndex > 0) {
+      if (startIndex -1 < 0){
+        return res.send("forbidden");
+      }
       results.previous = {
         page: page - 1,
         limit: limit,
