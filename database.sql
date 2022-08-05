@@ -14,23 +14,14 @@ CREATE TABLE
     password varchar(250) NOT NULL,
     role varchar(150) NOT NULL,
     active_account BIT(50) NOT NULL,
-    strip_customer_id varchar(250) --NOT NULL,
-  );
-CREATE TABLE
-  IF NOT EXISTS recentSearches(
-    businessID INT NOT NULL UNIQUE,
-    consumerID INT,
-    store_name varchar(150) NOT NULL,
-    store_profile varchar(250),
-    PRIMARY KEY(businessID),
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
+    strip_customer_id varchar(250)
   );
 
 CREATE TABLE
   IF NOT EXISTS business(
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
+    consumerID INT,
     businessID INT NOT NULL UNIQUE PRIMARY KEY,
-    business_name VARCHAR(150) NOT NULL UNIQUE,
+    business_name VARCHAR(150) NOT NULL,
     owner_fname VARCHAR(150),
     owner_lname VARCHAR(150),
     business_profile VARCHAR(250),
@@ -42,19 +33,26 @@ CREATE TABLE
     education VARCHAR(150),
     pictures VARCHAR(500),
     description VARCHAR(500),
-    active_account BIT(50) NOT NULL
+    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
   );
 
 CREATE TABLE
-  IF NOT EXISTS consumer_history(
-    consumerID INT NOT NULL PRIMARY KEY,
+  IF NOT EXISTS recentSearches(
     businessID INT,
-    payment_method VARCHAR(50),
-    business_name VARCHAR(150),
-    payment_logs VARCHAR(250),
-    FOREIGN KEY (businessID) REFERENCES payment(businessID)
+    consumerID INT,
+    FOREIGN KEY (businessID) REFERENCES business(businessID),
+    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
   );
 
+-- CREATE TABLE
+--   IF NOT EXISTS consumer_history(
+--     consumerID INT NOT NULL PRIMARY KEY,
+--     businessID INT,
+--     payment_method VARCHAR(50),
+--     business_name VARCHAR(150),
+--     payment_logs VARCHAR(250),
+--     FOREIGN KEY (businessID) REFERENCES payment(businessID)
+--   );
 CREATE TABLE
   IF NOT EXISTS chat(
     chatID INT NOT NULL PRIMARY KEY,
