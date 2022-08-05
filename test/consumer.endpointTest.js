@@ -44,6 +44,7 @@ describe("GET /api/consumer", () => {
         .request(server)
         .get("/api/consumer")
         .set("Authorization", `Bearer ${token}`)
+
         .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
@@ -74,7 +75,7 @@ describe("PUT /api/consumer", () => {
     it("consumer update", (done) => {
         chai
         .request(server)
-        .put("/api/consumer/${consumerID}")
+        .put("/api/consumer/1")
         .set("Authorization", `Bearer ${token}`)
         .send({
             phone: "111111111",

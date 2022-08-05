@@ -33,10 +33,10 @@ education_history.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
-education_history.getAll = (title, result) => {
+education_history.getAll = (highest_education_completed, result) => {
   let query = "SELECT * FROM education_history";
-  if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
+  if (highest_education_completed) {
+    query += ` WHERE highest_education_completed LIKE '%${highest_education_completed}%'`;
   }
   sql.query(query, (err, res) => {
     if (err) {
