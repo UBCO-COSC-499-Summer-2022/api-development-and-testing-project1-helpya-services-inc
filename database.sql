@@ -28,7 +28,7 @@ CREATE TABLE
     email VARCHAR(150) NOT NULL UNIQUE,
     phone_number CHAR(11) NOT NULL UNIQUE,
     rate_per_hour CHAR(10) NOT NULL,
-    location VARCHAR(50),
+    clocation VARCHAR(50),
     keywords VARCHAR(50),
     education VARCHAR(150),
     pictures VARCHAR(500),
@@ -76,4 +76,15 @@ CREATE TABLE
     job_title VARCHAR(50),
     job_category VARCHAR(50),
     FOREIGN KEY (businessID) REFERENCES business(businessID)
+  );
+
+CREATE TABLE
+  IF NOT EXISTS ads(
+    adID INT NOT NULL PRIMARY KEY,
+    businessID INT,
+    business_name VARCHAR(150) NOT NULL,
+    job_title VARCHAR(50),
+    job_category VARCHAR(50),
+    clocation VARCHAR(50),
+    rate_per_hour CHAR(10)
   );
