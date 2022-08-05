@@ -24,6 +24,8 @@ steps:
 - name: test
   image: node:latest
   commands:
+  - npm config rm proxy 
+  - npm config rm https-proxy --tried removing npm proxy 
   - npm install
   # - node dbdiagnostic.js
   - npm test
