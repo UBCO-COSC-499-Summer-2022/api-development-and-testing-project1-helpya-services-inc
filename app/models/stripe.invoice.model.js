@@ -60,6 +60,21 @@ stripe_invoice.findById = async (id, result) => {
   }
 };
 
+//find invoice by customer id
+stripe_invoice.findByCustomerId = async (customerId, result) => {
+  try {
+    const invoices = await stripe.invoices.list({
+      customer: customerId,
+    });
+    console.log(invoices);
+    result(null, invoices);
+  } catch (err) {
+    console.log("error: ", err);
+    result(err, null);
+    return;
+  }
+};
+
 //update invoice by id
 stripe_invoice.updateById = async (id, stripe_invoice, result) => {
   try {
