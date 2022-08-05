@@ -58,6 +58,7 @@ CREATE TABLE
     chatID INT NOT NULL PRIMARY KEY,
     consumerID INT,
     businessID INT,
+    time_stamp DATE,
     FOREIGN KEY (consumerID) REFERENCES consumer(consumerID) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE
   );
