@@ -5,14 +5,14 @@ module.exports = (app) => {
 
   //make stripe payment
   router.post("/", stripe_payment.create);
+  //list all payments
+  router.get("/", stripe_payment.listAll);
   //get stripe payment by id
-  router.get("/:id", stripe_payment.get);
-  //get stripe payment by date
-  router.get("/:payment", stripe_payment.getByDate);
+  router.get("/:id", stripe_payment.findById);
   //Update stripe payment with id
-  router.put("/:id/:payment", stripe_payment.update);
+  router.put("/:id/:payment", stripe_payment.updateById);
   //Delete stripe payment id
-  router.delete("/:id", stripe_payment.delete);
+  router.delete("/:id", stripe_payment.deleteById);
 
   app.use("/api/stripe_payment", router);
 };

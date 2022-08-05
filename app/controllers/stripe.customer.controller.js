@@ -4,43 +4,42 @@ const customer = require("../models/stripe.customer.model.js");
 //make stripe customer
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body) {
+  if (!req.query) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
   }
-
   // Create a Customer
-  const customer = new customer({
-    name: req.body.name,
-    email: req.body.email,
-    phone: req.body.phone,
-    address: req.body.address,
-    city: req.body.city,
-    state: req.body.state,
-    zip: req.body.zip,
-    country: req.body.country,
+  const Customer = new customer({
+    name: req.query.name,
+    email: req.query.email,
+    phone: req.query.phone,
+    address: req.query.address,
+    city: req.query.city,
+    state: req.query.state,
+    zip: req.query.zip,
+    country: req.query.country,
   });
 
   // Save Customer in the database
-  customer.create(customer, (err, data) => {
+  customer.create(Customer, (err, data) => {
     if (err)
       res.status(500).send({
         message:
           err.message || "Some error occurred while creating the Customer.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
 exports.listAll = (req, res) => {
-  customer.getAll((err, data) => {
+  customer.listAll((err, data) => {
     if (err)
       res.status(500).send({
         message:
           err.message || "Some error occurred while retrieving customers.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
@@ -56,19 +55,21 @@ exports.findById = (req, res) => {
           message: "Error retrieving Customer with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 
 exports.updateById = (req, res) => {
+  
   // Validate Request
-  if (!req.body) {
+  if (!req.query) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
   }
 
-  customer.updateById(req.params.id, new customer(req.body), (err, data) => {
+  customer.updateById(req.params.id, new customer(req.query), (err, data) => {
+   
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -79,7 +80,7 @@ exports.updateById = (req, res) => {
           message: "Error updating Customer with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 
@@ -95,6 +96,6 @@ exports.deleteById = (req, res) => {
           message: "Could not delete Customer with id " + req.params.id,
         });
       }
-    } else res.send({ message: `Customer was deleted successfully!` });
+    } else res.status(200).send({ message: `Customer was deleted successfully!` });
   });
 };

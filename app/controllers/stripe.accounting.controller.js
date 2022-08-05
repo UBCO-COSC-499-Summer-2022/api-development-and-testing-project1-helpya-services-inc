@@ -10,17 +10,21 @@ exports.create = (req, res) => {
   }
 
   // Create a Accounting
-  const accounting = new accounting({
-    amount: req.body.amount,
+  const Accounting = new accounting({
+    customerID: req.body.customerID,
+    bankID: req.body.bankID,
+    account_holder_name: req.body.account_holder_name,
+    account_holder_type: req.body.account_holder_type,
+    bank_name: req.body.bank_name,
+    country: req.body.country,
     currency: req.body.currency,
-    payment_method_types: req.body.payment_method_types,
-    receipt_email: req.body.receipt_email,
-    description: req.body.description,
-    customer: req.body.customer,
+    fingerprint: req.body.fingerprint,
+    last4: req.body.last4,
+    routing_number: req.body.routing_number,
   });
 
   // Save Accounting in the database
-  accounting.create(accounting, (err, data) => {
+  accounting.create(Accounting, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -30,8 +34,8 @@ exports.create = (req, res) => {
   });
 };
 
-exports.listAll = (req, res) => {
-  accounting.getAll((err, data) => {
+exports.listAllByCustomer = (req, res) => {
+  accounting.listAllByCustomer(req.params.customerID, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -42,7 +46,7 @@ exports.listAll = (req, res) => {
 };
 
 exports.findById = (req, res) => {
-  accounting.findById(req.params.id, (err, data) => {
+  accounting.findById(req.params.customerID,req.params.bankID, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -66,7 +70,9 @@ exports.updateById = (req, res) => {
   }
 
   accounting.updateById(
-    req.params.id,
+    req.body.customerID,
+    req.body.bankID,
+    req.body.updateObject,
     new accounting(req.body),
     (err, data) => {
       if (err) {
@@ -85,7 +91,7 @@ exports.updateById = (req, res) => {
 };
 
 exports.deleteById = (req, res) => {
-  accounting.remove(req.params.id, (err, data) => {
+  accounting.remove(req.body.customerID, req.body.bankID, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -99,4 +105,3 @@ exports.deleteById = (req, res) => {
     } else res.send({ message: `Accounting was deleted successfully!` });
   });
 };
-

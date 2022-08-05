@@ -49,9 +49,6 @@ consumer.findById = (id, result) => {
 };
 consumer.getAll = (result, title) => {
   let query = "SELECT * FROM consumer";
-  if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
-  }
   sql.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);

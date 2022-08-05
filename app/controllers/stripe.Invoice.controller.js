@@ -10,7 +10,7 @@ exports.create = (req, res) => {
   }
 
   // Create a Invoice
-  const invoice = new invoice({
+  const Invoice = new invoice({
     amount: req.body.amount,
     currency: req.body.currency,
     payment_method_types: req.body.payment_method_types,
@@ -20,7 +20,7 @@ exports.create = (req, res) => {
   });
 
   // Save Invoice in the database
-  invoice.create(invoice, (err, data) => {
+  invoice.create(Invoice, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -31,7 +31,7 @@ exports.create = (req, res) => {
 };
 
 exports.listAll = (req, res) => {
-  invoice.getAll((err, data) => {
+  invoice.listAll((err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -82,7 +82,7 @@ exports.updateById = (req, res) => {
 };
 
 exports.deleteById = (req, res) => {
-  invoice.deleteById(req.params.id, (err, data) => {
+  invoice.remove(req.params.id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -97,8 +97,8 @@ exports.deleteById = (req, res) => {
   });
 };
 
-exports.findByCustomer = (req, res) => {
-  invoice.findByCustomer(req.params.id, (err, data) => {
+exports.findByCustomerId = (req, res) => {
+  invoice.findByCustomerId(req.params.id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({

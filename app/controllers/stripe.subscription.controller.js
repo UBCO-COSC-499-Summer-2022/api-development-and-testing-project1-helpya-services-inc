@@ -8,11 +8,10 @@ exports.signSub = (req, res) => {
       message: "Content can not be empty!",
     });
   }
-  console.log(req.query.customer);
   // Create a stripe
   const Sub = new sub({
-    customer: req.query.customer,
-    subID: req.query.subID,
+    customer: req.body.customer,
+    subID: req.body.subID,
   });
 
   // Save stripe in the database
@@ -62,11 +61,11 @@ exports.getSubByCustomer = (req, res) => {
   // Create a stripe
   const Sub = new sub({
     customer: req.body.customer,
-    price: req.body.price,
+    price: req.body.subscription,
   });
 
   // Save stripe in the database
-  sub.getSubByCustomer(Stripe, (err, data) => {
+  sub.getSubByCustomer(Sub, (err, data) => {
     if (err)
       res.status(500).send({
         message:

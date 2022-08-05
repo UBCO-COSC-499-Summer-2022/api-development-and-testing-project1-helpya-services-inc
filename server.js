@@ -42,6 +42,9 @@ require("./app/routes/job_type.routes.js")(app);
 require("./app/routes/login.routes.js")(app);
 require("./app/routes/stripe.subscription.routes")(app);
 require("./app/routes/strip.coupon.routes")(app);
+require("./app/routes/stripe.customer.routes")(app);
+require("./app/routes/stripe.invoice.routes")(app);
+require("./app/routes/stripe.accounting.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

@@ -12,22 +12,22 @@ const sub = function (sub){
   this.default_payment_method = sub.default_payment_method;
   this.items = {
     object: sub.object,
-    data: sub.items.data,
-    has_more: sub.items.has_more,
-    url: sub.items.url,
+    data: sub.data,
+    has_more: sub.has_more,
+    url: sub.url,
   }
-  this.latest_invoice = sub.items.latest_invoice;
+  this.latest_invoice = sub.latest_invoice;
   this.pending_setup_intent = sub.pending_setup_intent;
   this.pending_update = sub.pending_update;
   this.status = sub.status; //allpossible values: trialing, active, past_due, unpaid, canceled, or unpaid (more information at https://stripe.com/docs/api/subscriptions/object#subscription_object-status)
 } 
 
 //signup customer for subscription
-sub.signSub = async (subID, result) => {
+sub.signSub = async (newSub, result) => {
   try {
     const subscription = await stripeAPI.subscriptions.create({
       customer: newSub.customer,
-      items: [{ price: subID }],
+      items: [{ price: newSub.subID }],
     });
     console.log(subscription);
     result(null, subscription);
@@ -57,7 +57,7 @@ sub.applyCoupon = async (couponID, result) => {
 //get all customer subscriptions
 sub.getSubByCustomer = async (newSub, result) => {
   try {
-    const subscriptions = await stripe.subscriptions.list({
+    const subscriptions = await stripeAPI.subscriptions.list({
       customer: newSub.customer,
     });
     console.log(subscriptions);

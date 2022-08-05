@@ -5,14 +5,16 @@ module.exports = (app) => {
 
   //make stripe invoice
   router.post("/", stripe_invoice.create);
+  //find all stripe invoices
+  router.get("/", stripe_invoice.listAll);
   //get stripe invoice by id
-  router.get("/:id", stripe_invoice.get);
-  //get stripe invoice by date
-  router.get("/:invoice", stripe_invoice.getByDate);
+  router.get("/:id", stripe_invoice.findById);
+  //get stripe invoice by cusotmer id
+  router.get("/customer/:id", stripe_invoice.findByCustomerId);
   //Update stripe invoice with id
-  router.put("/:id/:invoice", stripe_invoice.update);
+  router.put("/:id", stripe_invoice.updateById);
   //Delete stripe invoice id
-  router.delete("/:id", stripe_invoice.delete);
+  router.delete("/:id", stripe_invoice.deleteById);
 
-  app.use("/api/stripe_invoice", router);
+  app.use("/api/stripe/invoice", router);
 };
