@@ -17,8 +17,10 @@ exports.create = (req, res) => {
     phone_number: req.body.phone_number,
     location: req.body.location,
     consumer_profile: req.body.consumer_profile,
-    generalID: req.body.generalID,
     password: stringEncryption(req.body.password),
+    role: req.body.role,
+    active_account: req.body.active_account,
+    strip_customer_id: req.body.strip_customer_id
   });
 
   // Save consumer in the database
