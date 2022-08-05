@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const mysql = require("mysql");
 
-const postSchema = new mongoose.Schema({
+const postSchema = new mysql.Schema({
     name_of_business: {
         type: String,
         requird: true
@@ -8,6 +8,10 @@ const postSchema = new mongoose.Schema({
     ad_title: {
         type: String,
         required: true
-    }
+    },
+    ad_price: {
+        type: String,
+        required: true
+    },
 })
-module.exports = mongoose.model('Post', postSchema)
+module.exports = mysql.model('Post', postSchema)
