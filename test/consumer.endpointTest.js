@@ -44,10 +44,11 @@ describe("GET /api/consumer", () => {
         .request(server)
         .get("/api/consumer")
         .set("Authorization", `Bearer ${token}`)
-        .end((error, res) => {
-            res.shoud.have.status(200);
+
+        .end((err, res) => {
+            res.should.have.status(200);
             res.body.should.be.a('object');
-            console.log(response.body);
+            console.log(res.body);
         }
         );
         done();
@@ -60,10 +61,10 @@ describe("GET /api/consumer", () => {
         .request(server)
         .get("/api/consumer/${consumerID}")
         .set("Authorization", `Bearer ${token}`)
-        .end((error, response) => {
-            res.shoud.have.status(200);
+        .end((err, res) => {
+            res.should.have.status(200);
             res.body.should.be.a('object');
-            console.log(response.body);
+            console.log(res.body);
         }
         );
         done();
