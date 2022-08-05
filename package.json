@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "mocha test/**/*.js",
+    "test": "mocha test --exit",
     "devStart": "nodemon server.js"
   },
   "repository": {
@@ -35,6 +35,7 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.19",
+    "mysql2": "^2.3.3",
     "supertest": "^6.2.4"
   }
 }
