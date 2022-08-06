@@ -27,9 +27,13 @@ describe("POST /api/stripe/bankaccount", () => {
         routing_number: "110000000",
       })
       .end((err, res) => {
+        if(res){
         res.should.have.status(200);
         res.body.should.be.a("object");
         console.log(res.body);
+        }else if(err){
+          console.log(err);
+        }
       });
     done();
   });

@@ -70,7 +70,7 @@ describe("GET /api/stripe/customer", () => {
       .request(server)
       .get("/api/stripe/customer/:id")
       .set("Authorization", `Bearer ${token}`)
-      .end((error, response) => {
+      .end((error, res) => {
         res.should.have.status(200);
         res.body.should.be.a("object");
         console.log(response.body);
