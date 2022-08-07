@@ -7,12 +7,12 @@ let expect = chai.expect;
 let should = chai.should();
 let token = auth.setToken("consumer", "1");
 
-//mocha test stripe customer end points
-describe("POST /api/stripe/customer", () => {
-  it("stripe customer create", (done) => {
+//mocha test stripe coupon end points
+describe("POST /api/stripe/coupon", () => {
+  it("stripe coupon create", (done) => {
     chai
       .request(server)
-      .post("/api/stripe/customer")
+      .post("/api/stripe/coupon")
       .set("Authorization", `Bearer ${token}`)
       .send({
         name: "bob",
@@ -32,31 +32,18 @@ describe("POST /api/stripe/customer", () => {
     done();
   });
 });
-describe("GET /api/stripe/customer", () => {
-  it("stripe customer findAll", (done) => {
+
+
+describe("GET /api/stripe/coupon", () => {
+  it("stripe coupon findAll by id", (done) => {
     chai
       .request(server)
-      .get("/api/stripe/customer")
-      .set("Authorization", `Bearer ${token}`)
-      .end((error, response) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
-      });
-    done();
-  });
-});
-describe("GET /api/stripe/customer", () => {
-  it("stripe customer findAll with send", (done) => {
-    chai
-      .request(server)
-      .get("/api/stripe/customer/")
+      .get("/api/stripe/coupon/cus_IY2Z0X4Z0X4Z0X")
       .set("Authorization", `Bearer ${token}`)
       .send({
-        name: "bobby",
-        address: "1234 bobby street",
+        id: "cus_IY2Z0X4Z0X4Z0X",
       })
-      .end((error, response) => {
+      .end((error, res) => {
         res.should.have.status(200);
         res.body.should.be.a("object");
         console.log(response.body);
@@ -64,11 +51,30 @@ describe("GET /api/stripe/customer", () => {
     done();
   });
 });
-describe("GET /api/stripe/customer", () => {
-  it("stripe customer findOne", (done) => {
+
+describe("GET /api/stripe/coupon", () => {
+  it("stripe coupon findAll by cuponid", (done) => {
     chai
       .request(server)
-      .get("/api/stripe/customer/:id")
+      .get("/api/stripe/coupon/dyldseqy")
+      .set("Authorization", `Bearer ${token}`)
+      .send({
+        id: "cus_IY2Z0X4Z0X4Z0X",
+      })
+      .end((error, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a("object");
+        console.log(response.body);
+      });
+    done();
+  });
+});
+
+describe("GET /api/stripe/coupon", () => {
+  it("stripe coupon findOne", (done) => {
+    chai
+      .request(server)
+      .get("/api/stripe/coupon/:id")
       .set("Authorization", `Bearer ${token}`)
       .end((error, res) => {
         res.should.have.status(200);
@@ -78,22 +84,16 @@ describe("GET /api/stripe/customer", () => {
     done();
   });
 });
-describe("PUT /api/stripe/customer", () => {
-  it("stripe customer update", (done) => {
+
+describe("PUT /api/stripe/coupon", () => {
+  it("stripe coupon update", (done) => {
     chai
       .request(server)
-      .put("/api/stripe/customer/:id")
+      .put("/api/stripe/coupon/cus_IY2Z0X4Z0X4Z0X")
       .set("Authorization", `Bearer ${token}`)
       .send({
-        name: "bob",
-        email: "bob@bob.com",
-        password: "password",
-        phone: "1234567890",
-        address: "1234 bob street",
-        city: "bob city",
-        state: "bob state",
-        zip: "12345",
-        country: "bob country",
+        percent_off:67,
+        duration_in_months: 7,
       })
       .end((err, res) => {
         res.should.have.status(200);
@@ -103,17 +103,4 @@ describe("PUT /api/stripe/customer", () => {
     done();
   });
 });
-describe("DELETE /api/stripe/customer", () => {
-  it("stripe customer delete", (done) => {
-    chai
-      .request(server)
-      .delete("/api/stripe/customer/:id")
-      .set("Authorization", `Bearer ${token}`)
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
-      });
-    done();
-  });
-});
+

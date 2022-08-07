@@ -9,9 +9,9 @@ module.exports = (app) => {
   // get coupon by date
   router.get("/:customer", coupon.getByDate);
   // Update coupon with id
-  router.put("/:id/:coupon", coupon.update);
+  router.put("/:id", coupon.update);
   // Delete coupon id
   router.delete("/:id", coupon.delete);
 
-  app.use("/api/coupon", router);
+  app.use("/api/stripe/coupon", router);
 };
