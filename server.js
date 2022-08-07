@@ -13,35 +13,41 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 // Verify which apis do not require tokens
-app.use(expressjwt({
-  secret:auth.JWT_CONFIG.scriect,
-  algorithms: ['HS256']
-}).unless({
-  path: auth.JWT_CONFIG.path
-}))
-// validation token 
-app.use((req,res,next)=>{
-  validationTokenAuth(req,res,next)
-})
+app.use(
+  expressjwt({
+    secret: auth.JWT_CONFIG.scriect,
+    algorithms: ["HS256"],
+  }).unless({
+    path: auth.JWT_CONFIG.path,
+  })
+);
+//validation token
+app.use((req, res, next) => {
+  validationTokenAuth(req, res, next);
+});
 
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to HelpYa application." });
 });
 require("./app/routes/consumer.routes.js")(app);
-require("./app/routes/accounting.routes.js")(app);
+require("./app/routes/stripe.accounting.routes.js")(app);
 require("./app/routes/business.routes.js")(app);
 require("./app/routes/chat.routes.js")(app);
 require("./app/routes/consumer_history.routes.js")(app);
-require("./app/routes/payment.routes.js")(app);
+require("./app/routes/stripe.payment.routes.js")(app);
 require("./app/routes/recentSearches.routes.js")(app);
 require("./app/routes/education_history.routes.js")(app);
 require("./app/routes/job_type.routes.js")(app);
 require("./app/routes/login.routes.js")(app);
-require("./app/routes/ad.routes.js")(app);
+require("./app/routes/stripe.subscription.routes")(app);
+require("./app/routes/strip.coupon.routes")(app);
+require("./app/routes/stripe.customer.routes")(app);
+require("./app/routes/stripe.invoice.routes")(app);
+require("./app/routes/stripe.accounting.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
-module.exports=app.listen(PORT, () => {
+module.exports = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

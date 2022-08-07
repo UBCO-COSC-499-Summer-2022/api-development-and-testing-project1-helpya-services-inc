@@ -13,7 +13,8 @@ const consumer = function (consumer) {
   this.active_account = consumer.active_account;
   this.strip_customer_id = consumer.strip_customer_id;
 };
-consumer.create = (newconsumer, result) => {
+consumer.create = async (newconsumer, result) => {
+ 
   sql.query("INSERT INTO consumer SET ?", newconsumer, (err, res) => {
     if (err) {
       console.log("error: ", err);
