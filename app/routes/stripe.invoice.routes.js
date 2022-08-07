@@ -1,6 +1,6 @@
 //make stripe invoice routes
 module.exports = (app) => {
-  const stripe_invoice = require("../controllers/stripe.invoice.controller.js");
+  const stripe_invoice = require("../controllers/stripe.Invoice.controller.js");
   var router = require("express").Router();
 
   //make stripe invoice
