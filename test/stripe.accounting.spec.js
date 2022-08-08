@@ -95,21 +95,3 @@ describe("PUT /api/stripe/bankaccount", () => {
   });
 });
 
-describe("DELETE /api/stripe/bankaccount", () => {
-  it("stripe bankaccount delete", (done) => {
-    chai
-      .request(server)
-      .delete("/api/stripe/bankaccount/")
-      .set("Authorization", `Bearer ${token}`)
-      .send({
-        customerID: "cus_MBnCdYT4aL4tfU",
-        bankID: "ba_EqXqXqXqXqXqXqXqXq",
-      })
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("string");
-        console.log(res.body);
-      });
-    done();
-  });
-});
