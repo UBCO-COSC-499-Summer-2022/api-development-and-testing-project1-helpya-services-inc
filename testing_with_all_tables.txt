@@ -56,8 +56,8 @@ INSERT INTO chat(chatID,consumerID, businessID, time_stamp, chat_message) VALUES
 (5, 0001, 1157, '2022-06-12', 'whats up4');
 
 INSERT INTO ads(adID, businessID, ad_title, ad_body, location, rate_per_hour) VALUES
-(1, 1153, 'peta paka photos', 'nice photos', 'la', '20')
-(2, 1154, 'goodjob inc', 'nice inc', 'kelowna', '17')
-(3, 1155, 'pet inc', 'cute pets', 'vancouver', '18')
-(4, 1156, 'football inc', 'good football', 'vancouver', '25')
-(5, 1157, 'chicken inc', 'delicous chicken', 'vancouver', '22')
+(1, 1153, 'peta paka photos', 'nice photos', 'la', '20'),
+(2, 1154, 'goodjob inc', 'nice inc', 'kelowna', '17'),
+(3, 1155, 'pet inc', 'cute pets', 'vancouver', '18'),
+(4, 1156, 'football inc', 'good football', 'vancouver', '25'),
+(5, 1157, 'chicken inc', 'delicous chicken', 'vancouver', '22');
