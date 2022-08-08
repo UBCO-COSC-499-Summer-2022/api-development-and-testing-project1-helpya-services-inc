@@ -19,9 +19,13 @@ describe("POST /api/stripe/subscription", () => {
         plan: "plan_EqXqXqXqXqXqXqXq",
       })
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -38,9 +42,13 @@ describe("GET /api/stripe/subscription", () => {
         subscription: "sub_EqXqXqXqXqXqXqXq",
       })
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(res.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -53,9 +61,13 @@ describe("DELETE /api/stripe/subscription", () => {
       .delete("/api/stripe/subscription/prod_MADCxzc8Mvnnt0")
       .set("Authorization", `Bearer ${token}`)
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });

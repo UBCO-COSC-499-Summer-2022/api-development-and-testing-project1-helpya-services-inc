@@ -25,14 +25,17 @@ describe("POST /api/stripe/coupon", () => {
         country: "bob country",
       })
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
 });
-
 
 describe("GET /api/stripe/coupon", () => {
   it("stripe coupon findAll by id", (done) => {
@@ -44,9 +47,13 @@ describe("GET /api/stripe/coupon", () => {
         id: "cus_IY2Z0X4Z0X4Z0X",
       })
       .end((error, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -62,9 +69,13 @@ describe("GET /api/stripe/coupon", () => {
         id: "cus_IY2Z0X4Z0X4Z0X",
       })
       .end((error, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -77,9 +88,13 @@ describe("GET /api/stripe/coupon", () => {
       .get("/api/stripe/coupon/:id")
       .set("Authorization", `Bearer ${token}`)
       .end((error, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -92,15 +107,18 @@ describe("PUT /api/stripe/coupon", () => {
       .put("/api/stripe/coupon/cus_IY2Z0X4Z0X4Z0X")
       .set("Authorization", `Bearer ${token}`)
       .send({
-        percent_off:67,
+        percent_off: 67,
         duration_in_months: 7,
       })
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
 });
-
