@@ -84,9 +84,9 @@ CREATE TABLE
   IF NOT EXISTS ads(
     adID INT NOT NULL PRIMARY KEY,
     businessID INT,
-    business_name VARCHAR(150) NOT NULL,
-    job_title VARCHAR(50),
-    job_category VARCHAR(50),
-    clocation VARCHAR(50),
-    rate_per_hour CHAR(10)
+    ad_title VARCHAR(50),
+    ad_body VARCHAR(500),
+    location VARCHAR(50),
+    rate_per_hour CHAR(10),
+    FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE
   );
