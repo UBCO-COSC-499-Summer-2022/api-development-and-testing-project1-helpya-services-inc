@@ -11,9 +11,8 @@ exports.create = (req, res) => {
   const AD = new ad({
     adID: req.query.adID,
     businessID: req.query.businessID,
-    business_name: req.query.business_name,
-    job_title: req.query.job_title,
-    job_category: req.query.job_category,
+    ad_title: req.query.ad_title,
+    ad_body: req.query.ad_body,
     location: req.query.location,
     rate_per_hour: req.query.rate_per_hour,
   });

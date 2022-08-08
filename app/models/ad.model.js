@@ -3,9 +3,8 @@ const sql = require("./db.js");
 const ad = function (ad) {
   this.adID = ad.adID;
   this.businessID = ad.businessID;
-  this.business_name = ad.business_name;
-  this.job_title = ad.job_title;
-  this.job_category = ad.job_category;
+  this.ad_title = ad.job_title;
+  this.ad_body = ad.ad_body;
   this.location = ad.location;
   this.rate_per_hour = ad.rate_per_hourl;
 };
@@ -83,9 +82,8 @@ ad.updateById = (id, ad, result) => {
   sql.query(
     "UPDATE ad SET business_name = ?, job_title = ?, job_category = ?, location = ?, rate_per_hour = ? WHERE adID = ?",
     [
-      ad.business_name,
-      ad.job_title,
-      ad.job_category,
+      ad.ad_title,
+      ad.job_body,
       ad.location,
       ad.rate_per_hour,
       id,
