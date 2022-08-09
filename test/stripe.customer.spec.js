@@ -25,9 +25,13 @@ describe("POST /api/stripe/customer", () => {
         country: "bob country",
       })
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -40,9 +44,13 @@ describe("GET /api/stripe/customer", () => {
       .get("/api/stripe/customer")
       .set("Authorization", `Bearer ${token}`)
       .end((error, response) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -59,9 +67,13 @@ describe("GET /api/stripe/customer", () => {
         address: "1234 bobby street",
       })
       .end((error, response) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -74,9 +86,13 @@ describe("GET /api/stripe/customer", () => {
       .get("/api/stripe/customer/:id")
       .set("Authorization", `Bearer ${token}`)
       .end((error, response) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -100,9 +116,13 @@ describe("PUT /api/stripe/customer", () => {
         country: "bob country",
       })
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -115,9 +135,13 @@ describe("DELETE /api/stripe/customer", () => {
       .delete("/api/stripe/customer/:id")
       .set("Authorization", `Bearer ${token}`)
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(response.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });

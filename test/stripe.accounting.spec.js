@@ -27,12 +27,12 @@ describe("POST /api/stripe/bankaccount", () => {
         routing_number: "110000000",
       })
       .end((err, res) => {
-        if(res){
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(res.body);
-        }else if(err){
-          console.log(err);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
         }
       });
     done();
@@ -49,9 +49,13 @@ describe("GET /api/stripe/bankaccount", () => {
         customerID: "cus_MBnCdYT4aL4tfU",
       })
       .end((error, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(res.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
@@ -84,14 +88,17 @@ describe("PUT /api/stripe/bankaccount", () => {
       .send({
         customerID: "cus_MBlescaIjQZbbL",
         bankID: "ba_1LTO6tJ1ttqNM1k3hNWT8x08",
-        updatedObject: {metadata: { order_id: "6735" }},
+        updatedObject: { metadata: { order_id: "6735" } },
       })
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a("object");
-        console.log(res.body);
+        if (res) {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          console.log(res.body);
+        } else {
+          console.log("result is null");
+        }
       });
     done();
   });
 });
-
