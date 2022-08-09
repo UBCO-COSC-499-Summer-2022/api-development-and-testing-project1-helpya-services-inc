@@ -23,7 +23,7 @@ exports.create = (req, res) => {
       res.status(500).send({
         message: err.message || "Some error occurred while creating the ad.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
@@ -34,7 +34,7 @@ exports.findAll = (req, res) => {
       res.status(500).send({
         message: err.message || "Some error occurred while retrieving ad.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 exports.findAllBusinessAds = (req, res) => {
@@ -43,7 +43,7 @@ exports.findAllBusinessAds = (req, res) => {
       res.status(500).send({
         message: err.message || "Error occured retrieving business's ads",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 // Find a single ad with a id
@@ -59,7 +59,7 @@ exports.findOne = (req, res) => {
           message: "Error retrieving business ad with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 
@@ -83,7 +83,7 @@ exports.update = (req, res) => {
           message: "Error updating business with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 // Delete a ad with the specified id in the request
@@ -99,7 +99,7 @@ exports.delete = (req, res) => {
           message: "Could not delete business with ad id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 // Delete all ad from the business.
@@ -115,6 +115,6 @@ exports.deleteAll = (req, res) => {
           message: "Could not delete ad with businessID " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
