@@ -9,12 +9,12 @@ exports.create = (req, res) => {
   }
   // Create a business
   const AD = new ad({
-    adID: req.query.adID,
-    businessID: req.query.businessID,
-    ad_title: req.query.ad_title,
-    ad_body: req.query.ad_body,
-    location: req.query.location,
-    rate_per_hour: req.query.rate_per_hour,
+    adID: req.body.adID,
+    businessID: req.body.businessID,
+    ad_title: req.body.ad_title,
+    ad_body: req.body.ad_body,
+    location: req.body.location,
+    rate_per_hour: req.body.rate_per_hour,
   });
 
   // Save ad in the database
@@ -48,7 +48,7 @@ exports.findAllBusinessAds = (req, res) => {
 };
 // Find a single ad with a id
 exports.findOne = (req, res) => {
-  ad.findById(req.body.id, (err, data) => {
+  ad.findById(req.params.id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -71,8 +71,7 @@ exports.update = (req, res) => {
       message: "Content can not be empty!",
     });
   }
-  console.log(req.body);
-  ad.updateById(req.body.id, req.body, (err, data) => {
+  ad.updateById(req.params.id, req.body, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -88,7 +87,7 @@ exports.update = (req, res) => {
 };
 // Delete a ad with the specified id in the request
 exports.delete = (req, res) => {
-  ad.remove(req.body.id, (err, data) => {
+  ad.remove(req.params.id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -104,7 +103,7 @@ exports.delete = (req, res) => {
 };
 // Delete all ad from the business.
 exports.deleteAll = (req, res) => {
-  ad.remove(req.body.id, (err, data) => {
+  ad.remove(req.params.id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
