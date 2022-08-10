@@ -21,7 +21,7 @@ exports.create = (req, res) => {
       res.status(500).send({
         message: err.message || "Some error occurred while creating the job type.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
@@ -32,7 +32,7 @@ exports.findAll = (req, res) => {
       res.status(500).send({
         message: err.message || "Some error occurred while retrieving job types.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
@@ -49,7 +49,7 @@ exports.findOne = (req, res) => {
           message: "Error retrieving job type with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 
@@ -76,7 +76,7 @@ exports.update = (req, res) => {
           message: "Error updating job type with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 
