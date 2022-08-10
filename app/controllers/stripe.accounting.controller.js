@@ -12,15 +12,12 @@ exports.create = (req, res) => {
   // Create a Accounting
   const Accounting = new accounting({
     customerID: req.body.customerID,
-    bankID: req.body.bankID,
     account_holder_name: req.body.account_holder_name,
     account_holder_type: req.body.account_holder_type,
-    bank_name: req.body.bank_name,
     country: req.body.country,
     currency: req.body.currency,
-    fingerprint: req.body.fingerprint,
-    last4: req.body.last4,
     routing_number: req.body.routing_number,
+    account_number: req.body.account_number,
   });
 
   // Save Accounting in the database

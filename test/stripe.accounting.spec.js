@@ -16,15 +16,13 @@ describe("POST /api/stripe/bankaccount", () => {
       .set("Authorization", `Bearer ${token}`)
       .send({
         customerID: "cus_MBnCdYT4aL4tfU",
-        bankID: "ba_EqXqXqXqXqXqXqXq",
-        account_holder_name: "Test Bank Account",
+        account_holder_name: "Jenny Rosen",
         account_holder_type: "individual",
-        bank_name: "Test Bank",
+        account_number: "000123456789",
         country: "US",
         currency: "usd",
-        fingerprint: "EqXqXqXqXqXqXqXq",
-        last4: "4242",
         routing_number: "110000000",
+        
       })
       .end((err, res) => {
         if(res){
