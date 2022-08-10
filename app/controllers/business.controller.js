@@ -12,7 +12,6 @@ exports.create = (req, res) => {
 
   // Create a business
   const Business = new business({
-    businessID: req.body.businessID,
     business_name: req.body.business_name,
     owner_fname: req.body.owner_fname,
     owner_lname: req.body.owner_lname,

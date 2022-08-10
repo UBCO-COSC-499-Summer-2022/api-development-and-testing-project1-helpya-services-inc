@@ -10,13 +10,13 @@ exports.create = (req, res) => {
   }
   // Create a education_history
   const EducationHistory = new education_history({
-    businessID: req.query.businessID,
-    education_level: req.query.education_level,
-    highest_education_completed: req.query.highest_education_completed
+    businessID: req.body.businessID,
+    education_level: req.body.education_level,
+    highest_education_completed: req.body.highest_education_completed
   });
 
   // Save education history in the database
-  EducationHistory.create(education_history, (err, data) => {
+  education_history.create(EducationHistory, (err, data) => {
     if (err)
       res.status(500).send({
         message: err.message || "Some error occurred while creating the education history.",

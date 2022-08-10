@@ -40,9 +40,7 @@ CREATE TABLE
 CREATE TABLE
   IF NOT EXISTS recentSearches(
     businessID INT,
-    consumerID INT,
-    FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID) ON UPDATE CASCADE ON DELETE CASCADE
+    consumerID INT
   );
 
 -- CREATE TABLE
@@ -60,25 +58,21 @@ CREATE TABLE
     consumerID INT,
     businessID INT,
     time_stamp DATE,
-    chat_message VARCHAR(500),
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE
+    chat_message VARCHAR(500)
   );
 
 CREATE TABLE
   IF NOT EXISTS education_history(
     businessID INT,
     education_level VARCHAR(255),
-    highest_education_completed VARCHAR(50),
-    FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE
+    highest_education_completed VARCHAR(50)
   );
 
 CREATE TABLE
   IF NOT EXISTS job_type(
     businessID INT,
     job_title VARCHAR(50),
-    job_category VARCHAR(50),
-    FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE
+    job_category VARCHAR(50)
   );
 
 CREATE TABLE
@@ -88,6 +82,5 @@ CREATE TABLE
     ad_title VARCHAR(50),
     ad_body VARCHAR(500),
     location VARCHAR(50),
-    rate_per_hour CHAR(10),
-    FOREIGN KEY (businessID) REFERENCES business(businessID) ON UPDATE CASCADE ON DELETE CASCADE
+    rate_per_hour CHAR(10)
   );

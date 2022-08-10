@@ -44,7 +44,7 @@ describe("GET /api/chat", () => {
         .end((err, res) => {
             if (res) {
                 res.should.have.status(200);
-                res.body.should.be.a("object");
+                res.body.should.be.a("array");
                 console.log(res.body);
             } else {
                 console.log("result is null");

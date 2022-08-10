@@ -44,7 +44,7 @@ describe("GET /api/education_history", () => {
         .end((err, res) => {
             if (res) {
                 res.should.have.status(200);
-                res.body.should.be.a("object");
+                res.body.should.be.a("array");
                 console.log(res.body);
             } else {
                 console.log("result is null");
@@ -58,42 +58,40 @@ describe("GET /api/education_history", () => {
 describe("GET /api/education_history", () => {
     it("education_history findOne", (done) => {
         chai
-        .request(server)
-        .get("/api/education_history/1")
-        .set("Authorization", `Bearer ${token}`)
-        .end((err, res) => {
+          .request(server)
+          .get("/api/education_history/?id=1")
+          .set("Authorization", `Bearer ${token}`)
+          .end((err, res) => {
             if (res) {
-                res.should.have.status(200);
-                res.body.should.be.a("object");
-                console.log(res.body);
+              res.should.have.status(200);
+              res.body.should.be.a("array");
+              console.log(res.body);
             } else {
-                console.log("result is null");
+              console.log("result is null");
             }
-        }
-        );
+          });
         done();
     });
 });
 
-describe("PUT /api/education_history", () => {
-    it("education_history update", (done) => {
-        chai
-        .request(server)
-        .put("/api/education_history/2")
-        .set("Authorization", `Bearer ${token}`)
-        .send({
-            city: "kelowna",
-        })
-        .end((err, res) => {
-            if (res) {
-                res.should.have.status(200);
-                res.body.should.be.a("object");
-                console.log(res.body);
-            } else {
-                console.log("result is null");
-            }
-        }
-        );
-        done();
-    });
-});
+// describe("PUT /api/education_history", () => {
+//     it("education_history update", (done) => {
+//         chai
+//           .request(server)
+//           .put("/api/education_history/?id=2")
+//           .set("Authorization", `Bearer ${token}`)
+//           .send({
+//             city: "vancouver",
+//           })
+//           .end((err, res) => {
+//             if (res) {
+//               res.should.have.status(200);
+//               res.body.should.be.a("object");
+//               console.log(res.body);
+//             } else {
+//               console.log("result is null");
+//             }
+//           });
+//         done();
+//     });
+// });

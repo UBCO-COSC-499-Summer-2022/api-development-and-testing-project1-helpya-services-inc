@@ -17,12 +17,18 @@ describe("POST /api/business", () => {
         .post("/api/business")
         .set("Authorization", `Bearer ${token}`)
         .send({
-            businessID: 1140,
-            name: "bob",
-            email: "bob@bob.com",
-            phone: "1234567890",
-            address: "1234 bob street",
-            city: "bob city",
+            business_name: "test",
+            owner_fname: "test",
+            owner_lname: "test",
+            business_profile: "test",
+            email: "test",
+            phone_number: "test",
+            rate_per_hour: "test",
+            location: "test",
+            keywords: "test",
+            education: "test",
+            pictures: "test",
+            description: "test",
         })
         .end((err, res) => {
             if (res) {

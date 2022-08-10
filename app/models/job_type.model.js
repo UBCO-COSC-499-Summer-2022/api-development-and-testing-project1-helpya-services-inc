@@ -34,7 +34,7 @@ job_type.findById = (id, result) => {
     result({ kind: "not found" }, null);
   });
 };
-job_type.getAll = (title, result) => {
+job_type.getAll = (result, title) => {
   let query = "SELECT * FROM job_type";
   if (title) {
     query += ` WHERE title LIKE '%${title}%'`;

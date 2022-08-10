@@ -43,7 +43,7 @@ describe("GET /api/job_type", () => {
         .end((err, res) => {
             if (res) {
                 res.should.have.status(200);
-                res.body.should.be.a("object");
+                res.body.should.be.a("array");
                 console.log(res.body);
             } else {
                 console.log("result is null");
@@ -57,42 +57,40 @@ describe("GET /api/job_type", () => {
 describe("GET /api/job_type", () => {
     it("job_type findOne", (done) => {
         chai
-        .request(server)
-        .get("/api/job_type/1")
-        .set("Authorization", `Bearer ${token}`)
-        .end((err, res) => {
+          .request(server)
+          .get("/api/job_type/?id=2")
+          .set("Authorization", `Bearer ${token}`)
+          .end((err, res) => {
             if (res) {
-                res.should.have.status(200);
-                res.body.should.be.a("object");
-                console.log(res.body);
+              res.should.have.status(200);
+              res.body.should.be.a("array");
+              console.log(res.body);
             } else {
-                console.log("result is null");
+              console.log("result is null");
             }
-        }
-        );
+          });
         done();
     });
 });
 
-describe("PUT /api/job_type", () => {
-    it("job_type update", (done) => {
-        chai
-        .request(server)
-        .put("/api/job_type/3")
-        .set("Authorization", `Bearer ${token}`)
-        .send({
-            job: "cashier",
-        })
-        .end((err, res) => {
-            if (res) {
-                res.should.have.status(200);
-                res.body.should.be.a("object");
-                console.log(res.body);
-            } else {
-                console.log("result is null");
-            }
-        }
-        );
-        done();
-    });
-});
+// describe("PUT /api/job_type", () => {
+//     it("job_type update", (done) => {
+//         chai
+//           .request(server)
+//           .put("/api/job_type/?id=3")
+//           .set("Authorization", `Bearer ${token}`)
+//           .send({
+//             job: "cashier",
+//           })
+//           .end((err, res) => {
+//             if (res) {
+//               res.should.have.status(200);
+//               res.body.should.be.a("object");
+//               console.log(res.body);
+//             } else {
+//               console.log("result is null");
+//             }
+//           });
+//         done();
+//     });
+// });

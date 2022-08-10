@@ -1,7 +1,6 @@
 const sql = require("./db.js");
 // constructor
 const business = function (business) {
-  this.businessID = business.businessID;
   this.business_name = business.business_name;
   this.owner_fname = business.owner_fname;
   this.owner_lname = business.owner_lname;
@@ -24,7 +23,7 @@ business.create = (newbusiness, result) => {
       result(err, null);
       return;
     }
-    result(null, "success");
+    result(null, res);
   });
 };
 

@@ -8,7 +8,7 @@ module.exports = (app) => {
   // Retrieve a single Tutorial with id
   router.get("/:id", job_type.findOne);
   // Update a Tutorial with id
-  // router.put("/:id", job type.update);
+  //router.put("/:id", job_type.update);
   // Delete a Tutorial with id
   router.delete("/:id", job_type.delete);
   // Delete all job type
