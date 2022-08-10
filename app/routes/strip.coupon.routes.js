@@ -4,7 +4,7 @@ module.exports = (app) => {
 
   // make coupon
   router.post("/", coupon.create);
-  // get coupon by id
+  // get coupon by coupon id
   router.post("/:id", coupon.get);
   // get coupon by date
   router.get("/:customer", coupon.getByDate);

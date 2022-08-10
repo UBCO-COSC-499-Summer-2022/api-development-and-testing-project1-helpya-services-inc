@@ -17,15 +17,16 @@ describe("POST /api/consumer", () => {
       .post("/api/consumer")
       .set("Authorization", `Bearer ${token}`)
       .send({
-        name: "bob",
-        email: "bob@bob.com",
-        password: "password",
-        phone: "1234567890",
-        address: "1234 bob street",
-        city: "bob city",
-        state: "bob state",
-        zip: "12345",
-        country: "bob country",
+        fname_of_consumer: "test",
+        lname_of_consumer: "test",
+        email: "test@test.com",
+        password: "test",
+        phone_number: "1234567890",
+        location: "test",
+        consumer_profile: "test",
+        role: "consumer",
+        active_account: "true",
+        stripe_customer_id: "test",
       })
       .end((err, res) => {
         res.should.have.status(200);

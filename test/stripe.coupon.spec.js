@@ -15,14 +15,12 @@ describe("POST /api/stripe/coupon", () => {
       .post("/api/stripe/coupon")
       .set("Authorization", `Bearer ${token}`)
       .send({
-        name: "bob",
-        email: "bob@bob.com",
-        phone: "1234567890",
-        address: "1234 bob street",
-        city: "bob city",
-        state: "bob state",
-        zip: "12345",
-        country: "bob country",
+        percentage_off: 10,
+        duration: "once",
+        duration_in_months: 1,
+        max_redemptions: 1,
+        redeem_by: 1620000000,
+        amount_off: 0,
       })
       .end((err, res) => {
         res.should.have.status(200);
@@ -74,7 +72,7 @@ describe("GET /api/stripe/coupon", () => {
   it("stripe coupon findOne", (done) => {
     chai
       .request(server)
-      .get("/api/stripe/coupon/:id")
+      .get("/api/stripe/coupon/cus_IY2Z0X4Z0X4Z0X")
       .set("Authorization", `Bearer ${token}`)
       .end((error, res) => {
         res.should.have.status(200);

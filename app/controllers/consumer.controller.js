@@ -10,7 +10,6 @@ exports.create = (req, res) => {
   }
   // Create a Consumer
   const Consumer = new consumer({
-    consumerID: req.body.consumerID,
     fname_of_consumer: req.body.fname_of_consumer,
     lname_of_consumer: req.body.lname_of_consumer,
     email: req.body.email,
@@ -22,7 +21,8 @@ exports.create = (req, res) => {
     active_account: req.body.active_account,
     strip_customer_id: req.body.strip_customer_id
   });
-
+  console.log(req.body);
+  console.log("dasjd;asjdsadlkajd;sajdsakd;laskdlsadj;lsajd;sakd;sajd;aksdlsa;lkdjlkasdj;laskdalsk");
   // Save consumer in the database
   consumer.create(Consumer, (err, data) => {
     if (err)
