@@ -20,7 +20,7 @@ steps:
   # - mysql -u root -h database --execute="SHOW GRANTS FOR 'b734bbe733ac95'@'%';"
   # - mysql -u root -h database --execute="SHOW DATABASES;"
   - mysql -u root -h database --execute="FLUSH PRIVILEGES;"
-
+  - echo process.env.DATABASE_URL
 - name: test
   image: node:latest
   commands:
@@ -29,7 +29,7 @@ steps:
   - npm ci
   # - node dbdiagnostic.js
   - npm test
-  
+
 -environment:
   NODE_ENV: test
   PORT: 3306
