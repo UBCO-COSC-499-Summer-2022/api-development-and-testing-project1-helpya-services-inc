@@ -5,6 +5,7 @@ const stripeAPI = require("stripe")(
 const coupon = function (coupon) {
   this.name = coupon.name;
   this.percentage_off = coupon.percentage_off;
+  this.amount_off = coupon.amount_off;
   this.duration = coupon.duration; //Specifies how long the discount will be in effect if used on a subscription. Can be forever, once, or repeating. Defaults to once
   this.duration_in_months = coupon.duration_in_months;
 };
@@ -30,9 +31,9 @@ coupon.create = async (newCoupon, result) => {
 };
 
 //get coupon
-coupon.get = async (newCoupon, result) => {
+coupon.get = async (id, result) => {
   try {
-    const coupon = await stripeAPI.coupons.retrieve(newCoupon.id);
+    const coupon = await stripeAPI.coupons.retrieve(id);
     console.log(coupon);
     result(null, coupon);
   } catch (err) {
@@ -56,9 +57,9 @@ coupon.delete = async (newCoupon, result) => {
 };
 
 //update coupon
-coupon.update = async (newCoupon, result) => {
+coupon.update = async (id, newCoupon) => {
     try {
-        const coupon = await stripeAPI.coupons.update(newCoupon.id, {
+        const coupon = await stripeAPI.coupons.update(id, {
             percent_off: newCoupon.percentage_off,
             duration: newCoupon.duration,
             duration_in_months: newCoupon.duration_in_months,
@@ -73,12 +74,12 @@ coupon.update = async (newCoupon, result) => {
 };
 
 //get coupon by start and/or end date
-coupon.getByDate = async (newCoupon, result) => {
+coupon.getByDate = async (start, end, result) => {
     try {
         const coupon = await stripeAPI.coupons.list({
             created: {
-                gte: newCoupon.start,
-                lte: newCoupon.end,
+                starting_after: start,
+                ending_before: end,
             },
         });
         console.log(coupon);

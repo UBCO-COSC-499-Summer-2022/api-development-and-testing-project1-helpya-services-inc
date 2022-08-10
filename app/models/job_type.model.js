@@ -34,7 +34,7 @@ job_type.findById = (id, result) => {
     result({ kind: "not found" }, null);
   });
 };
-job_type.getAll = (title, result) => {
+job_type.getAll = (result, title) => {
   let query = "SELECT * FROM job_type";
   if (title) {
     query += ` WHERE title LIKE '%${title}%'`;
@@ -52,7 +52,7 @@ job_type.getAll = (title, result) => {
 job_type.updateById = (id, job_type, result) => {
   sql.query(
     "UPDATE job_type SET job_title = ?, job_category = ? WHERE businessID = ?",
-    [job_type.job_title, job_type.job_category, job_type.businessID],
+    [job_type.job_title, job_type.job_category, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

@@ -13,14 +13,8 @@ exports.create = (req, res) => {
     chatID: req.body.chatID,
     consumerID: req.body.consumerID,
     businessID: req.body.businessID,
-    chatID: req.body.chatID,
-    fname_of_owner: req.body.fname_of_owner,
-    lname_of_owner: req.body.lname_of_owner,
-    consumer_email: req.body.consumer_email,
-    consumer_profile: req.body.consumer_profile,
-    name_of_chat: req.body.name_of_chat,
-    chat_email: req.body.chat_email,
-    consumer_profile: req.body.chat_profile,
+    time_stamp: req.body.time_stamp,
+    chat_message: req.body.chat_message,
   });
 
   // Save chat in the database
@@ -29,7 +23,7 @@ exports.create = (req, res) => {
       res.status(500).send({
         message: err.message || "Some error occurred while creating the chat.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
@@ -40,7 +34,7 @@ exports.findAll = (req, res) => {
       res.status(500).send({
         message: err.message || "Some error occurred while retrieving chats.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
@@ -57,7 +51,7 @@ exports.findOne = (req, res) => {
           message: "Error retrieving chat with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 
