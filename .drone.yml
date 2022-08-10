@@ -30,13 +30,12 @@ steps:
   # - node dbdiagnostic.js
   - npm test
 -environment:
-  DATABASE_URL: mysql://b734bbe733ac95:23fc955b@database/heroku_b5b309c959adca7
   NODE_ENV: test
   PORT: 3306
-  # DB_HOST: database
-  # DB_USER: b734bbe733ac95
-  # DB_PASS: 23fc955b
-  # DB_NAME: heroku_b5b309c959adca7
+  DB_HOST: database
+  DB_USER: b734bbe733ac95
+  DB_PASSWORD: 23fc955b
+  DB_NAME: heroku_b5b309c959adca7
 
 services:
 - name: database
