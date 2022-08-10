@@ -18,7 +18,7 @@ steps:
   - mysql -u root -h database heroku_b5b309c959adca7 < database.sql
   - mysql -u root -h database heroku_b5b309c959adca7 < testing_with_all_tables.txt
   # - mysql -u root -h database --execute="SHOW GRANTS FOR 'b734bbe733ac95'@'%';"
-  # - mysql -u root -h database --execute="SHOW DATABASES;"
+  - mysql -u root -h database --execute="SHOW DATABASES;"
   - mysql -u root -h database --execute="FLUSH PRIVILEGES;"
   - echo process.env.DATABASE_URL
 - name: test
