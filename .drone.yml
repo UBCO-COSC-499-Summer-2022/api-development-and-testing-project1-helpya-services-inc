@@ -29,6 +29,7 @@ steps:
   - npm ci
   # - node dbdiagnostic.js
   - npm test
+  
 -environment:
   NODE_ENV: test
   PORT: 3306
