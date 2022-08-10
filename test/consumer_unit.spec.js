@@ -21,7 +21,6 @@
 //       'phone_number': '13000001112',
 //       'location': 'AS',
 //       'consumer_profile': 'abc',
-//       'generalID': 1,
 //       'password': stringEncryption('123456')
 //     }
 //     it("should add a new consumer",(done)=>{
@@ -38,7 +37,6 @@
 //       expect(result.phone_number).to.be.an("string")
 //       expect(result.location).to.be.an("string")
 //       expect(result.consumer_profile).to.be.an("string")
-//       expect(result.generalID).to.be.an("number")
 //       expect(result.password).to.be.an("string")
 //       done()
 //     })

@@ -4,7 +4,7 @@ use heroku_b5b309c959adca7;
 
 CREATE TABLE
   IF NOT EXISTS consumer(
-    consumerID INT NOT NULL UNIQUE PRIMARY KEY,
+    consumerID INT AUTO_INCREMENT,
     fname_of_consumer varchar(150) NOT NULL,
     lname_of_consumer varchar(150) NOT NULL,
     email varchar(150) NOT NULL UNIQUE,
@@ -14,13 +14,14 @@ CREATE TABLE
     password varchar(250) NOT NULL,
     role varchar(150) NOT NULL,
     active_account BIT(50) NOT NULL,
-    strip_customer_id varchar(250)
+    strip_customer_id varchar(250),
+    PRIMARY KEY (consumerID)
   );
 
 CREATE TABLE
   IF NOT EXISTS business(
     consumerID INT,
-    businessID INT NOT NULL UNIQUE PRIMARY KEY,
+    businessID INT NOT NULL UNIQUE PRIMARY KEY AUTO_INCREMENT,
     business_name VARCHAR(150) NOT NULL,
     owner_fname VARCHAR(150),
     owner_lname VARCHAR(150),
@@ -33,15 +34,13 @@ CREATE TABLE
     education VARCHAR(150),
     pictures VARCHAR(500),
     description VARCHAR(500),
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
+    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID) ON UPDATE CASCADE ON DELETE CASCADE
   );
 
 CREATE TABLE
   IF NOT EXISTS recentSearches(
     businessID INT,
-    consumerID INT,
-    FOREIGN KEY (businessID) REFERENCES business(businessID),
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID)
+    consumerID INT
   );
 
 -- CREATE TABLE
@@ -55,25 +54,33 @@ CREATE TABLE
 --   );
 CREATE TABLE
   IF NOT EXISTS chat(
-    chatID INT NOT NULL PRIMARY KEY,
+    chatID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     consumerID INT,
     businessID INT,
-    FOREIGN KEY (consumerID) REFERENCES consumer(consumerID),
-    FOREIGN KEY (businessID) REFERENCES business(businessID)
+    time_stamp DATE,
+    chat_message VARCHAR(500)
   );
 
 CREATE TABLE
   IF NOT EXISTS education_history(
     businessID INT,
     education_level VARCHAR(255),
-    highest_education_completed VARCHAR(50),
-    FOREIGN KEY (businessID) REFERENCES business(businessID)
+    highest_education_completed VARCHAR(50)
   );
 
 CREATE TABLE
   IF NOT EXISTS job_type(
     businessID INT,
     job_title VARCHAR(50),
-    job_category VARCHAR(50),
-    FOREIGN KEY (businessID) REFERENCES business(businessID)
+    job_category VARCHAR(50)
+  );
+
+CREATE TABLE
+  IF NOT EXISTS ads(
+    adID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    businessID INT,
+    ad_title VARCHAR(50),
+    ad_body VARCHAR(500),
+    location VARCHAR(50),
+    rate_per_hour CHAR(10)
   );

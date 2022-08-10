@@ -1,7 +1,10 @@
 const sql = require("./db.js");
+const stripe = require("stripe")(
+  "sk_test_51LN9iJJ1ttqNM1k30e0LTKwvIU6ZPdeCyPewNhuYCpipuSGjvhyKwBJZDM4v24b1LANdAF17amgq6H9fJHIZIG8O00oR8i1Ari"
+);
+
 // constructor
 const consumer = function (consumer) {
-  this.consumerID = consumer.consumerID;
   this.fname_of_consumer = consumer.fname_of_consumer;
   this.lname_of_consumer = consumer.lname_of_consumer;
   this.email = consumer.email;
@@ -11,19 +14,28 @@ const consumer = function (consumer) {
   this.password = consumer.password;
   this.role = consumer.role;
   this.active_account = consumer.active_account;
-  this.strip_customer_id = consumer.strip_customer_id;
 };
-consumer.create = (newconsumer, result) => {
-  sql.query("INSERT INTO consumer SET ?", newconsumer, (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
+
+consumer.create = async (newconsumer, result) => {
+  console.log(newconsumer);
+  console.log(
+    "dasjd;asjdsadlkajd;sajdsakd;laskdlsadj;lsajd;sakd;sajd;aksdlsa;lkdjlkasdj;laskdalsk"
+  );
+  const Stripecustomer = await stripe.customers.create({});
+  sql.query(
+    `INSERT INTO consumer (fname_of_consumer, lname_of_consumer, email, phone_number, location, consumer_profile, password, role, active_account, strip_customer_id) VALUES ('${newconsumer.fname_of_consumer}','${newconsumer.lname_of_consumer}','${newconsumer.email}','${newconsumer.phone_number}','${newconsumer.location}','${newconsumer.consumer_profile}','${newconsumer.password}','${newconsumer.role}','${newconsumer.active_account}','${Stripecustomer.id}');`,
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(err, null);
+        return;
+      }
+      console.log("created consumer: ", { id: res.insertId, ...newconsumer });
+      result(null, { id: res.insertId, ...newconsumer });
     }
-    console.log("created consumer: ", { id: res.insertId, ...newconsumer });
-    result(null, { id: res.insertId, ...newconsumer });
-  });
+  );
 };
+
 consumer.findById = (id, result) => {
   sql.query(`SELECT * FROM consumer WHERE consumerID = ${id}`, (err, res) => {
     if (err) {
@@ -40,6 +52,7 @@ consumer.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
+
 consumer.getAll = (result, title) => {
   let query = "SELECT * FROM consumer";
   if (title) {
@@ -55,6 +68,7 @@ consumer.getAll = (result, title) => {
     result(null, res);
   });
 };
+
 /*
 consumer.getAllPublished = (result) => {
   sql.query("SELECT * FROM consumer WHERE published=true", (err, res) => {
@@ -68,6 +82,7 @@ consumer.getAllPublished = (result) => {
   });
 };
 */
+
 consumer.updateById = (id, consumer, result) => {
   sql.query(
     "UPDATE consumer SET fname_of_consumer = ?, lname_of_consumer = ?, email = ?, phone_number = ?, location = ?, consumer_profile = ? WHERE consumerID = ?",

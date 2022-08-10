@@ -13,6 +13,9 @@ exports.create = (req, res) => {
     chatID: req.body.chatID,
     consumerID: req.body.consumerID,
     businessID: req.body.businessID,
+
+    time_stamp: req.body.time_stamp,
+    chat_message: req.body.chat_message,
   });
 
   // Save chat in the database

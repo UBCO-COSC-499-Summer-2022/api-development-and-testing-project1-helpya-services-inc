@@ -22,9 +22,13 @@ describe("POST /api/chat", () => {
             message: "hello"
         })
         .end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.be.a('object');
-            console.log(response.body);
+            if (res) {
+                res.should.have.status(200);
+                res.body.should.be.a("object");
+                console.log(res.body);
+            } else {
+                console.log("result is null");
+            }
         }
         );
         done();
@@ -38,27 +42,37 @@ describe("GET /api/chat", () => {
         .get("/api/chat")
         .set("Authorization", `Bearer ${token}`)
         .end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.be.a('object');
-            console.log(res.body);
+            if (res) {
+                res.should.have.status(200);
+                res.body.should.be.a("array");
+                console.log(res.body);
+            } else {
+                console.log("result is null");
+            }
         }
         );
         done();
     });
 });
 
-describe("DELETE /api/chat", () => {
-    it("chat delete", (done) => {
+
+describe("GET /api/chat", () => {
+    it("chat findOne", (done) => {
         chai
         .request(server)
-        .delete("/api/chat")
+        .get("/api/chat/1")
         .set("Authorization", `Bearer ${token}`)
         .end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.be.a('object');
-            console.log(res.body);
+            if (res) {
+                res.should.have.status(200);
+                res.body.should.be.a("object");
+                console.log(res.body);
+            } else {
+                console.log("result is null");
+            }
         }
         );
         done();
     });
+
 });

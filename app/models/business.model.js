@@ -1,7 +1,6 @@
 const sql = require("./db.js");
 // constructor
 const business = function (business) {
-  this.businessID = business.businessID;
   this.business_name = business.business_name;
   this.owner_fname = business.owner_fname;
   this.owner_lname = business.owner_lname;
@@ -14,8 +13,6 @@ const business = function (business) {
   this.education = business.education;
   this.pictures = business.pictures;
   this.description = business.description;
-  this.generalID = business.generalID;
-  this.active_account = business.active_account;
 };
 
 business.create = (newbusiness, result) => {
@@ -26,7 +23,7 @@ business.create = (newbusiness, result) => {
       result(err, null);
       return;
     }
-    result(null, "success");
+    result(null, res);
   });
 };
 
@@ -47,10 +44,10 @@ business.findById = (id, result) => {
   });
 };
 
-business.getAll = (business_name, result) => {
+business.getAll = (result, title) => {
   let query = "SELECT * FROM business";
-  if (business_name) {
-    query += ` WHERE business_name LIKE '%${business_name}%'`;
+  if (title) {
+    query += ` WHERE title LIKE '%${title}%'`;
   }
   sql.query(query, (err, res) => {
     if (err) {
@@ -77,11 +74,9 @@ business.getAllPublished = (result) => {
 };
 */
 
-business.updateById = (businessID, business, result) => {
-  var sqlupdatequery =
-    "UPDATE business SET business_name = ?, owner_fname = ?, owner_lname = ?, business_profile = ?, email = ?, phone_number = ?, rate_per_hour = ?, location = ?, keywords = ?, education = ?, pictures = ?, description = ? WHERE businessID = ?";
+business.updateById = (id, business, result) => {
   sql.query(
-    sqlupdatequery,
+    "UPDATE business SET business_name = ?, owner_fname = ?, owner_lname = ?, business_profile = ?, email = ?, phone_number = ?, rate_per_hour = ?, location = ?, keywords = ?, education = ?, pictures = ?, description = ? WHERE businessID = ?",
     [
       business.business_name,
       business.fname_of_business,
@@ -95,7 +90,7 @@ business.updateById = (businessID, business, result) => {
       business.education,
       business.pictures,
       business.description,
-      businessID,
+      id,
     ],
     (err, res) => {
       if (err) {

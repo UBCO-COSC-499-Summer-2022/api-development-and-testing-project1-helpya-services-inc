@@ -4,6 +4,8 @@ const chat= function (chat) {
     this.chatID = chat.chatID;
     this.consumerID = chat.consumerID;
     this.businessID = chat.businessID;
+    this.time_stamp = chat.time_stamp;
+    this.chat_message = chat.chat_message;
 };
 
 chat.create = (newchat, result) => {

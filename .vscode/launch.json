@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "name": "localhost:8080/api/stripe",
+      "request": "launch",
+      "url": "localhost:8080/api/stripe"
+    }
+  ]
+}

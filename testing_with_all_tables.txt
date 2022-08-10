@@ -1,19 +1,19 @@
-INSERT INTO consumer (consumerID, fname_of_consumer, lname_of_consumer, email, phone_number, location, consumer_profile, password, role, active_account, strip_customer_id) VALUES 
-(0001, 'bob', 'sanchez', 'bob_s123@hotmail.com', '16041231234', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
-(0002, 'sam', 'li', 'sam25343@hotmail.com', '16041324364', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
-(0003, 'gerald', 'lassy', 'gglas32@hotmail.com', '12501231234', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
-(0004, 'paul', 'smith', 'smithpaul@hotmail.com', '12501111111', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
-(0005, 'aaron', 'calling', 'imagamer546@hotmail.com', '12501112222', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'helpya', 'FALSE', ''),
-(0006, 'bob', 'best', 'bobisbest32@hotmail.com', '12506664378', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'FALSE', ''),
-(0007, 'zara', 'makefield', 'zzmake32654@hotmail.com', '17781112222', 'kelowna', 'insert link','5f4dcc3b5aa765d61d8327deb882cf99', 'admin', 'FALSE', ''),
-(0008, 'charlie', 'charlie', 'iamcharlie99@hotmail.com', '12509998888', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
-(0009, 'lee', 'sung', 'sungsungsung234@hotmail.com', '12507777555', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'admin', 'TRUE', ''),
-(0010, 'hong li', 'tao', 'hongli2342@hotmail.com', '12503334444', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
-(0011, 'hyeong le', 'lee', 'hyeongleq2@naver.com', '16043445555', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
-(0012, 'mercedes', 'john', 'merjhon_648@hotmail.com', '12505558888', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
-(0013, 'peter', 'pete', 'peetarpp234@hotmail.com', '12500000011', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
-(0014, 'daniel', 'sanchez', 'dan_san1923@hotmail.com', '12500000000', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''), 
-(0015, 'yas', 'akinawawa', 'akinawawa_yas18653@yahoo.com', '12502222222', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', '');
+INSERT INTO consumer (fname_of_consumer, lname_of_consumer, email, phone_number, location, consumer_profile, password, role, active_account, strip_customer_id) VALUES 
+('bob', 'sanchez', 'bob_s123@hotmail.com', '16041231234', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
+('sam', 'li', 'sam25343@hotmail.com', '16041324364', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
+('gerald', 'lassy', 'gglas32@hotmail.com', '12501231234', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
+('paul', 'smith', 'smithpaul@hotmail.com', '12501111111', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
+('aaron', 'calling', 'imagamer546@hotmail.com', '12501112222', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'helpya', 'FALSE', ''),
+('bob', 'best', 'bobisbest32@hotmail.com', '12506664378', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'FALSE', ''),
+('zara', 'makefield', 'zzmake32654@hotmail.com', '17781112222', 'kelowna', 'insert link','5f4dcc3b5aa765d61d8327deb882cf99', 'admin', 'FALSE', ''),
+('charlie', 'charlie', 'iamcharlie99@hotmail.com', '12509998888', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
+('lee', 'sung', 'sungsungsung234@hotmail.com', '12507777555', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'admin', 'TRUE', ''),
+('hong li', 'tao', 'hongli2342@hotmail.com', '12503334444', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
+('hyeong le', 'lee', 'hyeongleq2@naver.com', '16043445555', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
+('mercedes', 'john', 'merjhon_648@hotmail.com', '12505558888', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''),
+('peter', 'pete', 'peetarpp234@hotmail.com', '12500000011', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', ''),
+('daniel', 'sanchez', 'dan_san1923@hotmail.com', '12500000000', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'consumer', 'TRUE', ''), 
+('yas', 'akinawawa', 'akinawawa_yas18653@yahoo.com', '12502222222', 'kelowna', 'insert link', '5f4dcc3b5aa765d61d8327deb882cf99', 'business', 'TRUE', '');
 
 INSERT INTO business(businessID, business_name, owner_fname, owner_lname, business_profile, email, phone_number, rate_per_hour, location, keywords, education, pictures, description) VALUES
 (1150, 'baby sitting support', 'lance', NULL, 'insert link', 'babysupport123@support.com','19999999999', '20.53', 'kelowna', 'happy/baby/care', 'diploma', 'insert link', 'Created in 2020 during pandemic we will take care of your kid'),
@@ -48,9 +48,16 @@ INSERT INTO recentSearches (businessID, consumerID) VALUES
 (1158, 0006),
 (1159, 0007);
 
-INSERT INTO chat(chatID,consumerID, businessID) VALUES
-(1, 0001, 1153),
-(2, 0001, 1154),
-(3, 0001, 1155),
-(4, 0001, 1156),
-(5, 0001, 1157);
+INSERT INTO chat(chatID,consumerID, businessID, time_stamp, chat_message) VALUES
+(1, 0001, 1153, '2022-06-08', 'whats up'),
+(2, 0001, 1154, '2022-06-09', 'whats up1'),
+(3, 0001, 1155, '2022-06-10', 'whats up2'),
+(4, 0001, 1156, '2022-06-11', 'whats up3'),
+(5, 0001, 1157, '2022-06-12', 'whats up4');
+
+INSERT INTO ads(adID, businessID, ad_title, ad_body, location, rate_per_hour) VALUES
+(1, 1153, 'peta paka photos', 'nice photos', 'la', '20'),
+(2, 1154, 'goodjob inc', 'nice inc', 'kelowna', '17'),
+(3, 1155, 'pet inc', 'cute pets', 'vancouver', '18'),
+(4, 1156, 'football inc', 'good football', 'vancouver', '25'),
+(5, 1157, 'chicken inc', 'delicous chicken', 'vancouver', '22');

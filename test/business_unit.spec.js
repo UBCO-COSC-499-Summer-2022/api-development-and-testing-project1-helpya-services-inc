@@ -27,7 +27,6 @@
 //       'education': 'undergrad',
 //       'pictures': 'linkk',
 //       'description': 'nice company',
-//       'generalID': 2,
 //       'active_account': 'TRUE',
 //     }
 //     it("should add a new business",(done)=>{
@@ -50,7 +49,6 @@
 //       expect(result.education).to.be.an("string")
 //       expect(result.pictures).to.be.an("string")
 //       expect(result.description).to.be.an("string")
-//       expect(result.generalID).to.be.an("number")
 //       expect(result.active_account).to.be.an("string")
 //       done()
 //     })

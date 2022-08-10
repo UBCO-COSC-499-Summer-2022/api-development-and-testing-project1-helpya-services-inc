@@ -3,8 +3,6 @@ const sql = require("./db.js");
 const recentSearches = function (recentSearches) {
   this.businessID = recentSearches.businessID;
   this.consumerID = recentSearches.consumerID;
-  this.store_name = recentSearches.store_name;
-  this.store_profile = recentSearches.store_profile;
 };
 recentSearches.create = (newrecentSearches, result) => {
   sql.query("INSERT INTO recentSearches SET ?", newrecentSearches, (err, res) => {
@@ -33,11 +31,8 @@ recentSearches.findById = (id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
-recentSearches.getAll = (title, result) => {
+recentSearches.getAll = (result) => {
   let query = "SELECT * FROM recentSearches";
-  if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
-  }
   sql.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -63,8 +58,8 @@ recentSearches.getAllPublished = (result) => {
 */
 recentSearches.updateById = (id, recentSearches, result) => {
   sql.query(
-    "UPDATE recentSearches SET store_name = ?, store_profile = ? WHERE id = ?",
-    [recentSearches.fname_of_recentSearches, recentSearches.lname_of_recentSearches, recentSearches.email, recentSearches.phone_number, recentSearches.location, recentSearches.recentSearches_profile, id],
+    "UPDATE recentSearches SET businessID = ? WHERE id = ?",
+    [recentSearches.businessID, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

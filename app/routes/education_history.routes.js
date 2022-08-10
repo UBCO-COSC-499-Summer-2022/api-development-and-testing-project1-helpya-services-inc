@@ -10,7 +10,7 @@ module.exports = (app) => {
     // Retrieve a single Tutorial with id
     router.get("/:id", education_history.findOne);
     // Update a Tutorial with id
-   // router.put("/:id", education history.update);
+    //router.put("/:id", education_history.update);
     // Delete a Tutorial with id
     router.delete("/:id", education_history.delete);
     // Delete all education history
