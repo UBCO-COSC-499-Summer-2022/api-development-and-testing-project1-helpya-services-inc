@@ -26,7 +26,7 @@ steps:
   commands:
   - npm config rm proxy 
   - npm config rm https-proxy --tried removing npm proxy 
-  - npm install
+  - npm ci
   # - node dbdiagnostic.js
   - npm test
 

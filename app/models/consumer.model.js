@@ -30,7 +30,7 @@ consumer.create = async (newconsumer, result) => {
         result(err, null);
         return;
       }
-      console.log("created consumer: ", { id: res.insertId, ...newconsumer });
+      console.log("created consumer: ", { id: res.insertId, ...newconsumer, ...Stripecustomer.id });
       result(null, { id: res.insertId, ...newconsumer });
     }
   );
