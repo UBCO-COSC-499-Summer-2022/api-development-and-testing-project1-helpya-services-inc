@@ -11,8 +11,6 @@ exports.create = (req, res) => {
   const RecentSearches = new recentSearches({
     consumerID: req.query.consumerID,
     businessID: req.query.businessID,
-    store_name: req.query.store_name,
-    store_profile: req.query.store_profile,
   });
 
   // Save recent searches in the database
@@ -21,7 +19,7 @@ exports.create = (req, res) => {
       res.status(500).send({
         message: err.message || "Some error occurred while creating the recent searches.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 // Retrieve all recent search from the database (with condition).
@@ -31,7 +29,7 @@ exports.findAll = (req, res) => {
           res.status(500).send({
             message: err.message || "Some error occurred while retrieving recent searches.",
           });
-        else res.send(data);
+        else res.status(200).send(data);
       });
 };
 // Find a single recent search with a id
@@ -47,7 +45,7 @@ exports.findOne = (req, res) => {
               message: "Error retrieving recent searches with id " + req.params.id,
             });
           }
-        } else res.send(data);
+        } else res.status(200).send(data);
       });
 };
 // find all published recent search
@@ -60,7 +58,7 @@ exports.update = (req, res) => {
       message: "Content can not be empty!",
     });
   }
-  console.log(req.body);
+
   recentSearches.updateById(req.params.id, new recentSearches(req.body), (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
@@ -72,7 +70,7 @@ exports.update = (req, res) => {
           message: "Error updating recent searches with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 // Delete a recent search with the specified id in the request
@@ -88,7 +86,7 @@ exports.delete = (req, res) => {
               message: "Could not delete recent searches with id " + req.params.id,
             });
           }
-        } else res.send({ message: `recent searches was deleted successfully!` });
+        } else res.status(200).send({ message: `recent searches was deleted successfully!` });
       });
 };
 // Delete all recent search from the database.
