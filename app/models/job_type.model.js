@@ -52,7 +52,7 @@ job_type.getAll = (title, result) => {
 job_type.updateById = (id, job_type, result) => {
   sql.query(
     "UPDATE job_type SET job_title = ?, job_category = ? WHERE businessID = ?",
-    [job_type.job_title, job_type.job_category, job_type.businessID],
+    [job_type.job_title, job_type.job_category, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
