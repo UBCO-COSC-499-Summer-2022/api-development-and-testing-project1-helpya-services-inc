@@ -51,7 +51,7 @@ describe("GET /api/consumer", () => {
       .end((err, res) => {
         if (res) {
           res.should.have.status(200);
-          res.body.should.be.a("object");
+          //res.body.should.be.a("object");
           //console.log(res.body);
         } else {
           console.log("result is null");
