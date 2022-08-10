@@ -45,6 +45,7 @@ require("./app/routes/strip.coupon.routes")(app);
 require("./app/routes/stripe.customer.routes")(app);
 require("./app/routes/stripe.invoice.routes")(app);
 require("./app/routes/stripe.accounting.routes")(app);
+require("./app/routes/ad.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

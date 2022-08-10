@@ -9,7 +9,7 @@ const ad = function (ad) {
   this.rate_per_hour = ad.rate_per_hourl;
 };
 ad.create = (newad, result) => {
-  sql.query("INSERT INTO ad SET ?", newad, (err, res) => {
+  sql.query("INSERT INTO ads SET ?", newad, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -21,7 +21,7 @@ ad.create = (newad, result) => {
 
 ad.createPayment_History = (paymentHistory, result) => {
   sql.query(
-    "INSERT INTO ad SET payment_history VALUES ?",
+    "INSERT INTO ads SET payment_history VALUES ?",
     paymentHistory,
     (err, res) => {
       if (err) {
@@ -35,7 +35,7 @@ ad.createPayment_History = (paymentHistory, result) => {
 };
 //find specific ad
 ad.findById = (id, result) => {
-  sql.query(`SELECT * FROM ad WHERE adID = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM ads WHERE adID = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -51,7 +51,7 @@ ad.findById = (id, result) => {
   });
 };
 ad.getAll = (result) => {
-  let query = "SELECT * FROM ad";
+  let query = "SELECT * FROM ads";
 
   sql.query(query, (err, res) => {
     if (err) {
@@ -65,14 +65,14 @@ ad.getAll = (result) => {
 //get all business's ads
 ad.getAllAds = (name_of_business, result) => {
   sql.query(
-    `SELECT * FROM ad WHERE business_name = ${name_of_business}`,
+    `SELECT * FROM ads WHERE business_name = ${name_of_business}`,
     (err, res) => {
       if (err) {
         console.log("error: ", error);
         result(null, err);
         return;
       }
-      console.log(`found ad for business: ${name_of_business}`, res);
+      console.log(`found ads for business: ${name_of_business}`, res);
       result(null, res);
     }
   );
@@ -80,7 +80,7 @@ ad.getAllAds = (name_of_business, result) => {
 //update a specific ad
 ad.updateById = (id, ad, result) => {
   sql.query(
-    "UPDATE ad SET business_name = ?, job_title = ?, job_category = ?, location = ?, rate_per_hour = ? WHERE adID = ?",
+    "UPDATE ads SET business_name = ?, job_title = ?, job_category = ?, location = ?, rate_per_hour = ? WHERE adID = ?",
     [
       ad.ad_title,
       ad.job_body,
@@ -105,7 +105,7 @@ ad.updateById = (id, ad, result) => {
 };
 //removes a specific ad from business
 ad.remove = (id, result) => {
-  sql.query("DELETE FROM ad WHERE adID = ?", id, (err, res) => {
+  sql.query("DELETE FROM ads WHERE adID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -121,7 +121,7 @@ ad.remove = (id, result) => {
 };
 //removes all ads for a business
 ad.removeAll = (result) => {
-  sql.query("DELETE FROM ad WHERE businessID = ?", (err, res) => {
+  sql.query("DELETE FROM ads WHERE businessID = ?", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
