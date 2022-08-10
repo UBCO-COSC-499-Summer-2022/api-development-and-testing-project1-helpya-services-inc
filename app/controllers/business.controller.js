@@ -9,7 +9,7 @@ exports.create = (req, res) => {
       message: "Content can not be empty!",
     });
   }
-  console.log(req.body);
+
   // Create a business
   const Business = new business({
     businessID: req.body.businessID,
@@ -25,32 +25,28 @@ exports.create = (req, res) => {
     education: req.body.education,
     pictures: req.body.pictures,
     description: req.body.description,
-    general_ID: req.body.general_ID,
-    active_account: req.body.active_account
   });
-//localhost:8080/api/business?businessID=1150&business_name=baby sitting support&owner_fname=lance&owner_lname=armstrong&business_profile=insert link&email=blah@blah.com&phone_number=1112223333&rate_per_hour=200&location=moon&keywords=baby/not die&education=degree&pictures=insert link&description=sdsada&general_ID=50
+
 // Save business in the database
-http: console.log(req.body);
   business.create(Business, (err, data) => {
     if (err)
       res.status(500).send({
         message:
           err.message || "Some error occurred while creating the business.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
 // Retrieve all business from the database (with condition).
 exports.findAll = (req, res) => {
-  const business_name = req.query.business_name;
-  business.getAll(business_name, (err, data) => {
+  business.getAll((err, data) => {
     if (err)
       res.status(500).send({
         message:
           err.message || "Some error occurred while retrieving businesss.",
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
@@ -67,7 +63,7 @@ exports.findOne = (req, res) => {
           message: "Error retrieving business with id " + req.params.id,
         });
       }
-    } else res.send(data);
+    } else res.status(200).send(data);
   });
 };
 // find all published business
@@ -80,19 +76,27 @@ exports.update = (req, res) => {
       message: "Content can not be empty!",
     });
   }
-  console.log(req.body);
-  business.updateById(req.params.id, new business(req.body), (err, data) => {
-    if (err) {
-      if (err.kind === "not_found") {
-        res.status(404).send({
-          message: `Not found business with id ${req.params.id}.`,
-        });
-      } else {
-        res.status(500).send({
-          message: "Error updating business with id " + req.params.id,
-        });
-      }
-    } else res.send(data);
+  business.findById(req.params.id, (err, data) => {
+    if (err) throw new Error(err);
+    if (data) {
+      business.updateById(
+        req.params.id,
+        { ...data, ...req.body },
+        (err, data) => {
+          if (err) {
+            if (err.kind === "not_found") {
+              res.status(404).send({
+                message: `Not found business with id ${req.params.id}.`,
+              });
+            } else {
+              res.status(500).send({
+                message: "Error updating business with id " + req.params.id,
+              });
+            }
+          } else res.status(200).send(data);
+        }
+      );
+    }
   });
 };
 // Delete a business with the specified id in the request
