@@ -64,7 +64,7 @@ education_history.getAllPublished = (result) => {
 education_history.updateById = (id, education_history, result) => {
   sql.query(
     "UPDATE education_history SET education_level = ?, highest_education_completed = ? WHERE businessID = ?",
-    [education_history.education_level, education_history.highest_education_completed, education_history.businessID],
+    [education_history.education_level, education_history.highest_education_completed, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
