@@ -7,37 +7,36 @@
 // let should = chai.should();
 // let token = auth.setToken("consumer", "1");
 
-// //mocha test stripe bankaccount end points
-// describe("POST /api/stripe/bankaccount", () => {
-//   it("stripe bankaccount create", (done) => {
-//     chai
-//       .request(server)
-//       .post("/api/stripe/bankaccount")
-//       .set("Authorization", `Bearer ${token}`)
-//       .send({
-//         customerID: "cus_MBnCdYT4aL4tfU",
-//         bankID: "ba_EqXqXqXqXqXqXqXq",
-//         account_holder_name: "Test Bank Account",
-//         account_holder_type: "individual",
-//         bank_name: "Test Bank",
-//         country: "US",
-//         currency: "usd",
-//         fingerprint: "EqXqXqXqXqXqXqXq",
-//         last4: "4242",
-//         routing_number: "110000000",
-//       })
-//       .end((err, res) => {
-//         if (res) {
-//           res.should.have.status(200);
-//           res.body.should.be.a("object");
-//           console.log(res.body);
-//         } else {
-//           console.log("result is null");
-//         }
-//       });
-//     done();
-//   });
-// });
+//mocha test stripe bankaccount end points
+describe("POST /api/stripe/bankaccount", () => {
+  it("stripe bankaccount create", (done) => {
+    chai
+      .request(server)
+      .post("/api/stripe/bankaccount")
+      .set("Authorization", `Bearer ${token}`)
+      .send({
+        customerID: "cus_MBnCdYT4aL4tfU",
+        account_holder_name: "Jenny Rosen",
+        account_holder_type: "individual",
+        account_number: "000123456789",
+        country: "US",
+        currency: "usd",
+        routing_number: "110000000",
+        
+      })
+      .end((err, res) => {
+        if(res){
+        res.should.have.status(200);
+        res.body.should.be.a("object");
+        console.log(res.body);
+        }else if(err){
+          console.log(err);
+        }
+      });
+    done();
+  });
+});
+
 
 // describe("GET /api/stripe/bankaccount", () => {
 //   it("stripe bankaccount findAll for customer", (done) => {

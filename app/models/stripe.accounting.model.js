@@ -5,14 +5,11 @@ const stripeAPI = require("stripe")(
 //Constructor
 const bank_account = function (bank_account) {
   this.customerID = bank_account.customerID;
-  this.bankID = bank_account.bankID;
+  this.account_number = bank_account.account_number;
   this.account_holder_name = bank_account.account_holder_name;
   this.account_holder_type = bank_account.account_holder_type;
-  this.bank_name = bank_account.bank_name;
   this.country = bank_account.country;
   this.currency = bank_account.currency;
-  this.fingerprint = bank_account.fingerprint;
-  this.last4 = bank_account.last4;
   this.routing_number = bank_account.routing_number;
 };
 
@@ -23,14 +20,16 @@ bank_account.create = async (newbank_account, result) => {
     const bank_account = await stripeAPI.customers.createSource(
       newbank_account.customerID,
       {
-        account_holder_name: newbank_account.account_holder_name,
-        account_holder_type: newbank_account.account_holder_type,
-        bank_name: newbank_account.bank_name,
-        country: newbank_account.country,
-        currency: newbank_account.currency,
-        fingerprint: newbank_account.fingerprint,
-        last4: newbank_account.last4,
-        routing_number: newbank_account.routing_number,
+        source: {
+          object: "bank_account",
+          account_number: newbank_account.account_number,
+          account_holder_name: newbank_account.account_holder_name,
+          account_holder_type: newbank_account.account_holder_type,
+          bank_name: newbank_account.bank_name,
+          country: newbank_account.country,
+          currency: newbank_account.currency,
+          routing_number: newbank_account.routing_number,
+        },
       }
     );
     console.log(bank_account);
@@ -43,7 +42,7 @@ bank_account.create = async (newbank_account, result) => {
 };
 
 //list all bank_accounts by customer
-bank_account.listAllByCustomer = async (customerID,result) => {
+bank_account.listAllByCustomer = async (customerID, result) => {
   try {
     const bank_accounts = await stripeAPI.customers.listSources(customerID, {
       object: "bank_account",
@@ -59,12 +58,9 @@ bank_account.listAllByCustomer = async (customerID,result) => {
 };
 
 //find bank_account by id
-bank_account.findById = async (ID,bankID, result) => {
+bank_account.findById = async (ID, bankID, result) => {
   try {
-    const bank_account = await stripeAPI.customers.retrieveSource(
-      ID,
-      bankID
-    );
+    const bank_account = await stripeAPI.customers.retrieveSource(ID, bankID);
     console.log(bank_account);
     result(null, bank_account);
   } catch (err) {
@@ -98,7 +94,7 @@ bank_account.remove = async (customerID, bankID, result) => {
       customerID,
       bankID
     );
-    console.log("bank_account:" + bankID +"has been deleted");
+    console.log("bank_account:" + bankID + "has been deleted");
   } catch (err) {
     console.log("error: ", err);
     result(err, null);
