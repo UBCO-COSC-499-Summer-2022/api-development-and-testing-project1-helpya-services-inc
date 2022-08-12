@@ -42,3 +42,5 @@ jobs:
           npm test
         env:
           CI: true
+          DB_USER: b734bbe733ac95
+          DB_PASSWORD: 23fc955b
