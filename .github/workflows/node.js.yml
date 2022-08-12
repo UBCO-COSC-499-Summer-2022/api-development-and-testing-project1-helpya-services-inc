@@ -16,6 +16,8 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_ROOT_PASSWORD: password
+          DB_USER: b734bbe733ac95
+          DB_PASSWORD: 23fc955b
         ports:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -30,6 +32,8 @@ jobs:
         run: |
           npm install
           sudo service mysql start
+          mysql -u root -h database --execute="CREATE USER 'b734bbe733ac95'@'database' IDENTIFIED BY '23fc955b';"
+          mysql -u root -h database --execute="GRANT ALL PRIVILEGES ON *.* TO 'b734bbe733ac95'@'%' WITH GRANT OPTION;"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "CREATE DATABASE IF NOT EXISTS heroku_b5b309c959adca7"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "SHOW DATABASES"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword -Dheroku_b5b309c959adca7 < database.sql
