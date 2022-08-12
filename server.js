@@ -5,12 +5,12 @@ const { validationTokenAuth, JWT_CONFIG } = require("./app/middleware/auth.js");
 const cors = require("cors");
 const { ROLE, users } = require("./data");
 const { authUser, authRole } = require("./authenticate");
-const projectRouter = require("./routes/account_operations");
-
+const projectRouter = require("./app/routes/account_operations");
+const app = express();
 app.use(express.json());
 app.use(setUser);
 app.use("/projects", projectRouter);
-const app = express();
+
 var corsOptions = {
   origin: "http://localhost:3306",
 };

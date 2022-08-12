@@ -1,11 +1,11 @@
-// let auth = require("../app/middleware/auth");
-// let chai = require("chai");
-// let chaiHttp = require("chai-http");
-// let server = require("../server");
-// chai.use(chaiHttp);
-// let expect = chai.expect;
-// let should = chai.should();
-// let token = auth.setToken("consumer", "1");
+let auth = require("../app/middleware/auth");
+let chai = require("chai");
+let chaiHttp = require("chai-http");
+let server = require("../server");
+chai.use(chaiHttp);
+let expect = chai.expect;
+let should = chai.should();
+let token = auth.setToken("consumer", "1");
 
 //mocha test stripe bankaccount end points
 describe("POST /api/stripe/bankaccount", () => {

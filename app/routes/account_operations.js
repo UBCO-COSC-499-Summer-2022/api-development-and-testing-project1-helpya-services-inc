@@ -1,24 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const sql = require("./db.js");
+const sql = require("../models/db");
 //const { projects } = require("../data");  //accessing data from db
-const { authUser } = require("../authenticate");
+const { authUser } = require("../../authenticate");
 const {
   view_ad,
   delete_ad,
   user_access,
   edit_ad,
-} = require("../permissions/operations");
+} = require("../../permissions/operations");
 
 const projects = (id) => {
   sql.query(`SELECT role FROM consumer WHERE consumerID = ${id}`);
-    if (err) {
-      console.log("error can not find account: ", err);
-      result(err, null);
-      return;
-    }
-    console.log("found successfully ");
- 
+  if (err) {
+    console.log("error can not find account: ", err);
+    result(err, null);
+    return;
+  }
+  console.log("found successfully ");
 };
 router.get("/", authUser, (req, res) => {
   res.json(user_access(req.user, projects));
