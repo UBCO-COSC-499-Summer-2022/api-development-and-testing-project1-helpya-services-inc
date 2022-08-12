@@ -34,9 +34,6 @@ jobs:
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "SHOW DATABASES"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword -Dheroku_b5b309c959adca7 < database.sql
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword -Dheroku_b5b309c959adca7 < testing_with_all_tables.txt
-          #This command adds the proper mysql port to the config file
-          node scripts/ci ${{ job.services.mysql.ports['3306'] }}
-          npm run setup
           npm test
         env:
           CI: true
