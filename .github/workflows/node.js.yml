@@ -32,7 +32,7 @@ jobs:
         run: |
           npm install
           sudo service mysql start
-          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "CREATE USER 'b734bbe733ac95'@'database' IDENTIFIED BY '23fc955b';"
+          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "CREATE USER 'b734bbe733ac95'@'127.0.0.1' IDENTIFIED BY '23fc955b';"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "GRANT ALL PRIVILEGES ON *.* TO 'b734bbe733ac95'@'%' WITH GRANT OPTION;"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "CREATE DATABASE IF NOT EXISTS heroku_b5b309c959adca7"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "SHOW DATABASES"
