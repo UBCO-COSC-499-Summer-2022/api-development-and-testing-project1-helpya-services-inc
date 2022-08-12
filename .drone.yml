@@ -24,6 +24,7 @@ steps:
 - name: test
   image: node:latest
   commands:
+   - mysql -u root -h database --execute="SHOW DATABASES;"
   - npm config rm proxy 
   - npm config rm https-proxy --tried removing npm proxy 
   - npm ci
