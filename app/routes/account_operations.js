@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const sql = require("./db.js");
+const sql = require("../models/db.js");
 //const { projects } = require("../data");  //accessing data from db
 const { authUser } = require("../../../authenticate");
 const {
