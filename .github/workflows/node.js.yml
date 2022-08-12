@@ -37,17 +37,17 @@ jobs:
           sudo service mysql start
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "CREATE USER 'b734bbe733ac95'@'localhost' IDENTIFIED BY '23fc955b';"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "GRANT ALL PRIVILEGES ON *.* TO 'localhost' WITH GRANT OPTION;"
+          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "FLUSH PRIVILEGES;"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "SELECT host,user,authentication_string FROM mysql.user"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "CREATE DATABASE IF NOT EXISTS heroku_b5b309c959adca7"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "SHOW DATABASES"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword -Dheroku_b5b309c959adca7 < database.sql
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword -Dheroku_b5b309c959adca7 < testing_with_all_tables.txt
-          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "FLUSH PRIVILEGES;"
           npm test
         env:
           CI: true
           DB_HOST: localhost
           DB_USER: b734bbe733ac95
           DB_PASSWORD: 23fc955b
-          MYSQL_Grant: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'b734bbe733ac95'@'database' WITH GRANT OPTION
+          DB_Grant: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'b734bbe733ac95'@'database' WITH GRANT OPTION
 
