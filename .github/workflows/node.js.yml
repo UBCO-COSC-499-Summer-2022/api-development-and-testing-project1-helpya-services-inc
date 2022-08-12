@@ -41,6 +41,7 @@ jobs:
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "SELECT host,user,authentication_string FROM mysql.user"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "CREATE DATABASE IF NOT EXISTS heroku_b5b309c959adca7"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "SHOW DATABASES"
+          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword  -e "SHOW GRANTS"
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword -Dheroku_b5b309c959adca7 < database.sql
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword -Dheroku_b5b309c959adca7 < testing_with_all_tables.txt
           npm test
