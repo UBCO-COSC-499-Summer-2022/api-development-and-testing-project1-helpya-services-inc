@@ -87,4 +87,9 @@ require("./app/routes/ad.routes.js")(app);
 const PORT = process.env.PORT || 8080;
 module.exports = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
+  console.log(dbConfig.HOST);
+  console.log(dbConfig.USER);
+  console.log(dbConfig.PASSWORD);
+  console.log(dbConfig.DB);
+  console.log(dbConfig.port);
 });
