@@ -39,23 +39,23 @@ app.get("/", (req, res) => {
 });
 
 app.get("/dashboard", authUser, (req, res) => {
-  res.json({message: 'Home Page'});
+  res.json({ message: "Home Page" });
 });
 
 app.get("/consumer", authUser, authRole(ROLE.CONSUMER), (req, res) => {
-  res.json({message: 'Consumer Page'});
+  res.json({ message: "Consumer Page" });
 });
 
 app.get("/business", authUser, authRole(ROLE.BUSINESS), (req, res) => {
-    res.json({message: 'Business Page'});
+  res.json({ message: "Business Page" });
 });
 
 app.get("/admin", authUser, authRole(ROLE.ADMIN), (req, res) => {
-    res.json({message: 'Admin Page'});
+  res.json({ message: "Admin Page" });
 });
 
 app.get("/helpya", authUser, authRole(ROLE.HELPYA), (req, res) => {
-  res.json({message: 'Helpya Page'});
+  res.json({ message: "Helpya Page" });
 });
 
 function setUser(req, res, next) {

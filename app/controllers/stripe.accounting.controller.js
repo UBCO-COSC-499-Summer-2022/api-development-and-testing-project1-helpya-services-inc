@@ -43,7 +43,7 @@ exports.listAllByCustomer = (req, res) => {
 };
 
 exports.findById = (req, res) => {
-  accounting.findById(req.params.customerID,req.params.bankID, (err, data) => {
+  accounting.findById(req.params.customerID, req.params.bankID, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({

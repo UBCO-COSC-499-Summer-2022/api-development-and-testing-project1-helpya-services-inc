@@ -12,14 +12,16 @@ exports.create = (req, res) => {
   const EducationHistory = new education_history({
     businessID: req.body.businessID,
     education_level: req.body.education_level,
-    highest_education_completed: req.body.highest_education_completed
+    highest_education_completed: req.body.highest_education_completed,
   });
 
   // Save education history in the database
   education_history.create(EducationHistory, (err, data) => {
     if (err)
       res.status(500).send({
-        message: err.message || "Some error occurred while creating the education history.",
+        message:
+          err.message ||
+          "Some error occurred while creating the education history.",
       });
     else res.status(200).send(data);
   });
@@ -30,7 +32,9 @@ exports.findAll = (req, res) => {
   education_history.getAll((err, data) => {
     if (err)
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving education historys.",
+        message:
+          err.message ||
+          "Some error occurred while retrieving education historys.",
       });
     else res.status(200).send(data);
   });
@@ -46,7 +50,8 @@ exports.findOne = (req, res) => {
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving education history with id " + req.params.id,
+          message:
+            "Error retrieving education history with id " + req.params.id,
         });
       }
     } else res.status(200).send(data);
@@ -65,19 +70,24 @@ exports.update = (req, res) => {
     });
   }
   console.log(req.body);
-  education_history.updateById(req.params.id, new education_history(req.body), (err, data) => {
-    if (err) {
-      if (err.kind === "not_found") {
-        res.status(404).send({
-          message: `Not found education history with id ${req.params.id}.`,
-        });
-      } else {
-        res.status(500).send({
-          message: "Error updating education_history with id " + req.params.id,
-        });
-      }
-    } else res.status(200).send(data);
-  });
+  education_history.updateById(
+    req.params.id,
+    new education_history(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `Not found education history with id ${req.params.id}.`,
+          });
+        } else {
+          res.status(500).send({
+            message:
+              "Error updating education_history with id " + req.params.id,
+          });
+        }
+      } else res.status(200).send(data);
+    }
+  );
 };
 
 // Delete a education_history with the specified id in the request
@@ -90,7 +100,8 @@ exports.delete = (req, res) => {
         });
       } else {
         res.status(500).send({
-          message: "Could not delete education history with id " + req.params.id,
+          message:
+            "Could not delete education history with id " + req.params.id,
         });
       }
     } else res.send({ message: `education history was deleted successfully!` });

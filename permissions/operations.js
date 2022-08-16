@@ -8,7 +8,7 @@ function view_ad(user, project) {
 
 //view all ads
 function user_access(user, projects) {
-  return projects; 
+  return projects;
 }
 
 //delete ad guard
@@ -19,7 +19,7 @@ function delete_ad(user, ad) {
 }
 
 //edit ad guard
-//only owner of ad and admin can edit 
+//only owner of ad and admin can edit
 function edit_ad(user, ad) {
   if (user.role === ROLE.ADMIN) return ad;
   return ad.userId === user.id;

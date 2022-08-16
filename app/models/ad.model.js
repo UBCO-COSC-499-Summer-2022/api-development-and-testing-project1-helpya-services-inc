@@ -81,13 +81,7 @@ ad.getAllAds = (name_of_business, result) => {
 ad.updateById = (id, ad, result) => {
   sql.query(
     "UPDATE ads SET business_name = ?, job_title = ?, job_category = ?, location = ?, rate_per_hour = ? WHERE adID = ?",
-    [
-      ad.ad_title,
-      ad.job_body,
-      ad.location,
-      ad.rate_per_hour,
-      id,
-    ],
+    [ad.ad_title, ad.job_body, ad.location, ad.rate_per_hour, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

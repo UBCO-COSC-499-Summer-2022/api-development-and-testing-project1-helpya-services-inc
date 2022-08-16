@@ -43,15 +43,6 @@ CREATE TABLE
     consumerID INT
   );
 
--- CREATE TABLE
---   IF NOT EXISTS consumer_history(
---     consumerID INT NOT NULL PRIMARY KEY,
---     businessID INT,
---     payment_method VARCHAR(50),
---     business_name VARCHAR(150),
---     payment_logs VARCHAR(250),
---     FOREIGN KEY (businessID) REFERENCES payment(businessID)
---   );
 CREATE TABLE
   IF NOT EXISTS chat(
     chatID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

@@ -26,7 +26,7 @@ exports.create = (req, res) => {
     description: req.body.description,
   });
 
-// Save business in the database
+  // Save business in the database
   business.create(Business, (err, data) => {
     if (err)
       res.status(500).send({

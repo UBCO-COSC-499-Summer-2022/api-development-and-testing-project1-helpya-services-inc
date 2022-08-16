@@ -12,14 +12,15 @@ exports.create = (req, res) => {
   const JobType = new job_type({
     businessID: req.query.businessID,
     job_title: req.query.job_title,
-    job_category: req.query.job_category
+    job_category: req.query.job_category,
   });
 
   // Save job_type in the database
   job_type.create(JobType, (err, data) => {
     if (err)
       res.status(500).send({
-        message: err.message || "Some error occurred while creating the job type.",
+        message:
+          err.message || "Some error occurred while creating the job type.",
       });
     else res.status(200).send(data);
   });
@@ -30,7 +31,8 @@ exports.findAll = (req, res) => {
   job_type.getAll((err, data) => {
     if (err)
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving job types.",
+        message:
+          err.message || "Some error occurred while retrieving job types.",
       });
     else res.status(200).send(data);
   });
