@@ -13,6 +13,7 @@ exports.create = (req, res) => {
     chatID: req.body.chatID,
     consumerID: req.body.consumerID,
     businessID: req.body.businessID,
+
     time_stamp: req.body.time_stamp,
     chat_message: req.body.chat_message,
   });
@@ -95,7 +96,7 @@ exports.delete = (req, res) => {
           message: "Could not delete chat with id " + req.params.id,
         });
       }
-    } else res.send({ message: `chat was deleted successfully!` });
+    } else res.status(200).send({ message: `chat was deleted successfully!` });
   });
 };
 

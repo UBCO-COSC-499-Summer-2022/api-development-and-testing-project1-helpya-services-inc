@@ -62,6 +62,7 @@ describe("GET /api/consumer", () => {
 });
 
 describe("GET /api/consumer", () => {
+
   it("consumer findOne", (done) => {
     chai
       .request(server)
@@ -76,7 +77,6 @@ describe("GET /api/consumer", () => {
           console.log("result is null");
         }
       });
-
     done();
   });
 });

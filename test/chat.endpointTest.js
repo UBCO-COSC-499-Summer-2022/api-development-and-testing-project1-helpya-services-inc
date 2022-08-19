@@ -36,7 +36,7 @@ describe("POST /api/chat", () => {
 });
 
 describe("GET /api/chat", () => {
-    it("chat findAll", (done) => {
+    it("chat find", (done) => {
         chai
         .request(server)
         .get("/api/chat")
@@ -54,6 +54,7 @@ describe("GET /api/chat", () => {
         done();
     });
 });
+
 
 describe("GET /api/chat", () => {
     it("chat findOne", (done) => {
@@ -73,4 +74,5 @@ describe("GET /api/chat", () => {
         );
         done();
     });
+
 });
